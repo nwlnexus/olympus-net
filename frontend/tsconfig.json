@@ -1,6 +1,20 @@
 {
 	"extends": "./.svelte-kit/tsconfig.json",
 	"compilerOptions": {
+		"paths": {
+			"$lib": ["src/lib"],
+			"$lib/*": ["src/lib/*"],
+			"$components": ["src/lib/components"],
+			"$components/*": ["src/lib/components/*"],
+			"$packages": ["src/lib/packages"],
+			"$packages/*": ["src/lib/packages/*"],
+			"$utils": ["src/lib/utils"],
+			"$utils/*": ["src/lib/utils/*"],
+			"$ui": ["src/lib/ui"],
+			"$ui/*": ["src/lib/ui/*"],
+			"$types": ["../typings"],
+			"$types/*": ["../typings/*"]
+		},
 		"allowJs": true,
 		"checkJs": true,
 		"esModuleInterop": true,
@@ -9,5 +23,7 @@
 		"skipLibCheck": true,
 		"sourceMap": true,
 		"strict": true
-	}
+	},
+	"include": ["./src/**/*.js", "./src/**/*.ts", "./src/**/*.svelte"],
+	"exclude": ["./node_modules/**", ".svelte-kit/**"]
 }

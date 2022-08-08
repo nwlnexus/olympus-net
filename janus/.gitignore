@@ -7,6 +7,8 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
+sqlite/
+wrangler-local-state/
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 

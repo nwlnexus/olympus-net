@@ -5,7 +5,21 @@
 // and what to do when importing types
 declare namespace App {
 	// interface Locals {}
-	// interface Platform {}
+	interface Platform {
+		env: {
+			WORKER_URL: string;
+		};
+		context: {
+			waitUntil(promise: Promise<any>): void;
+		};
+		caches: CacheStorage & { default: Cache };
+	}
 	// interface Session {}
 	// interface Stuff {}
+}
+
+interface SessionData {
+	uuid?: string | null;
+	permission?: string;
+	lang?: string;
 }
