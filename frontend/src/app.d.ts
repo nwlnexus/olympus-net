@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /// <reference types="@sveltejs/kit" />
 
 // See https://kit.svelte.dev/docs/types#app

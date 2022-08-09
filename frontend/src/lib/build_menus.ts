@@ -4,13 +4,13 @@ import ServerIcon from '@rgossiaux/svelte-heroicons/outline/Server';
 import UserIcon from '@rgossiaux/svelte-heroicons/outline/User';
 import VariableIcon from '@rgossiaux/svelte-heroicons/outline/Variable';
 import LocationMarkerIcon from '@rgossiaux/svelte-heroicons/outline/LocationMarker';
-import { DashboardIcon, StatsSquareUpIcon } from './components/icons';
+import { DashboardIcon, StatsSquareUpIcon, TunnelIcon } from './components/icons';
 
 export async function buildMenus(): Promise<Record<string, NavMenu[]>> {
 	const navMenu: NavMenu[] = [
 		{
 			title: 'Dashboard',
-			href: '/',
+			href: '/dashboard',
 			icon: DashboardIcon,
 			description: 'System overview.',
 			tags: 'how home'
@@ -35,6 +35,13 @@ export async function buildMenus(): Promise<Record<string, NavMenu[]>> {
 			icon: VariableIcon,
 			description: 'All functions with variables served by the system.',
 			tags: 'how variables'
+		},
+		{
+			title: 'Tunnels',
+			href: '/tunnels',
+			icon: TunnelIcon,
+			description: 'All function for tunnels.',
+			tags: 'how tunnels'
 		},
 		{
 			title: 'Reports',

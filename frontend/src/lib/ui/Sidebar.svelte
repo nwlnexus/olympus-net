@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Search from './Search.svelte';
+	import Search from '../components/Search.svelte';
 	import type { NavMenu } from '$types/helios';
 	import { page } from '$app/stores';
 

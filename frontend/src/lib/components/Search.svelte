@@ -3,6 +3,7 @@
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
 	import Typeahead from 'svelte-typeahead';
+	import { SearchIcon } from '@rgossiaux/svelte-heroicons/outline';
 
 	import { getOS } from '$utils';
 
@@ -26,7 +27,7 @@
 	function handleKeydown(e: KeyboardEvent) {
 		if ((e.keyCode === 75 && e.metaKey) || (e.keyCode === 75 && e.ctrlKey)) {
 			e.preventDefault();
-			seachboxEl.querySelector('input[type=search]')!.focus();
+			seachboxEl.querySelector('input[type=search]')?.focus();
 			dispatch('focus');
 		}
 	}
@@ -41,22 +42,13 @@
 
 <!-- svelte-ignore a11y-label-has-associated-control -->
 <label class={`searchbox relative mx-3 w-full`} bind:this={seachboxEl}>
-	<svg
+	<SearchIcon
 		class={`text-base-content pointer-events-none absolute z-10 my-3 ml-2 stroke-current opacity-60 ${
-			$page.url.pathname == '/' ? 'hidden' : ''
+			$page.url.pathname === '/' ? 'hidden' : ''
 		}`}
 		width="16"
 		height="16"
-		xmlns="http://www.w3.org/2000/svg"
-		fill="none"
-		viewBox="0 0 24 24"
-		><path
-			stroke-linecap="round"
-			stroke-linejoin="round"
-			stroke-width="2"
-			d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-		/></svg
-	>
+	/>
 	<Typeahead
 		placeholder={'Search' + '…'}
 		limit={8}
@@ -73,7 +65,7 @@
 	</Typeahead>
 	<div
 		class={`pointer-events-none absolute right-8 top-2 gap-1 opacity-50 ${
-			$page.url.pathname == '/' ? 'hidden' : 'hidden lg:flex'
+			$page.url.pathname === '/' ? 'hidden' : 'hidden lg:flex'
 		}`}
 	>
 		{#if ['macos'].includes(os)}
@@ -88,6 +80,7 @@
 
 <style global>
 	.searchbox [data-svelte-typeahead] {
+		background-color: transparent;
 		background: none;
 		width: 100%;
 		max-width: 100%;

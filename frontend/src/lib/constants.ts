@@ -10,3 +10,9 @@ export const siteData = {
 	desc: 'Helios application',
 	card: '/images/default.jpg'
 };
+export const siteStats = {
+	components: '47',
+	themes: '29',
+	githubStars: '+12,000',
+	npmInstalls: '+1,000,000'
+};

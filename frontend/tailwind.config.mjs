@@ -14,7 +14,7 @@ const config = {
 		scrollbars: ['dark']
 	},
 	daisyui: {
-		themes: ['light', 'dark', 'night']
+		themes: ['business', 'dark']
 	},
 	plugins: [forms, typography, daisyui]
 };

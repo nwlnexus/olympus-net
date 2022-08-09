@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import type { NavMenu } from '$types/helios';
-	import Search from './Search.svelte';
+	import Search from '../components/Search.svelte';
 	import { ChevronDownIcon } from '@rgossiaux/svelte-heroicons/outline';
 	import { MenuIcon } from '@rgossiaux/svelte-heroicons/outline';
 	import { MoonIcon } from '@rgossiaux/svelte-heroicons/outline';

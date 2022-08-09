@@ -7,6 +7,9 @@ const config = {
 	css: {
 		postcss
 	},
+	optimizeDeps: {
+		include: ['fuzzy']
+	},
 	plugins: [sveltekit()],
 	resolve: {
 		alias: {
