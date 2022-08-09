@@ -6,7 +6,6 @@
 		"build": "CF_PAGES=1 vite build",
 		"package": "CF_PAGES=1 svelte-kit package",
 		"preview": "CF_PAGES=1 vite preview",
-		"prepare": "svelte-kit sync",
 		"test": "playwright test",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
