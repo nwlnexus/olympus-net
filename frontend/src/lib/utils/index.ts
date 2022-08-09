@@ -3,3 +3,4 @@ export * from './common';
 export * from './crypto';
 export * from './errorhandler';
 export * from './form';
+export * from './getos';

@@ -6,4 +6,4 @@
 	<meta name="description" content="Helios app" />
 </svelte:head>
 
-<div>Nodes!</div>
+Nodes

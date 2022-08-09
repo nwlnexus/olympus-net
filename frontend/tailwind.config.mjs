@@ -1,8 +1,9 @@
 import forms from '@tailwindcss/forms';
+import typography from '@tailwindcss/typography';
 import daisyui from 'daisyui';
 
 /** @type {import('tailwindcss').Config} */
-export default {
+const config = {
 	mode: 'jit',
 	content: ['./src/**/*.{html,js,jsx,svelte,ts,tsx}'],
 	darkMode: 'class',
@@ -15,5 +16,7 @@ export default {
 	daisyui: {
 		themes: ['light', 'dark', 'night']
 	},
-	plugins: [forms, daisyui]
+	plugins: [forms, typography, daisyui]
 };
+
+export default config;

@@ -4,3 +4,4 @@ export const nodePurpose = ['edge', 'non-edge'] as const;
 export const status = ['active', 'inactive', 'pending'] as const;
 export const roles = ['admin', 'read', 'owner'] as const;
 export const ingressProtos = ['http://', 'https://', 'tcp://', 'udp://', 'ssh://'] as const;
+export const pagesThatDontNeedSidebar = ['/'];

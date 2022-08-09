@@ -4,3 +4,5 @@
 	<title>Helios | Locations</title>
 	<meta name="description" content="Helios app" />
 </svelte:head>
+
+Locations

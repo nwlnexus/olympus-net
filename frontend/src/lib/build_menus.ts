@@ -12,37 +12,43 @@ export async function buildMenus(): Promise<Record<string, NavMenu[]>> {
 			title: 'Dashboard',
 			href: '/',
 			icon: DashboardIcon,
-			description: 'System overview.'
+			description: 'System overview.',
+			tags: 'how home'
 		},
 		{
 			title: 'Locations',
 			href: '/locations',
 			icon: LocationMarkerIcon,
-			description: 'All functions for tunnels managed by the system.'
+			description: 'All functions for tunnels managed by the system.',
+			tags: 'how locations'
 		},
 		{
 			title: 'Nodes',
 			href: '/nodes',
 			icon: ServerIcon,
-			description: 'All functions for edge nodes.'
+			description: 'All functions for edge nodes.',
+			tags: 'how nodes'
 		},
 		{
 			title: 'Variables',
 			href: '/variables',
 			icon: VariableIcon,
-			description: 'All functions with variables served by the system.'
+			description: 'All functions with variables served by the system.',
+			tags: 'how variables'
 		},
 		{
 			title: 'Reports',
 			href: '/reports',
 			icon: StatsSquareUpIcon,
-			description: 'Reports and reporting functions.'
+			description: 'Reports and reporting functions.',
+			tags: 'how reports'
 		},
 		{
 			title: 'Settings',
 			href: '/settings',
 			icon: AdjustmentsIcon,
-			description: 'System settings.'
+			description: 'System settings.',
+			tags: 'how settings'
 		}
 	];
 
@@ -51,13 +57,15 @@ export async function buildMenus(): Promise<Record<string, NavMenu[]>> {
 			title: 'Profile',
 			href: '/profile',
 			icon: UserIcon,
-			description: 'Your profile'
+			description: 'Your profile',
+			tags: 'how profile'
 		},
 		{
 			title: 'Logout',
 			href: '/auth/logout',
 			icon: UserIcon,
-			description: 'Logout'
+			description: 'Logout',
+			tags: 'how logout'
 		}
 	];
 
@@ -66,19 +74,22 @@ export async function buildMenus(): Promise<Record<string, NavMenu[]>> {
 			title: 'Variable categories',
 			href: '/settings?sec=variables',
 			icon: VariableIcon,
-			description: 'Adding in new variable categories'
+			description: 'Adding in new variable categories',
+			tags: 'how variables'
 		},
 		{
 			title: 'Variables 1',
 			href: '/settings?sec=variables1',
 			icon: VariableIcon,
-			description: 'Adding in new variable categories'
+			description: 'Adding in new variable categories',
+			tags: 'how variables 1'
 		},
 		{
 			title: 'Variables 2',
 			href: '/settings?sec=variables2',
 			icon: VariableIcon,
-			description: 'Adding in new variable categories'
+			description: 'Adding in new variable categories',
+			tags: 'how home variables 2'
 		}
 	];
 

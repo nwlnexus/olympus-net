@@ -11,7 +11,6 @@ const config = {
 	resolve: {
 		alias: {
 			$components: fileURLToPath(new URL('./src/lib/components', import.meta.url)),
-			$lib: fileURLToPath(new URL('./src/lib', import.meta.url)),
 			$types: fileURLToPath(new URL('../typings', import.meta.url)),
 			$utils: fileURLToPath(new URL('./src/lib/utils', import.meta.url)),
 			$ui: fileURLToPath(new URL('./src/lib/ui', import.meta.url))

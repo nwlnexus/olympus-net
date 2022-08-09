@@ -15,7 +15,9 @@ declare namespace App {
 		caches: CacheStorage & { default: Cache };
 	}
 	// interface Session {}
-	// interface Stuff {}
+	interface Stuff {
+		pages: import('$types/helios').NavMenu[];
+	}
 }
 
 interface SessionData {

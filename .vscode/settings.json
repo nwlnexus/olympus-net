@@ -1,5 +1,8 @@
 {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "makefile.extensionOutputFolder": "./.vscode",
-    "typescript.tsdk": "node_modules/typescript/lib"
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "makefile.extensionOutputFolder": "./.vscode",
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  }
 }

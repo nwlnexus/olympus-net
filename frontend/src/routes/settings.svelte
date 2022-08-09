@@ -22,7 +22,6 @@
 	import ChevronLeftIcon from '@rgossiaux/svelte-heroicons/outline/ChevronLeft';
 
 	export let settingsMenu: NavMenu[];
-	export let section: string;
 
 	let currentSection = false;
 </script>
@@ -32,6 +31,4 @@
 	<meta name="description" content="Helios app" />
 </svelte:head>
 
-<div>
-  Settings
-</div>
+Settings
