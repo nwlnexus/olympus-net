@@ -1,4 +1,20 @@
 <script lang="ts" context="module">
+  import type { Load } from '@sveltejs/kit';
+  import { buildMenus } from '$lib/build_menus';
+
+  export const load: Load = async ({ stuff }) => {
+    try {
+      const { settingsMenu } = await buildMenus();
+      return {
+        props: {
+          settingsMenu
+        },
+        stuff: stuff
+      }
+    } catch (e) {
+      return { e };
+    }
+  }
 </script>
 
 <script lang="ts">

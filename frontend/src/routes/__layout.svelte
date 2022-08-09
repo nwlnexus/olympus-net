@@ -2,9 +2,9 @@
   import type { Load } from '@sveltejs/kit';
   import { buildMenus } from '$lib/build_menus';
 
-  export const load: Load = async ({ stuff }) => {
+  export const load: Load = async ({ url, stuff }) => {
     try {
-      const { navMenu, userMenu, settingsMenu } = await buildMenus();
+      const { navMenu, userMenu } = await buildMenus();
       return {
         props: {
           navMenu,
@@ -25,16 +25,18 @@
   import type { NavMenu } from '$types/helios';
 
   export let navMenu: NavMenu[];
+  export let userMenu: NavMenu[];
+  let displayMenu: boolean;
+
+  $: displayMenu, console.log(displayMenu);
 </script>
 
 <div class="bg-base-100 drawer drawer-mobile">
-  <input id="drawer" type="checkbox" class="drawer-toggle" />
+  <input id="drawer" type="checkbox" class="drawer-toggle" bind:checked={displayMenu} />
   <div class="drawer-content" style="scroll-behavior:smooth; scroll-padding: 5rem;">
-    <Header />
-    <div class="p-6 pb-16">
+    <Header {userMenu} />
       <!-- Main content -->
       <slot />
-    </div>
   </div>
-  <Sidebar {navMenu}/>
+  <Sidebar {navMenu} bind:displayMenu />
 </div>

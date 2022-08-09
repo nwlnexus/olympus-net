@@ -1,6 +1,12 @@
 <script lang="ts">
+  import { page } from '$app/stores';
+  import Logo from './Logo.svelte';
+  import type { NavMenu } from "$types/helios";
   import { MenuIcon } from "@rgossiaux/svelte-heroicons/outline";
-  import { SearchIcon } from "@rgossiaux/svelte-heroicons/outline";
+  // import { MoonIcon } from "@rgossiaux/svelte-heroicons/outline";
+  // import { SunIcon } from "@rgossiaux/svelte-heroicons/outline";
+
+  export let userMenu: NavMenu[];
 </script>
 
 <div class="sticky top-0 z-30 flex h-16 w-full justify-center bg-opacity-90 backdrop-blur transition-all duration-100 bg-base-100 text-base-content shadow-sm">
@@ -11,22 +17,29 @@
           <MenuIcon width=20 height=20 />
         </label>
       </span>
-      <div class="flex items-center gap-2 lg:hidden">
-        <a href="/" aria-current="page" aria-label="Helios Home" class="flex-0 btn btn-ghost px-2">
-          <div class="font-title text-primary inline-flex text-lg transition-all duration-200 md:text-3xl">
-            <span class="lowercase text-primary">helios</span>
-            <span class="uppercase text-base-content">UI</span>
-          </div>
-        </a>
-        <a href="/docs/changelog" class="link link-hover font-mono text-xs text-opacity-50">
-          <div data-tip="Changelog" class="tooltip tooltip-bottom">1.00.0</div>
-        </a>
-      </div>
+      {#if $page.url.pathname === '/' }
+        <div class="flex items-center gap-2">
+          <Logo />
+        </div>
+      {/if}
       <!-- Search Box -->
     </div>
     <div class="flex-0">
-      <!-- Sidebar toggle -->
-      <!-- User menu -->
+      <!-- <label class="swap swap-rotate">
+        <input type="checkbox" />
+        <SunIcon class="swap-on fill-current w-10 h-10" width="10" height="10" />
+        <MoonIcon class="swap-off fill-current w-10 h-10" width="10" height="10" />
+      </label> -->
+      <div class="dropdown dropdown-end">
+        <label tabindex="0" class="btn btn-ghost rounded-btn">User</label>
+        <ul tabindex="0" class="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4">
+          {#each userMenu as item}
+            <li>
+              <a href={item.href}>{item.title}</a>
+            </li>
+          {/each}
+        </ul>
+      </div>
     </div>
   </nav>
 </div>

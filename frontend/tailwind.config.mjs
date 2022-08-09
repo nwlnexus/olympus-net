@@ -12,5 +12,8 @@ export default {
 	variants: {
 		scrollbars: ['dark']
 	},
+	daisyui: {
+		themes: ['light', 'dark', 'night']
+	},
 	plugins: [forms, daisyui]
 };
