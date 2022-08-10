@@ -1,4 +1,4 @@
-export const publicPaths = ['/auth', '/auth/login', '/auth/logout', '/about'];
+export const publicPaths = ['/auth', '/auth/login', '/auth/logout', '/'];
 export const nodeDomains = ['nwlnexus.net', 'nwlnexus.com', 'nwlnexus.xyz'] as const;
 export const nodePurpose = ['edge', 'non-edge'] as const;
 export const status = ['active', 'inactive', 'pending'] as const;
