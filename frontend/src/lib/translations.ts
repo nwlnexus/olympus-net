@@ -11,11 +11,6 @@ export const config = {
 	},
 	loaders: [
 		{
-			locale: 'en',
-			key: '',
-			loader: async () => (await import('./locales/en.json')).default
-		},
-		{
 			locale: 'es',
 			key: '',
 			loader: async () => (await import('./locales/es.json')).default
@@ -24,6 +19,11 @@ export const config = {
 			locale: 'fr',
 			key: '',
 			loader: async () => (await import('./locales/fr.json')).default
+		},
+		{
+			locale: 'en',
+			key: '',
+			loader: async () => (await import('./locales/en.json')).default
 		}
 	]
 };
