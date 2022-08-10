@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import type { NavMenu } from '$types/helios';
 	import Search from '../components/Search.svelte';
 	import { ChevronDownIcon } from '@rgossiaux/svelte-heroicons/outline';
 	import { MenuIcon } from '@rgossiaux/svelte-heroicons/outline';
@@ -8,7 +7,7 @@
 	import { SunIcon } from '@rgossiaux/svelte-heroicons/outline';
 	import { UserCircleIcon } from '@rgossiaux/svelte-heroicons/outline';
 
-	export let userMenu: NavMenu[];
+	const { userMenu } = $page.stuff;
 	export let drawerContentScrollY: number;
 
 	$: switchNavbarStyle = drawerContentScrollY > 40 ? true : false;
@@ -95,9 +94,9 @@
 					<ChevronDownIcon width="12" height="12" />
 				</div>
 				<ul tabindex="0" class="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4">
-					{#each userMenu as item}
+					{#each userMenu as { href, title }}
 						<li>
-							<a href={item.href}>{item.title}</a>
+							<a {href}>{title}</a>
 						</li>
 					{/each}
 				</ul>

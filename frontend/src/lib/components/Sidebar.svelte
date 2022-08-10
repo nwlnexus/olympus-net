@@ -1,9 +1,8 @@
 <script lang="ts">
-	import Search from '../components/Search.svelte';
-	import type { NavMenu } from '$types/helios';
+	import Search from './Search.svelte';
 	import { page } from '$app/stores';
 
-	export let navMenu: NavMenu[];
+	const { navMenu } = $page.stuff;
 	export let closeDrawer: () => void;
 	export let openDrawer: () => void;
 	export let drawerSidebarScrollY: number;

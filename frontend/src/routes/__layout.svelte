@@ -6,12 +6,11 @@
 		try {
 			const { userMenu, settingsMenu, navMenu } = await buildMenus();
 			return {
-				props: {
-					navMenu,
-					userMenu
-				},
 				stuff: {
 					...stuff,
+					userMenu,
+					navMenu,
+					settingsMenu,
 					pages: [...userMenu, ...settingsMenu, ...navMenu]
 				}
 			};
@@ -25,9 +24,8 @@
 	import '../app.css';
 	import { onMount } from 'svelte';
 	import { afterNavigate } from '$app/navigation';
-	import Navbar from '$lib/ui/Navbar.svelte';
-	import Sidebar from '$lib/ui/Sidebar.svelte';
-	import type { NavMenu } from '$types/helios';
+	import Navbar from '$components/Navbar.svelte';
+	import Sidebar from '$components/Sidebar.svelte';
 	import { page } from '$app/stores';
 	import { pagesThatDontNeedSidebar } from '$lib/constants';
 
@@ -60,9 +58,6 @@
 	function openDrawer() {
 		checked = true;
 	}
-
-	export let navMenu: NavMenu[];
-	export let userMenu: NavMenu[];
 </script>
 
 <div
@@ -77,7 +72,7 @@
 		class={`drawer-content`}
 		style="scroll-behavior:smooth; scroll-padding: 5rem;"
 	>
-		<Navbar {userMenu} {drawerContentScrollY} />
+		<Navbar {drawerContentScrollY} />
 		<div class={`${pagesThatDontNeedSidebar.includes($page.url.pathname) ? '' : 'p-6 pb-16'}`}>
 			<slot />
 		</div>
@@ -90,7 +85,7 @@
 	>
 		<label for="drawer" class="drawer-overlay" />
 		<aside class="bg-base-200 w-80">
-			<Sidebar {navMenu} {closeDrawer} {openDrawer} {drawerSidebarScrollY} />
+			<Sidebar {closeDrawer} {openDrawer} {drawerSidebarScrollY} />
 			<div
 				class="from-base-200 pointer-events-none sticky bottom-0 flex h-20 bg-gradient-to-t to-transparent"
 			/>
@@ -98,7 +93,7 @@
 	</div>
 </div>
 
-<!-- <style global>
+<style global>
 	code[class*='language-'],
 	pre[class*='language-'] {
 		background: unset;
@@ -108,4 +103,4 @@
 		background-color: hsl(var(--n));
 		color: hsl(var(--nc));
 	}
-</style> -->
+</style>

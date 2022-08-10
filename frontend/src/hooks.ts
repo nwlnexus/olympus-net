@@ -1,3 +1,4 @@
+import cloudflareAdapterPlatform from './helpers/_mf';
 import cookie from 'cookie';
 import { handleSession } from '$components/session/handle';
 import { locales } from '$lib/translations';
@@ -15,6 +16,9 @@ export const handle: Handle = handleSession(
 	async ({ event, resolve }) => {
 		const { url, request } = event;
 		const supportedLocales = locales.get();
+		event.platform = await cloudflareAdapterPlatform(event.platform);
+
+		console.log(event.platform);
 
 		let locale = '';
 		let response: Response;
@@ -31,7 +35,7 @@ export const handle: Handle = handleSession(
 
 		try {
 			if (event.locals.cookies) {
-				if (event.locals.cookies['kit.helios']) {
+				if (event.locals.cookies[import.meta.env.VITE_COOKIE_KEY]) {
 					const newSession = {};
 					if (JSON.stringify(event.locals.session.data) !== JSON.stringify(newSession)) {
 						event.locals.session.data = { ...newSession };

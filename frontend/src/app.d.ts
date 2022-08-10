@@ -23,10 +23,10 @@ declare namespace App {
 		email?: string;
 	}
 	interface Stuff {
-		navMenu?: import('./lib/types/helios').NavMenu[];
-		settingsMenu?: import('./lib/types/helios').NavMenu[];
-		userMenu?: import('./lib/types/helios').NavMenu[];
-		pages?: import('./lib/types/helios').NavMenu[];
+		navMenu: import('./lib/types/helios').NavMenu[];
+		settingsMenu: import('./lib/types/helios').NavMenu[];
+		userMenu: import('./lib/types/helios').NavMenu[];
+		pages: import('./lib/types/helios').NavMenu[];
 	}
 }
 
