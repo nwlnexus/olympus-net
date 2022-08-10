@@ -5,9 +5,9 @@ import lang from './lang.json';
 export const config = {
 	fallbackLocale: 'en',
 	translations: {
-		en: { lang },
 		es: { lang },
-		fr: { lang }
+		fr: { lang },
+		en: { lang }
 	},
 	loaders: [
 		{
