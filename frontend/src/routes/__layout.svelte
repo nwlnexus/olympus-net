@@ -98,7 +98,7 @@
 	</div>
 </div>
 
-<style global>
+<!-- <style global>
 	code[class*='language-'],
 	pre[class*='language-'] {
 		background: unset;
@@ -108,4 +108,4 @@
 		background-color: hsl(var(--n));
 		color: hsl(var(--nc));
 	}
-</style>
+</style> -->

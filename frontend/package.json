@@ -55,7 +55,6 @@
 		"@zxcvbn-ts/language-common": "^2.0.1",
 		"@zxcvbn-ts/language-en": "^2.0.1",
 		"crypto-js": "^4.1.1",
-		"svelte-countup": "^0.2.6",
-		"svg-emojis": "^0.0.8"
+		"svelte-countup": "^0.2.6"
 	}
 }
