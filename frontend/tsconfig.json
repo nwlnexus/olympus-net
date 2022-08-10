@@ -12,8 +12,8 @@
 			"$utils/*": ["src/lib/utils/*"],
 			"$ui": ["src/lib/ui"],
 			"$ui/*": ["src/lib/ui/*"],
-			"$types": ["../typings"],
-			"$types/*": ["../typings/*"]
+			"$types": ["src/lib/types"],
+			"$types/*": ["src/lib/types/*"]
 		},
 		"allowJs": true,
 		"checkJs": true,

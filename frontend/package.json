@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "CF_PAGES=1 vite dev",
-		"dev:cf": "wrangler pages dev -- vite dev",
+		"dev:cf": "wrangler pages dev --local --live-reload -- cross-env CF_PAGES=1 vite dev",
 		"build": "CF_PAGES=1 vite build",
 		"package": "CF_PAGES=1 svelte-kit package",
 		"preview": "CF_PAGES=1 vite preview",
@@ -55,6 +55,7 @@
 		"@zxcvbn-ts/language-common": "^2.0.1",
 		"@zxcvbn-ts/language-en": "^2.0.1",
 		"crypto-js": "^4.1.1",
-		"svelte-countup": "^0.2.6"
+		"svelte-countup": "^0.2.6",
+		"sveltekit-i18n": "^2.2.2"
 	}
 }
