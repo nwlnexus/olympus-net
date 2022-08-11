@@ -43,10 +43,6 @@ const config = {
 			$utils: fileURLToPath(new URL('./src/lib/utils', import.meta.url)),
 			$ui: fileURLToPath(new URL('./src/lib/ui', import.meta.url))
 		}
-	},
-	server: {
-		port: '3001',
-		open: true
 	}
 };
 
