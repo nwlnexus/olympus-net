@@ -43,6 +43,9 @@ const config = {
 			$utils: fileURLToPath(new URL('./src/lib/utils', import.meta.url)),
 			$ui: fileURLToPath(new URL('./src/lib/ui', import.meta.url))
 		}
+	},
+	server: {
+		host: '0.0.0.0'
 	}
 };
 

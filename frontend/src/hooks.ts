@@ -18,8 +18,6 @@ export const handle: Handle = handleSession(
 		const supportedLocales = locales.get();
 		event.platform = await cloudflareAdapterPlatform(event.platform);
 
-		console.log(event.platform);
-
 		let locale = '';
 		let response: Response;
 
@@ -44,12 +42,20 @@ export const handle: Handle = handleSession(
 			}
 
 			response = await resolve(event, {
-				transformPageChunk: ({ html }) => html.replace(/<html.*>/, `<html lang="${locale}">`)
+				transformPageChunk: ({ html }) =>
+					html.replace(
+						/(<html lang=)["']?((?:.(?!["']?\s+(?:\S+)=|\s*\/?[>"']))+.)["']?(.*)/,
+						`$1"${locale}"$3`
+					)
 			});
 		} catch (e) {
 			console.error(e);
 			response = await resolve(event, {
-				transformPageChunk: ({ html }) => html.replace(/<html.*>/, `<html lang="${locale}">`)
+				transformPageChunk: ({ html }) =>
+					html.replace(
+						/(<html lang=)["']?((?:.(?!["']?\s+(?:\S+)=|\s*\/?[>"']))+.)["']?(.*)/,
+						`$1"${locale}"$3`
+					)
 			});
 		}
 

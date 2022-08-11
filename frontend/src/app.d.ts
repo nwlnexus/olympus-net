@@ -12,7 +12,11 @@ declare namespace App {
 	}
 	interface Platform {
 		env: {
-			WORKER_URL: string;
+			CLOUDFLARE_ACCOUNT_ID: string;
+			CLOUDFLARE_API_TOKEN: string;
+			APP_DOMAIN: string;
+			APP_ACCESS_ORG: string;
+			APP_ACCESS_AUD: string;
 		};
 		context: {
 			waitUntil(promise: Promise<any>): void;
