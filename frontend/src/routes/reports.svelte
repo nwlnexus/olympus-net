@@ -1,8 +1,5 @@
 <script lang="ts">
+	import SEO from '$components/SEO.svelte';
 </script>
-<svelte:head>
-	<title>Helios | Reports</title>
-	<meta name="description" content="Helios app" />
-</svelte:head>
 
-Reports
+<SEO title="Reports" />

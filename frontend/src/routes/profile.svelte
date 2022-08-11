@@ -1,9 +1,5 @@
 <script lang="ts">
+	import SEO from '$components/SEO.svelte';
 </script>
 
-<svelte:head>
-	<title>Helios | Account Profile</title>
-	<meta name="description" content="Helios app" />
-</svelte:head>
-
-Profile
+<SEO title="Profile" />
