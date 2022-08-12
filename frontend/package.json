@@ -54,7 +54,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@cloudflare/pages-plugin-cloudflare-access": "^1.0.1",
 		"@zxcvbn-ts/core": "^2.0.3",
 		"@zxcvbn-ts/language-common": "^2.0.1",
 		"@zxcvbn-ts/language-en": "^2.0.1",
