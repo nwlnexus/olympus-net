@@ -104,8 +104,8 @@
 			</div>
 		</div>
 		<div class="flex-0">
-			<div title="User menu" class="dropdown dropdown-end">
-				{#if $isAuthenticated}
+			{#if $isAuthenticated}
+				<div title="User menu" class="dropdown dropdown-end">
 					<div tabindex="0" class="btn gap-1 normal-case btn-ghost">
 						<UserCircleIcon
 							width="20"
@@ -125,25 +125,10 @@
 							<btn on:click={logout}>Logout</btn>
 						</li>
 					</ul>
-				{:else}
-					<div tabindex="0" class="btn gap-1 normal-case btn-ghost">
-						<UserCircleIcon
-							width="20"
-							height="20"
-							class="inline-block h-5 w-5 stroke-current md:w-6 md:h-6"
-						/>
-						<ChevronDownIcon width="12" height="12" />
-					</div>
-					<ul
-						tabindex="0"
-						class="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4"
-					>
-						<li>
-							<btn on:click={login}>Login</btn>
-						</li>
-					</ul>
-				{/if}
-			</div>
+				</div>
+			{:else}
+				<btn on:click={login}>Log In</btn>
+			{/if}
 		</div>
 	</nav>
 </div>
