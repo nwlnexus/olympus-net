@@ -1,9 +1,10 @@
 import type { NavMenu } from '$types/helios';
-import AdjustmentsIcon from '@rgossiaux/svelte-heroicons/outline/Adjustments';
-import ServerIcon from '@rgossiaux/svelte-heroicons/outline/Server';
-import UserIcon from '@rgossiaux/svelte-heroicons/outline/User';
-import VariableIcon from '@rgossiaux/svelte-heroicons/outline/Variable';
-import LocationMarkerIcon from '@rgossiaux/svelte-heroicons/outline/LocationMarker';
+import {
+	AdjustmentsIcon,
+	LocationMarkerIcon,
+	ServerIcon,
+	VariableIcon
+} from '@rgossiaux/svelte-heroicons/outline';
 import { DashboardIcon, StatsSquareUpIcon, TunnelIcon } from './components/icons';
 
 export async function buildMenus(): Promise<Record<string, NavMenu[]>> {
@@ -59,23 +60,6 @@ export async function buildMenus(): Promise<Record<string, NavMenu[]>> {
 		}
 	];
 
-	const userMenu: NavMenu[] = [
-		{
-			title: 'Profile',
-			href: '/profile',
-			icon: UserIcon,
-			description: 'Your profile',
-			tags: 'how profile'
-		},
-		{
-			title: 'Logout',
-			href: '/auth/logout',
-			icon: UserIcon,
-			description: 'Logout',
-			tags: 'how logout'
-		}
-	];
-
 	const settingsMenu: NavMenu[] = [
 		{
 			title: 'Variable categories',
@@ -102,7 +86,6 @@ export async function buildMenus(): Promise<Record<string, NavMenu[]>> {
 
 	return {
 		navMenu,
-		userMenu,
 		settingsMenu
 	};
 }

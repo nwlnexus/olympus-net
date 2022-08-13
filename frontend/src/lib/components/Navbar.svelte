@@ -1,14 +1,34 @@
 <script lang="ts">
-	import { page } from '$app/stores';
-	import Search from '../components/Search.svelte';
+	import auth from '$lib/services/auth0';
+	import Search from '$components/Search.svelte';
+	import { onMount } from 'svelte';
+	import { page, session } from '$app/stores';
 	import { ChevronDownIcon } from '@rgossiaux/svelte-heroicons/outline';
 	import { MenuIcon } from '@rgossiaux/svelte-heroicons/outline';
 	import { MoonIcon } from '@rgossiaux/svelte-heroicons/outline';
 	import { SunIcon } from '@rgossiaux/svelte-heroicons/outline';
 	import { UserCircleIcon } from '@rgossiaux/svelte-heroicons/outline';
+	import { isAuthenticated, userDetail } from '$lib/stores/auth';
+	import type { Auth0Client } from '@auth0/auth0-spa-js';
+	import type { UserDetail } from '$types/helios';
 
-	const { userMenu } = $page.stuff;
+	let auth0Client: Auth0Client;
 	export let drawerContentScrollY: number;
+
+	onMount(async () => {
+		auth0Client = await auth.createClient();
+		isAuthenticated.set(await auth0Client.isAuthenticated());
+		userDetail.set((await auth0Client.getUser()) as UserDetail);
+		console.log(await auth0Client.getUser());
+	});
+
+	function login() {
+		auth.loginWithPopup(auth0Client);
+	}
+
+	function logout() {
+		auth.logout(auth0Client);
+	}
 
 	$: switchNavbarStyle = drawerContentScrollY > 40 ? true : false;
 </script>
@@ -85,21 +105,44 @@
 		</div>
 		<div class="flex-0">
 			<div title="User menu" class="dropdown dropdown-end">
-				<div tabindex="0" class="btn gap-1 normal-case btn-ghost">
-					<UserCircleIcon
-						width="20"
-						height="20"
-						class="inline-block h-5 w-5 stroke-current md:w-6 md:h-6"
-					/>
-					<ChevronDownIcon width="12" height="12" />
-				</div>
-				<ul tabindex="0" class="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4">
-					{#each userMenu as { href, title }}
+				{#if $isAuthenticated}
+					<div tabindex="0" class="btn gap-1 normal-case btn-ghost">
+						<UserCircleIcon
+							width="20"
+							height="20"
+							class="inline-block h-5 w-5 stroke-current md:w-6 md:h-6"
+						/>
+						<ChevronDownIcon width="12" height="12" />
+					</div>
+					<ul
+						tabindex="0"
+						class="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4"
+					>
 						<li>
-							<a {href}>{title}</a>
+							<a href="/profile">Profile</a>
 						</li>
-					{/each}
-				</ul>
+						<li>
+							<btn on:click={logout}>Logout</btn>
+						</li>
+					</ul>
+				{:else}
+					<div tabindex="0" class="btn gap-1 normal-case btn-ghost">
+						<UserCircleIcon
+							width="20"
+							height="20"
+							class="inline-block h-5 w-5 stroke-current md:w-6 md:h-6"
+						/>
+						<ChevronDownIcon width="12" height="12" />
+					</div>
+					<ul
+						tabindex="0"
+						class="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4"
+					>
+						<li>
+							<btn on:click={login}>Login</btn>
+						</li>
+					</ul>
+				{/if}
 			</div>
 		</div>
 	</nav>

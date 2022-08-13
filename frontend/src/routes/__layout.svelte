@@ -4,14 +4,13 @@
 
 	export const load: Load = async ({ stuff }) => {
 		try {
-			const { userMenu, settingsMenu, navMenu } = await buildMenus();
+			const { settingsMenu, navMenu } = await buildMenus();
 			return {
 				stuff: {
 					...stuff,
-					userMenu,
 					navMenu,
 					settingsMenu,
-					pages: [...userMenu, ...settingsMenu, ...navMenu]
+					pages: [...settingsMenu, ...navMenu]
 				}
 			};
 		} catch (e) {
@@ -22,12 +21,12 @@
 
 <script lang="ts">
 	import '../app.css';
-	import { onMount } from 'svelte';
 	import { afterNavigate } from '$app/navigation';
-	import Navbar from '$components/Navbar.svelte';
-	import Sidebar from '$components/Sidebar.svelte';
+	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 	import { pagesThatDontNeedSidebar } from '$lib/constants';
+	import Navbar from '$components/Navbar.svelte';
+	import Sidebar from '$components/Sidebar.svelte';
 
 	let drawercontent: HTMLDivElement;
 	let drawerContentScrollY = 0;
@@ -41,7 +40,7 @@
 		drawerSidebarScrollY = drawersidebar.scrollTop;
 	}
 
-	onMount(() => {
+	onMount(async () => {
 		parseContentScroll();
 		parseSidebarScroll();
 	});

@@ -17,25 +17,25 @@ declare namespace App {
 			APP_DOMAIN: string;
 			APP_ACCESS_ORG: string;
 			APP_ACCESS_AUD: string;
+			AUTH0_DOMAIN: string;
+			AUTH0_CLIENT_ID: string;
 		};
 		context: {
 			waitUntil(promise: Promise<any>): void;
 		};
 		caches: CacheStorage & { default: Cache };
 	}
-	interface Session extends SessionData {
-		email?: string;
-	}
+	// eslint-disable-next-line @typescript-eslint/no-empty-interface
+	interface Session extends SessionData {}
 	interface Stuff {
 		navMenu: import('./lib/types/helios').NavMenu[];
 		settingsMenu: import('./lib/types/helios').NavMenu[];
-		userMenu: import('./lib/types/helios').NavMenu[];
 		pages: import('./lib/types/helios').NavMenu[];
 	}
 }
-
 interface SessionData {
 	uuid?: string | null;
 	permission?: string;
 	lang?: string;
+	email?: string;
 }

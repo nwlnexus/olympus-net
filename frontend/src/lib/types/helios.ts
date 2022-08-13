@@ -81,7 +81,7 @@ export interface EdgeNode extends EdgeNodePartial {
 }
 
 export type IngressProtos = typeof ingressProtos[number];
-interface EdgeNodeIngressRoute {
+export interface EdgeNodeIngressRoute {
 	hostname: string;
 	service: string;
 	port?: number;
@@ -90,4 +90,13 @@ interface EdgeNodeIngressRoute {
 
 export interface UIState {
 	showRAside: boolean;
+}
+
+export interface UserDetail {
+	name: string | undefined;
+	email: string | undefined;
+	nickname: string | undefined;
+	picture: string | undefined;
+	email_verified: boolean | string | undefined;
+	sub: string | string[] | undefined;
 }

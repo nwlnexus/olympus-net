@@ -54,6 +54,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@auth0/auth0-spa-js": "^1.22.2",
 		"@zxcvbn-ts/core": "^2.0.3",
 		"@zxcvbn-ts/language-common": "^2.0.1",
 		"@zxcvbn-ts/language-en": "^2.0.1",
