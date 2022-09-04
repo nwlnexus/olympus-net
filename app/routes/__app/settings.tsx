@@ -1,7 +1,7 @@
 import type { NavMenu } from '~/types/nav';
 import { clsx } from 'clsx';
 import { Icon } from '@iconify/react';
-import { Outlet, useLocation } from '@remix-run/react';
+import { Outlet, useLocation } from '~/remix';
 
 export default function Settings() {
   const subNavigation: NavMenu = [
@@ -36,7 +36,7 @@ export default function Settings() {
       icon: 'heroicons:squares-plus'
     }
   ];
-  const location = useLocation();
+  const { pathname } = useLocation();
 
   return (
     <div className='relative flex flex-1 xl:overflow-hidden'>
@@ -54,10 +54,10 @@ export default function Settings() {
               key={item.label}
               href={item.href}
               className={clsx(
-                item.href === location.pathname ? 'bg-blue-50 bg-opacity-50' : 'hover:bg-blue-50 hover:bg-opacity-50',
+                item.href === pathname ? 'bg-blue-50 bg-opacity-50' : 'hover:bg-blue-50 hover:bg-opacity-50',
                 'border-blue-gray-200 flex border-b p-6'
               )}
-              aria-current={item.href === location.pathname ? 'page' : undefined}
+              aria-current={item.href === pathname ? 'page' : undefined}
             >
               {item.icon && (
                 <Icon

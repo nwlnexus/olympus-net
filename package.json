@@ -1,23 +1,24 @@
 {
-  "name": "olympus-v4",
   "private": true,
-  "sideEffects": false,
+  "name": "olympus-v4",
   "scripts": {
-    "postinstall": "remix-esbuild-override",
-    "clean": "rimraf ./public/build \"./app/styles/**/*.css\" \"./functions/_assets/*\"",
+    "prebuild": "npm run clean",
     "build": "run-s \"build:*\"",
     "build:css": "postcss styles --base ./styles --dir ./app/styles --env production",
     "build:remix": "remix build",
+    "clean": "rimraf ./public/build \"./app/styles/**/*.css\" \"./functions/**\"",
     "dev": "concurrently \"npm:dev:*\"",
     "dev:css": "postcss styles --base ./styles --dir ./app/styles -w",
     "dev:remix": "remix watch",
-    "dev:wrangler": "cross-env NODE_ENV=development wrangler pages dev ./public",
-    "start": "cross-env NODE_ENV=production npm run dev:wrangler",
+    "dev:wrangler": "cross-env NODE_ENV=development wrangler pages dev ./public --kv HELIOS_KV",
+    "format": "prettier --write \"./app/**/*.{ts,tsx}\"",
+    "postinstall": "remix-esbuild-override && remix setup cloudflare-pages && rmx gen-remix --config ./gen-remix.config.json",
     "lint": "eslint --ext .tsx,.ts --ignore-path node_modules app",
     "lint:fix": "npm run lint -- --fix",
-    "typecheck": "tsc -b",
-    "format": "prettier --write \"./app/**/*.{ts,tsx}\""
+    "start": "cross-env NODE_ENV=production npm run dev:wrangler",
+    "typecheck": "tsc -b"
   },
+  "sideEffects": false,
   "dependencies": {
     "@headlessui/react": "^1.6.6",
     "@remix-run/cloudflare": "^1.7.0",
@@ -29,6 +30,7 @@
     "react-dropzone": "^14.2.2",
     "remix-auth": "^3.2.2",
     "remix-auth-auth0": "^1.3.8",
+    "remix-typedjson": "^0.1.1",
     "tiny-invariant": "^1.2.0"
   },
   "devDependencies": {
@@ -59,12 +61,14 @@
     "postcss-cli": "^10.0.0",
     "postcss-import": "^15.0.0",
     "prettier": "^2.7.1",
+    "prettier-package-json": "^2.6.4",
     "prettier-plugin-tailwindcss": "^0.1.13",
     "remix-esbuild-override": "^3.0.4",
     "rimraf": "^3.0.2",
+    "rmx-cli": "^0.3.1",
     "tailwindcss": "^3.1.8",
     "typescript": "^4.7.4",
-    "wrangler": "^2.0.28"
+    "wrangler": "^0.0.0-7c228171"
   },
   "engines": {
     "node": ">=16.13"

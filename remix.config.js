@@ -6,8 +6,9 @@ withEsbuildOverride((option, { isServer }) => {
     option.plugins = [
       GlobalsPolyfills({
         buffer: true,
+        global: true
       }),
-      ...option.plugins,
+      ...option.plugins
     ];
 
   return option;
@@ -18,7 +19,7 @@ module.exports = {
   serverBuildTarget: 'cloudflare-pages',
   server: './server.js',
   devServerBroadcastDelay: 1000,
-  ignoredRouteFiles: ['**/.*'],
+  ignoredRouteFiles: ['**/.*']
   // appDirectory: "app",
   // assetsBuildDirectory: "public/build",
   // serverBuildPath: "functions/[[path]].js",

@@ -1,14 +1,11 @@
 import globalStyles from '~/styles/tailwind.css';
 import { clsx } from 'clsx';
 import { getThemeSession } from '~/utils/theme.server';
-import { json } from '@remix-run/cloudflare';
-import { NonFlashOfWrongThemeEls, type Theme, ThemeProvider, useTheme } from '~/utils/theme-provider';
-import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useCatch, useLoaderData } from '@remix-run/react';
+import { NonFlashOfWrongThemeEls, ThemeProvider, useTheme } from '~/utils/theme-provider';
+import { Links, LiveReload, Meta, json, Outlet, Scripts, ScrollRestoration, useCatch, useLoaderData } from '~/remix';
 // Import types
 import type { ReactNode } from 'react';
-import type { LinksFunction, LoaderFunction, MetaFunction } from '@remix-run/cloudflare';
-import type { AppNav } from '~/@core/types/nav';
-import { Logo } from '~/components';
+import type { LinksFunction, LoaderArgs, MetaFunction } from '@remix-run/cloudflare';
 
 export const meta: MetaFunction = () => ({
   charset: 'utf-8',
@@ -18,15 +15,7 @@ export const meta: MetaFunction = () => ({
 
 export const links: LinksFunction = () => [{ rel: 'stylesheet', href: globalStyles }];
 
-type LoaderData = {
-  data: {
-    theme: Theme | null;
-  };
-  nav: AppNav;
-  ENV?: Record<string, unknown>;
-};
-
-export const loader: LoaderFunction = async ({ request, context }) => {
+export const loader = async ({ request, context }: LoaderArgs) => {
   const themeSession = await getThemeSession(request, context.SESSION_SECRET);
 
   const data = {
@@ -40,7 +29,7 @@ export const loader: LoaderFunction = async ({ request, context }) => {
 
 const Document = ({ children, title }: { children: ReactNode | ReactNode[]; title?: string }) => {
   const [theme] = useTheme();
-  const { data } = useLoaderData<LoaderData>();
+  const { data } = useLoaderData<typeof loader>();
 
   return (
     <html lang='en' className={clsx(theme)}>
@@ -61,7 +50,7 @@ const Document = ({ children, title }: { children: ReactNode | ReactNode[]; titl
 };
 
 export default function App() {
-  const { data } = useLoaderData<LoaderData>();
+  const { data } = useLoaderData<typeof loader>();
 
   return (
     <ThemeProvider specifiedTheme={data.theme}>

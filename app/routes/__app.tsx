@@ -2,18 +2,12 @@ import { Fragment, useState, useEffect } from 'react';
 import { clsx } from 'clsx';
 import type { AppNav } from '~/types/nav';
 import { Dialog, Menu, Transition } from '@headlessui/react';
-import { Outlet, useCatch, useLoaderData, useLocation } from '@remix-run/react';
-import type { LoaderFunction } from '@remix-run/cloudflare';
-import { json } from '@remix-run/cloudflare';
+import { json, Outlet, useCatch, useLoaderData, useLocation, type LoaderArgs } from '~/remix';
 import { getNavItems } from '~/utils/navigation.server';
 import { DarkModeToggle, Logo } from '~/components';
 import { Icon } from '@iconify/react';
 
-type LoaderData = {
-  nav: AppNav;
-};
-
-export const loader: LoaderFunction = async () => {
+export const loader = async ({ context }: LoaderArgs) => {
   const nav_resp: Response = await getNavItems();
   const nav: AppNav = await nav_resp.json();
 
@@ -23,13 +17,13 @@ export const loader: LoaderFunction = async () => {
 export default function AppLayout() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [pageHeading, setPageHeading] = useState<string | null>(null);
-  const { nav } = useLoaderData<LoaderData>();
-  const location = useLocation();
+  const { nav } = useLoaderData<typeof loader>();
+  const { pathname } = useLocation();
   const sidebarNavigation = nav.navMenu;
   const userNavigation = nav.userMenu;
 
   useEffect(
-    (p = location.pathname) => {
+    (p = pathname) => {
       if (p === '/') {
         setPageHeading('Home');
       } else {
@@ -40,7 +34,7 @@ export default function AppLayout() {
         );
       }
     },
-    [pageHeading, sidebarNavigation, location.pathname]
+    [pageHeading, sidebarNavigation, pathname]
   );
 
   return (
@@ -70,18 +64,18 @@ export default function AppLayout() {
                   key={item.label}
                   href={item.href}
                   className={clsx(
-                    item.href === location.pathname
+                    item.href === pathname
                       ? 'bg-slate-800 text-amber-400'
                       : 'text-gray-100 hover:bg-slate-800 hover:text-white',
                     'group flex w-full flex-col items-center rounded-md p-3 text-xs font-medium'
                   )}
-                  aria-current={item.href === location.pathname ? 'page' : undefined}
+                  aria-current={item.href === pathname ? 'page' : undefined}
                 >
                   {item.icon && (
                     <Icon
                       icon={item.icon}
                       className={clsx(
-                        item.href === location.pathname ? 'text-white' : 'text-gray-300 group-hover:text-white',
+                        item.href === pathname ? 'text-white' : 'text-gray-300 group-hover:text-white',
                         'h-6 w-6'
                       )}
                       aria-hidden='true'
@@ -151,20 +145,18 @@ export default function AppLayout() {
                             key={item.label}
                             href={item.href}
                             className={clsx(
-                              item.href === location.pathname
+                              item.href === pathname
                                 ? 'bg-slate-800 text-amber-400'
                                 : 'text-gray-100 hover:bg-slate-800 hover:text-white',
                               'group flex items-center rounded-md py-2 px-3 text-sm font-medium'
                             )}
-                            aria-current={item.href === location.pathname ? 'page' : undefined}
+                            aria-current={item.href === pathname ? 'page' : undefined}
                           >
                             {item.icon && (
                               <Icon
                                 icon={item.icon}
                                 className={clsx(
-                                  item.href === location.pathname
-                                    ? 'text-white'
-                                    : 'text-gray-300 group-hover:text-white',
+                                  item.href === pathname ? 'text-white' : 'text-gray-300 group-hover:text-white',
                                   'mr-3 h-6 w-6'
                                 )}
                                 aria-hidden='true'
@@ -246,7 +238,7 @@ export default function AppLayout() {
                       <Menu.Items className='absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-slate-100 py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'>
                         {userNavigation.map(item => (
                           <Menu.Item key={item.label}>
-                            {({ active = item.href === location.pathname }) => (
+                            {({ active = item.href === pathname }) => (
                               <a
                                 href={item.href}
                                 className={clsx(active ? 'bg-slate-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
