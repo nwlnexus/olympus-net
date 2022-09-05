@@ -20,12 +20,13 @@
   },
   "sideEffects": false,
   "dependencies": {
-    "@headlessui/react": "^1.6.6",
     "@remix-run/cloudflare": "^1.7.0",
     "@remix-run/cloudflare-pages": "^1.7.0",
     "@remix-run/react": "^1.7.0",
     "clsx": "^1.2.1",
+    "daisyui": "^2.24.2",
     "react": "^18.2.0",
+    "react-daisyui": "^2.3.2",
     "react-dom": "^18.2.0",
     "react-dropzone": "^14.2.2",
     "remix-auth": "^3.2.2",
@@ -36,6 +37,7 @@
   "devDependencies": {
     "@cloudflare/workers-types": "^3.14.1",
     "@esbuild-plugins/node-globals-polyfill": "^0.1.1",
+    "@iconify/icons-heroicons": "^1.2.3",
     "@iconify/react": "^3.2.2",
     "@remix-run/dev": "^1.7.0",
     "@remix-run/eslint-config": "^1.7.0",

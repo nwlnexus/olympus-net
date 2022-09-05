@@ -1,24 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./app/**/*.{js,ts,jsx,tsx}'],
+  content: [
+    './app/**/*.{js,ts,jsx,tsx}',
+    'node_modules/daisyui/dist/**/*.js',
+    'node_modules/react-daisyui/dist/**/*.js'
+  ],
   darkMode: 'class',
   theme: {
-    extend: {
-      colors: {
-        primary: {
-          50: '#ecfeff',
-          100: '#cffafe',
-          200: '#a5f3fc',
-          300: '#67e8f9',
-          400: '#22d3ee',
-          500: '#06b6d4',
-          600: '#0891b2',
-          700: '#0e7490',
-          800: '#155e75',
-          900: '#164e63'
-        }
-      }
-    },
+    extend: {},
     fontFamily: {
       body: [
         'Inter',
@@ -56,5 +45,13 @@ module.exports = {
       ]
     }
   },
-  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')]
+  daisyui: {
+    styled: true,
+    themes: ['dark', 'corporate', 'dracula', 'light'],
+    base: true,
+    utils: true,
+    logs: true,
+    darkTheme: 'dark'
+  },
+  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography'), require('daisyui')]
 };

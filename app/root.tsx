@@ -1,11 +1,17 @@
 import globalStyles from '~/styles/tailwind.css';
-import { clsx } from 'clsx';
-import { getThemeSession } from '~/utils/theme.server';
-import { NonFlashOfWrongThemeEls, ThemeProvider, useTheme } from '~/utils/theme-provider';
-import { Links, LiveReload, Meta, json, Outlet, Scripts, ScrollRestoration, useCatch, useLoaderData } from '~/remix';
-// Import types
-import type { ReactNode } from 'react';
-import type { LinksFunction, LoaderArgs, MetaFunction } from '@remix-run/cloudflare';
+import {
+  type LinksFunction,
+  type LoaderArgs,
+  type MetaFunction,
+  Links,
+  LiveReload,
+  Meta,
+  json,
+  Outlet,
+  Scripts,
+  ScrollRestoration,
+  useCatch
+} from '~/remix';
 
 export const meta: MetaFunction = () => ({
   charset: 'utf-8',
@@ -16,48 +22,23 @@ export const meta: MetaFunction = () => ({
 export const links: LinksFunction = () => [{ rel: 'stylesheet', href: globalStyles }];
 
 export const loader = async ({ request, context }: LoaderArgs) => {
-  const themeSession = await getThemeSession(request, context.SESSION_SECRET);
-
-  const data = {
-    theme: themeSession.getTheme()
-  };
-
-  return json({
-    data
-  });
+  return json({});
 };
 
-const Document = ({ children, title }: { children: ReactNode | ReactNode[]; title?: string }) => {
-  const [theme] = useTheme();
-  const { data } = useLoaderData<typeof loader>();
-
+export default function App() {
   return (
-    <html lang='en' className={clsx(theme)}>
+    <html lang='en' data-theme='dark'>
       <head>
-        {title ? <title>{title}</title> : null}
         <Meta />
         <Links />
-        <NonFlashOfWrongThemeEls ssrTheme={Boolean(data.theme)} />
       </head>
       <body>
-        {children}
+        <Outlet />
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
       </body>
     </html>
-  );
-};
-
-export default function App() {
-  const { data } = useLoaderData<typeof loader>();
-
-  return (
-    <ThemeProvider specifiedTheme={data.theme}>
-      <Document>
-        <Outlet />
-      </Document>
-    </ThemeProvider>
   );
 }
 
@@ -78,7 +59,7 @@ export function CatchBoundary() {
   }
 
   return (
-    <html lang='en' className='dark h-full'>
+    <html lang='en'>
       <head>
         <title>{caught.status}</title>
         <Meta />
@@ -97,13 +78,13 @@ export function CatchBoundary() {
                 <div className='mt-10 flex space-x-3 sm:border-l sm:border-transparent sm:pl-6'>
                   <a
                     href='/'
-                    className='inline-flex items-center rounded-md border border-transparent bg-primary-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2'
+                    className='bg-primary-600 hover:bg-primary-700 inline-flex items-center rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2'
                   >
                     Go back home
                   </a>
                   <a
                     href='/support'
-                    className='inline-flex items-center rounded-md border border-transparent bg-primary-100 px-4 py-2 text-sm font-medium text-primary-700 hover:bg-primary-200 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2'
+                    className='bg-primary-100 text-primary-700 hover:bg-primary-200 inline-flex items-center rounded-md border border-transparent px-4 py-2 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2'
                   >
                     Contact support
                   </a>
