@@ -47,7 +47,7 @@ module.exports = {
   },
   daisyui: {
     styled: true,
-    themes: ['dark', 'corporate', 'dracula', 'light'],
+    themes: ['dark', 'night', 'corporate', 'dracula', 'light'],
     base: true,
     utils: true,
     logs: true,
