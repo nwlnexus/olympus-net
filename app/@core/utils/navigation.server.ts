@@ -22,7 +22,7 @@ export async function getNavItems() {
       icon: 'heroicons:server-stack'
     },
     {
-      href: '/tunnel',
+      href: '/tunnels',
       label: 'Tunnels',
       icon: 'heroicons:link'
     },
