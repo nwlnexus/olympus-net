@@ -59,10 +59,12 @@ export default function AppLayout() {
                 ))}
               </Dropdown.Menu>
             </Dropdown>
+            {/* Only show this Logo on large screens on the left of the top navbar. */}
             <div id='logo' className='ml-2 hidden flex-1 lg:block'>
               <Logo />
             </div>
           </Navbar.Start>
+          {/* Only show this Logo on small/medium screens in the center of the top navbar. */}
           <Navbar.Center className='lg:hidden'>
             <div id='logo' className='ml-2 flex-1'>
               <Logo />

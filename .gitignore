@@ -10,7 +10,8 @@ node_modules
 /functions/_assets
 /app/styles/tailwind.css
 /.mf
-
+wrangler-local-state
+.wrangler
 /coverage
 /test-results/
 /playwright-report/

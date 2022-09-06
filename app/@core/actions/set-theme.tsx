@@ -1,10 +1,8 @@
-import { json } from '@remix-run/cloudflare';
+import { json, type ActionArgs } from '~/remix';
 import { getThemeSession } from '~/utils/theme.server';
 import { isTheme } from '~/utils/theme-provider';
 
-import type { ActionFunction } from '@remix-run/cloudflare';
-
-export const action: ActionFunction = async ({ request, context }) => {
+export const action = async ({ request, context }: ActionArgs) => {
   const sessionSecret = context.SESSION_SECRET;
   if (!sessionSecret) {
     throw new Error('SESSION_SECRET must be set');

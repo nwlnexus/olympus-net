@@ -1,7 +1,6 @@
 import globalStyles from '~/styles/tailwind.css';
 import {
   type LinksFunction,
-  type LoaderArgs,
   type MetaFunction,
   Links,
   LiveReload,
@@ -22,7 +21,7 @@ export const meta: MetaFunction = () => ({
 
 export const links: LinksFunction = () => [{ rel: 'stylesheet', href: globalStyles }];
 
-export const loader = async ({ request, context }: LoaderArgs) => {
+export const loader = async () => {
   return json({});
 };
 
