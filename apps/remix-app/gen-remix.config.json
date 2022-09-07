@@ -1,0 +1,16 @@
+{
+  "exports": ["@remix-run/cloudflare-workers", "@remix-run/react", "remix-typedjson"],
+  "overrides": {
+    "remix-typedjson": {
+      "@remix-run/cloudflare": {
+        "json": "typedjson",
+        "redirect": "redirect"
+      },
+      "@remix-run/react": {
+        "useActionData": "useTypedActionData",
+        "useFetcher": "useTypedFetcher",
+        "useLoaderData": "useTypedLoaderData"
+      }
+    }
+  }
+}
