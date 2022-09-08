@@ -4,68 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc575d98-ede5-4dfb-9618-2b74da139d96" name="Changes" comment="Something with IDEA">
-      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/remix-app/app/routes/__app/settings/variables.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/remix-app/app/routes/auth.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/remix-app/app/routes/auth/login.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/remix-app/server.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/remix-app/wrangler.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/deploy-cf.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/deploy-docs.yml" afterDir="false" />
+    <list default="true" id="fc575d98-ede5-4dfb-9618-2b74da139d96" name="Changes" comment="Got Login working with redirect.&#10;[TODO] Build out logout.&#10;[TODO] Build session retrieval/destruction.&#10;[TODO] Build out User menu and nav.">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/olympus-net.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/olympus-net.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/entry-worker/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/apps/hermes/.eslintrc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/entry-worker/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/entry-worker/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/hermes/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/entry-worker/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/hermes/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/entry-worker/types/wrangler-env.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/hermes/types/wrangler-env.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/entry-worker/wrangler.toml" beforeDir="false" afterPath="$PROJECT_DIR$/apps/hermes/wrangler.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/.eslintrc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/app/@core/actions/set-theme.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/@core/actions/set-theme.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/app/@core/components/Logo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/@core/components/Logo.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/app/@core/components/TunnelView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/@core/components/TunnelView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/app/@core/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/@core/components/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/app/@core/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/@core/constants.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/app/@core/services/auth/auth.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/@core/services/auth/auth.server.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/app/@core/services/auth/session.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/@core/services/auth/session.server.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/app/@core/types/nav.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/@core/types/nav.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/app/@core/types/tunnels.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/@core/types/tunnels.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/app/@core/utils/navigation.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/@core/utils/navigation.server.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/app/@core/utils/theme-provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/@core/utils/theme-provider.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/app/@core/utils/theme.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/@core/utils/theme.server.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/app/entry.client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/entry.client.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/app/entry.server.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/entry.server.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/app/remix.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/remix.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/app/root.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/root.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/app/routes/__app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/routes/__app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/app/routes/__app/dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/routes/__app/dashboard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/app/routes/__app/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/routes/__app/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/app/routes/__app/locations/$locationId.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/routes/__app/locations/$locationId.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/app/routes/__app/locations/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/routes/__app/locations/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/app/routes/__app/locations/new.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/routes/__app/locations/new.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/app/routes/__app/reports.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/routes/__app/reports.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/app/routes/__app/settings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/routes/__app/settings.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/app/routes/__app/settings/accounts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/routes/__app/settings/accounts.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/app/routes/__app/settings/variables.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/deploy-remix-app.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/app/routes/__app/tunnels/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/routes/__app/tunnels/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/bindings.old" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/build.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/build.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/db.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/gen-remix.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/gen-remix.config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/postcss.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/postcss.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/public/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/remix.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/remix.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/styles/tailwind.css" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/styles/tailwind.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/tailwind.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/types/remix.env.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/types/remix.env.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/olympus-remix-app/types/wrangler-env.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/types/wrangler-env.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/remix-app/app/routes/auth/login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/routes/auth/login.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/cloudflare-env/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/cloudflare-env/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turbo.json" beforeDir="false" afterPath="$PROJECT_DIR$/turbo.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,23 +45,24 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "dart.analysis.tool.window.visible": "false",
-    "last_opened_file_path": "/Users/nwilliams-lucas/projects/personal/olympus-net/apps/olympus-remix-app",
+    "last_opened_file_path": "/Users/nwilliams-lucas/projects/personal/olympus-net/apps/remix-app-pages",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.standard": "",
     "nodejs_package_manager_path": "npm",
     "prettierjs.PrettierConfiguration.Package": "/Users/nwilliams-lucas/projects/personal/olympus-net/node_modules/prettier",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "settings.javascript.prettier",
     "ts.external.directory.path": "/Users/nwilliams-lucas/Library/Application Support/JetBrains/Toolbox/apps/IDEA-U/ch-0/222.3739.54/IntelliJ IDEA.app/Contents/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/apps/remix-app-pages" />
+      <recent name="$PROJECT_DIR$/apps" />
       <recent name="$PROJECT_DIR$/apps/olympus-remix-app" />
       <recent name="$PROJECT_DIR$/.github/workflows" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/apps/remix-app" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/apps/remix-app/app/routes/auth" />
@@ -153,6 +100,8 @@
       <workItem from="1662541875383" duration="4062000" />
       <workItem from="1662545995040" duration="1802000" />
       <workItem from="1662547885365" duration="12657000" />
+      <workItem from="1662587818969" duration="226000" />
+      <workItem from="1662590309014" duration="16270000" />
     </task>
     <task id="LOCAL-00001" summary="Moved to monorepo format and structure">
       <created>1662547736892</created>
@@ -175,7 +124,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662547940954</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Got Login working with redirect.&#10;[TODO] Build out logout.&#10;[TODO] Build session retrieval/destruction.&#10;[TODO] Build out User menu and nav.">
+      <created>1662601018135</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1662601018135</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,9 +149,11 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
     <MESSAGE value="Moved to monorepo format and structure" />
     <MESSAGE value="Something with IDEA" />
-    <option name="LAST_COMMIT_MESSAGE" value="Something with IDEA" />
+    <MESSAGE value="Got Login working with redirect.&#10;[TODO] Build out logout.&#10;[TODO] Build session retrieval/destruction.&#10;[TODO] Build out User menu and nav." />
+    <option name="LAST_COMMIT_MESSAGE" value="Got Login working with redirect.&#10;[TODO] Build out logout.&#10;[TODO] Build session retrieval/destruction.&#10;[TODO] Build out User menu and nav." />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">

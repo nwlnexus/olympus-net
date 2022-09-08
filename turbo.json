@@ -4,6 +4,10 @@
       "dependsOn": ["^build"],
       "outputs": ["build/**", "public/build/**", ".cache/**"]
     },
+    "clean":{
+      "cache": false,
+      "outputs": []
+    },
     "dev": {
       "cache": false
     },

@@ -7,28 +7,13 @@ import { useState, useEffect } from 'react';
 import type { AppNav } from '~/types/nav';
 import { clsx } from 'clsx';
 import { Button, Dropdown, Form, Input, Menu, Navbar } from 'react-daisyui';
-import type { AuthConfig } from '~/core/services/auth/auth.server';
 import { getAuthenticator } from '~/core/services/auth/auth.server';
-import type { SessionConfig } from '~/core/services/auth/session.server';
+import { generateConfigs } from '~/utils/auth-config.server';
 
 export const loader = async ({ request, context }: LoaderArgs) => {
-  const authConfig: AuthConfig = {
-    callbackURL: context.env.AUTH0_CALLBACK_URL,
-    clientID: context.env.AUTH0_CLIENT_ID,
-    clientSecret: context.env.AUTH0_CLIENT_SECRET,
-    domain: context.env.AUTH0_DOMAIN
-  };
-
-  const sessionConfig: SessionConfig = {
-    tag: context.env.SESSION_TAG,
-    secrets: [context.env.SESSION_SECRET],
-    kv: context.env.HELIOS_KV
-  };
-
+  const { authConfig, sessionConfig } = generateConfigs(context);
   const authenticator = await getAuthenticator(authConfig, sessionConfig);
   const user = await authenticator.isAuthenticated(request);
-
-  console.log('User', user);
 
   if (!user) {
     return redirect('/auth/login');

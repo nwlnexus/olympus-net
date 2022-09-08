@@ -4,6 +4,11 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/apps/remix-app/app/styles" />
+      <excludeFolder url="file://$MODULE_DIR$/apps/remix-app/public/build" />
+      <excludeFolder url="file://$MODULE_DIR$/apps/remix-app/.cache" />
+      <excludeFolder url="file://$MODULE_DIR$/apps/remix-app/.turbo" />
+      <excludeFolder url="file://$MODULE_DIR$/apps/remix-app/build" />
+      <excludeFolder url="file://$MODULE_DIR$/apps/remix-app/wrangler-local-state" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

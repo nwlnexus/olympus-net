@@ -18,3 +18,4 @@ wrangler-local-state
 /playwright/.cache/
 
 .DS_Store
+.turbo
