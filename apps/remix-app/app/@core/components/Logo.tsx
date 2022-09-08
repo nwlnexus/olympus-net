@@ -5,7 +5,11 @@ export function Logo() {
     <>
       <a href='/'>
         <span className={clsx('mr-1 lowercase text-amber-600')}>helios</span>
-        <span className={clsx('rounded border-2 p-1 uppercase')}>ui</span>
+        <span
+          className={clsx('rounded-tl-xl rounded-br-xl border-2 border-t-amber-400 border-b-amber-400 p-1 uppercase')}
+        >
+          ui
+        </span>
       </a>
     </>
   );
