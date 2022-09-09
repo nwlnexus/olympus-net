@@ -15,8 +15,11 @@ export function generateConfigs(context: LoaderArgs) {
     kv: context.env.HELIOS_KV
   };
 
+  const baseURL = context.env.APP_BASE_URL;
+
   return {
     authConfig,
-    sessionConfig
+    sessionConfig,
+    baseURL
   };
 }

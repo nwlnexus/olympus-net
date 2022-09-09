@@ -41,6 +41,10 @@ export async function getNavItems() {
     {
       href: '/profile',
       label: 'Profile'
+    },
+    {
+      href: '/auth/logout',
+      label: 'Sign Out'
     }
   ];
 

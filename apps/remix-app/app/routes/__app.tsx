@@ -1,35 +1,41 @@
-import { Logo } from '~/components';
-import { Icon } from '@iconify/react';
-import bars3BottomLeft from '@iconify/icons-heroicons/bars-3-bottom-left';
+import { AppSidebar, AppNavbar } from '~/components';
 import { getNavItems } from '~/utils/navigation.server';
 import { type LoaderArgs, json, Outlet, redirect, useCatch, useLoaderData, useLocation } from '~/remix';
 import { useState, useEffect } from 'react';
 import type { AppNav } from '~/types/nav';
 import { clsx } from 'clsx';
-import { Button, Dropdown, Form, Input, Menu, Navbar } from 'react-daisyui';
+import { Drawer } from 'react-daisyui';
 import { getAuthenticator } from '~/core/services/auth/auth.server';
 import { generateConfigs } from '~/utils/auth-config.server';
+import { pagesThatDontNeedSidebar } from '~/core/constants';
 
 export const loader = async ({ request, context }: LoaderArgs) => {
   const { authConfig, sessionConfig } = generateConfigs(context);
   const authenticator = await getAuthenticator(authConfig, sessionConfig);
   const user = await authenticator.isAuthenticated(request);
+  const { pathname } = request.url;
 
-  if (!user) {
+  if (!user && pathname !== '/') {
     return redirect('/auth/login');
   }
 
   const nav_resp: Response = await getNavItems();
   const nav: AppNav = await nav_resp.json();
-  return json({ nav });
+  return json({ nav, user });
 };
 
 export default function AppLayout() {
   const [pageHeading, setPageHeading] = useState<string | null>(null);
-  const { nav } = useLoaderData<typeof loader>();
+  const { nav, user } = useLoaderData<typeof loader>();
   const { pathname } = useLocation();
   const sidebarNavigation = nav.navMenu;
   const userNavigation = nav.userMenu;
+
+  const [showSidebar, setShowSidebar] = useState(false);
+
+  const toggleSidebar = () => {
+    setShowSidebar(!showSidebar);
+  };
 
   useEffect(
     (p = pathname) => {
@@ -46,88 +52,48 @@ export default function AppLayout() {
     [pageHeading, sidebarNavigation, pathname]
   );
 
+  console.log('Show sidebar?', showSidebar);
   return (
     <>
-      <div className='flex w-full'>
-        {/** Navbar */}
-        <Navbar>
-          <Navbar.Start>
-            <Dropdown>
-              <Button color='ghost' variant='outline' tabIndex={0} className='lg:hidden'>
-                <Icon icon={bars3BottomLeft} />
-              </Button>
-              <Dropdown.Menu tabIndex={0} className='menu-compact mt-3 w-52'>
-                {sidebarNavigation.map(item => (
-                  <Dropdown.Item
-                    key={item.label}
-                    href={item.href}
-                    className={clsx({ active: pathname.startsWith(item.href) })}
-                  >
-                    {item.label}
-                  </Dropdown.Item>
-                ))}
-              </Dropdown.Menu>
-            </Dropdown>
-            {/* Only show this Logo on large screens on the left of the top navbar. */}
-            <div id='logo' className='ml-2 hidden flex-1 lg:block'>
-              <Logo />
-            </div>
-          </Navbar.Start>
-          {/* Only show this Logo on small/medium screens in the center of the top navbar. */}
-          <Navbar.Center className='lg:hidden'>
-            <div id='logo' className='ml-2 flex-1'>
-              <Logo />
-            </div>
-          </Navbar.Center>
-          <Navbar.Center className='hidden lg:flex'>
-            <Menu horizontal={true} className='p-0'>
-              {sidebarNavigation.map(item => (
-                <Menu.Item key={item.label}>
-                  <a href={item.href} className={clsx({ active: pathname.startsWith(item.href) })}>
-                    {item.label}
-                  </a>
-                </Menu.Item>
-              ))}
-            </Menu>
-          </Navbar.Center>
-          <Navbar.End>
-            <div className='flex gap-2'>
-              <Form className='hidden md:block'>
-                <Input bordered type='text' placeholder='Search' />
-              </Form>
-              <Dropdown vertical='end'>
-                <Button color='ghost' className='avatar' shape='circle'>
-                  <div className='w-10 rounded-full'>
-                    <img src='https://api.lorem.space/image/face?hash=33791' alt='avatar' />
-                  </div>
-                </Button>
-                <Dropdown.Menu className='menu-compact w-52'>
-                  {userNavigation.map(item => (
-                    <Dropdown.Item key={item.label}>{item.label}</Dropdown.Item>
-                  ))}
-                </Dropdown.Menu>
-              </Dropdown>
-            </div>
-          </Navbar.End>
-        </Navbar>
-      </div>
+      <div className='flex flex-wrap'>
+        <Drawer
+          open={showSidebar}
+          sideClassName='w-80 scroll-smooth scroll-pt-20'
+          contentClassName='scroll-behavior: smooth; scroll-padding-top: 5rem;'
+          onClickOverlay={toggleSidebar}
+          mobile={!pagesThatDontNeedSidebar.includes(pathname)}
+          side={<AppSidebar nav={sidebarNavigation} />}
+        >
+          {/* Navbar */}
+          <div className='sticky top-0 z-30 bg-opacity-90 backdrop-blur'>
+            <AppNavbar nav={userNavigation} toggle={toggleSidebar} user={user && user} />
+          </div>
 
-      {/* Content Area */}
-      <div className='z-20 flex flex-1 flex-col overflow-hidden'>
-        {/* Main content */}
-        <div className='flex flex-1 items-stretch overflow-hidden dark:bg-slate-700'>
-          <main className='flex-1 overflow-y-auto'>
-            {/* Primary column */}
-            <section aria-labelledby='primary-heading' className='flex h-full min-w-0 flex-1 flex-col lg:order-last'>
-              <h1 id='primary-heading' className='sr-only'>
-                {pageHeading}
-              </h1>
-              <div className={'p-2'}>
-                <Outlet />
-              </div>
-            </section>
-          </main>
-        </div>
+          {/* Content Area */}
+          <div
+            className={clsx('flex flex-1 flex-col overflow-hidden', {
+              'p-6 pb-16': pagesThatDontNeedSidebar.includes(pathname)
+            })}
+          >
+            {/* Main content */}
+            <div className='flex flex-1 items-stretch overflow-hidden dark:bg-slate-700'>
+              <main className='flex-1 overflow-y-auto'>
+                {/* Primary column */}
+                <section
+                  aria-labelledby='primary-heading'
+                  className='flex h-full min-w-0 flex-1 flex-col lg:order-last'
+                >
+                  <h1 id='primary-heading' className='sr-only'>
+                    {pageHeading}
+                  </h1>
+                  <div className={'p-2'}>
+                    <Outlet />
+                  </div>
+                </section>
+              </main>
+            </div>
+          </div>
+        </Drawer>
       </div>
     </>
   );

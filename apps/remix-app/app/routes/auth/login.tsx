@@ -1,4 +1,4 @@
-import { Button } from 'react-daisyui';
+import { Button, Divider } from 'react-daisyui';
 import { Logo } from '~/components';
 import { generateConfigs } from '~/utils/auth-config.server';
 import { getAuthenticator } from '~/core/services/auth/auth.server';
@@ -8,15 +8,20 @@ export const loader = async ({ request, context }: LoaderArgs) => {
   const { authConfig, sessionConfig } = generateConfigs(context);
   const authenticator = await getAuthenticator(authConfig, sessionConfig);
   await authenticator.isAuthenticated(request, {
-    successRedirect: '/'
+    successRedirect: '/dashboard'
   });
+
+  return null;
 };
 
 export default function Login() {
   return (
     <>
-      <div className='justify-center sm:mx-auto sm:w-full sm:max-w-md'>
-        <Logo />
+      <div className='justify-center justify-items-center sm:mx-auto sm:w-full sm:max-w-md'>
+        <div>
+          <Logo href={'/'} />
+        </div>
+        <Divider />
         <h2 className='mt-6 text-center text-3xl font-bold tracking-tight'>Sign in to your account</h2>
       </div>
 
@@ -64,7 +69,7 @@ export default function Login() {
             {/*</div>*/}
 
             <div>
-              <Button type='submit' variant='outline' color='primary' responsive={true} fullWidth={true}>
+              <Button type='submit' variant='outline' color='primary' fullWidth={true}>
                 Sign in
               </Button>
             </div>
