@@ -32,11 +32,15 @@ export default function AppLayout() {
   const userNavigation = nav.userMenu;
 
   const [showSidebar, setShowSidebar] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const toggleSidebar = () => {
     setShowSidebar(!showSidebar);
-    console.log('Sidebar toggle invoked');
   };
+
+  useEffect(() => {
+    window.matchMedia('(min-width: 768px)').addEventListener('change', e => setIsMobile(e.matches));
+  });
 
   useEffect(
     (p = pathname) => {
@@ -59,15 +63,15 @@ export default function AppLayout() {
         <Drawer
           open={showSidebar}
           sideClassName={clsx(
-            'hidden items-top gap-2 px-4 py-2',
+            'hidden items-top gap-2',
             {
               'lg:flex': pathname !== '/'
             },
-            'w-80 scroll-smooth scroll-pt-20'
+            'scroll-smooth scroll-pt-20'
           )}
           onClickOverlay={toggleSidebar}
-          mobile={!pagesThatDontNeedSidebar.includes(pathname)}
-          side={<AppSidebar nav={sidebarNavigation} />}
+          mobile={!pagesThatDontNeedSidebar.includes(pathname) || isMobile}
+          side={<AppSidebar nav={sidebarNavigation} toggle={toggleSidebar} />}
         >
           {/* Navbar */}
           <div className='sticky top-0 z-30 bg-opacity-90 backdrop-blur'>
