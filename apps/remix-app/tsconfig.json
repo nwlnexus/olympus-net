@@ -7,7 +7,8 @@
     "**/*.tsx",
     "**/*.js",
     "**/*.jsx",
-    "../../packages/cloudflare-env/index.d.ts"
+    "../../packages/cloudflare-env/index.d.ts",
+    "../../packages/react-autocomplete-pure-nwl/src/types.ts"
   ],
   "exclude": ["node_modules", "build", "public/build"],
   "types": [

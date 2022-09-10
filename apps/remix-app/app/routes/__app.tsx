@@ -14,6 +14,7 @@ export const loader = async ({ request, context }: LoaderArgs) => {
   const authenticator = await getAuthenticator(authConfig, sessionConfig);
   const user = await authenticator.isAuthenticated(request);
 
+  // TODO: Correct this to block access to all other pages but main page and about
   if (!user) {
     return redirect('/auth/login');
   }

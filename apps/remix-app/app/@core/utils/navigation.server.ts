@@ -3,7 +3,7 @@ import { json } from '~/remix';
 
 export async function getNavItems() {
   // TODO: Build this out to be more dynamic.
-  //  Maybe even consider calling a worker or KV
+  // Maybe even consider calling a worker or KV
 
   const navMenu: NavMenu | [] = [
     {
