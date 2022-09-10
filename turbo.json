@@ -8,6 +8,9 @@
       "cache": false,
       "outputs": []
     },
+    "clean": {
+      "cache": false
+    },
     "dev": {
       "cache": false
     },

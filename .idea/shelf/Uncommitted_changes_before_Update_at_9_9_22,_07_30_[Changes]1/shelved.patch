@@ -1,0 +1,50 @@
+Index: package.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/package.json b/package.json
+--- a/package.json	
++++ b/package.json	
+@@ -9,6 +9,7 @@
+   ],
+   "scripts": {
+     "build": "turbo run build",
++    "clean": "turbo run clean",
+     "dev": "turbo run dev --parallel",
+     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,md,yml}\"",
+     "lint": "turbo run lint",
+Index: turbo.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/turbo.json b/turbo.json
+--- a/turbo.json	
++++ b/turbo.json	
+@@ -4,6 +4,9 @@
+       "dependsOn": ["^build"],
+       "outputs": ["build/**", "public/build/**", ".cache/**"]
+     },
++    "clean": {
++      "cache": false
++    },
+     "dev": {
+       "cache": false
+     },
+Index: package-lock.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/package-lock.json b/package-lock.json
+--- a/package-lock.json	
++++ b/package-lock.json	
+@@ -102,6 +102,7 @@
+       }
+     },
+     "apps/remix-app": {
++      "name": "olympus-remix-app",
+       "hasInstallScript": true,
+       "dependencies": {
+         "@cloudflare/kv-asset-handler": "^0.2.0",

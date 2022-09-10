@@ -14,7 +14,7 @@
     "dev:remix": "remix watch",
     "dev:wrangler": "wrangler dev --local --experimental-enable-local-persistence --node-compat",
     "format": "prettier --write \"./app/**/*.{ts,tsx}\"",
-    "postinstall": "remix-esbuild-override && rmx gen-remix --config ./gen-remix.config.json",
+    "postinstall": "patch-package && remix-esbuild-override && rmx gen-remix --config ./gen-remix.config.json",
     "lint": "eslint --ext .tsx,.ts --ignore-path node_modules app",
     "lint:fix": "npm run lint -- --fix",
     "typecheck": "tsc -b"
@@ -22,6 +22,7 @@
   "sideEffects": false,
   "dependencies": {
     "@cloudflare/kv-asset-handler": "^0.2.0",
+    "@n8tb1t/use-scroll-position": "^2.0.3",
     "@remix-run/cloudflare": "^1.7.0",
     "@remix-run/cloudflare-workers": "^1.7.0",
     "@remix-run/react": "^1.7.0",
@@ -60,6 +61,7 @@
     "eslint-config-custom": "*",
     "jest": "^29.0.1",
     "npm-run-all": "^4.1.5",
+    "patch-package": "^6.4.7",
     "postcss": "^8.4.16",
     "postcss-cli": "^10.0.0",
     "postcss-import": "^15.0.0",

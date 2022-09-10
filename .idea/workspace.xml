@@ -5,18 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fc575d98-ede5-4dfb-9618-2b74da139d96" name="Changes" comment="Got Login working with redirect.&#10;[TODO] Build out logout.&#10;[TODO] Build session retrieval/destruction.&#10;[TODO] Build out User menu and nav.">
-      <change afterPath="$PROJECT_DIR$/apps/remix-app/app/@core/components/AppNavbar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/remix-app/app/@core/components/AppSidebar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/remix-app/app/routes/auth/logout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/remix-app/app/@core/components/ThemeChanger.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patches/@n8tb1t+use-scroll-position+2.0.3.patch" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/remix-app/app/@core/components/Logo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/@core/components/Logo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/remix-app/app/@core/components/AppNavbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/@core/components/AppNavbar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/remix-app/app/@core/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/@core/components/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/remix-app/app/@core/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/@core/constants.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/remix-app/app/@core/utils/auth-config.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/@core/utils/auth-config.server.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/remix-app/app/@core/utils/navigation.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/@core/utils/navigation.server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/remix-app/app/@core/services/auth/auth.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/@core/services/auth/auth.server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/remix-app/app/@core/types/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/@core/types/user.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/remix-app/app/routes/__app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/routes/__app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/remix-app/app/routes/auth/login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/routes/auth/login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/cloudflare-env/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/cloudflare-env/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/remix-app/app/routes/__app/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/routes/__app/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/remix-app/app/routes/__app/tunnels/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/routes/__app/tunnels/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/remix-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turbo.json" beforeDir="false" afterPath="$PROJECT_DIR$/turbo.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

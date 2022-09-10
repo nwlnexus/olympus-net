@@ -16,8 +16,11 @@ export const getAuthenticator = async (authConfig: AuthConfig, sesssionConfig: S
   let auth0Strategy = new Auth0Strategy(authConfig, async ({ profile }) => {
     return {
       id: profile.id,
-      displayName: profile.displayName,
-      email: profile.emails[0].value
+      displayName: profile._json.name,
+      email: profile._json.email,
+      email_verified: profile._json.email_verified,
+      picture: profile._json.picture,
+      nickname: profile._json.nickname
     };
   });
   authenticator.use(auth0Strategy);

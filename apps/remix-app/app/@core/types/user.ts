@@ -1,5 +1,8 @@
 export interface User {
   id: string;
-  email: string;
   displayName: string;
+  email: string;
+  email_verified: boolean;
+  nickname: string;
+  picture: string | undefined;
 }

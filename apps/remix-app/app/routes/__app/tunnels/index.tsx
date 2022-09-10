@@ -1,10 +1,10 @@
 import { json, type LoaderArgs, useLoaderData } from '~/remix';
 import type { CFTunnelResp } from '~/types/tunnels';
-import { CF_API_URL } from '~/core/constants';
+import { cfApiUrl } from '~/core/constants';
 import { Table } from 'react-daisyui';
 
 export const loader = async ({ context }: LoaderArgs) => {
-  const resp = await fetch(`${CF_API_URL}/accounts/${context.env.CLOUDFLARE_ACCOUNT_ID}/cfd_tunnel`, {
+  const resp = await fetch(`${cfApiUrl}/accounts/${context.env.CLOUDFLARE_ACCOUNT_ID}/cfd_tunnel`, {
     headers: {
       'content-type': 'application/json',
       Authorization: `Bearer ${context.env.CLOUDFLARE_API_TOKEN}`

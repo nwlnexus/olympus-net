@@ -2,7 +2,7 @@ import { Avatar, Button, Dropdown, Form, Input, Navbar, Tooltip } from 'react-da
 import { clsx } from 'clsx';
 import { Icon } from '@iconify/react';
 import bars3BottomLeft from '@iconify/icons-heroicons/bars-3-bottom-left';
-import { Logo } from '~/components/Logo';
+import { Logo, ThemeChanger } from '~/components';
 import type { NavMenu } from '~/types/nav';
 import { useLocation } from '~/remix';
 import type { User } from '~/types/user';
@@ -39,7 +39,12 @@ export function AppNavbar({ nav, toggle, user }: AppNavbarProps) {
       </Navbar.Center>
       <Navbar.End>
         <div className='flex gap-2'>
-          {user && (
+          <ThemeChanger />
+          {user === null ? (
+            <Button href={'./auth/login'} color={'primary'} animation={true}>
+              Log in
+            </Button>
+          ) : (
             <Dropdown vertical='end'>
               <Button color='ghost' className='avatar' shape='circle'>
                 <Avatar shape='circle' size='xs' letters={user.displayName.at(0)} />
