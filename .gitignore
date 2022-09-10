@@ -19,3 +19,8 @@ wrangler-local-state
 
 .DS_Store
 .turbo
+
+.idea/**/*.iml
+.idea/workspace.xml
+.idea/shelf
+.idea/usage.statistics.xml
