@@ -1,14 +1,13 @@
 import { AppSidebar, AppNavbar } from '~/components';
 import { getNavItems } from '~/utils/navigation.server';
 import { type LoaderArgs, json, Outlet, redirect, useCatch, useLoaderData, useLocation } from '~/remix';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import type { AppNav } from '~/types/nav';
 import { clsx } from 'clsx';
 import { Drawer } from 'react-daisyui';
 import { getAuthenticator } from '~/core/services/auth/auth.server';
 import { generateConfigs } from '~/utils/auth-config.server';
 import { pagesThatDontNeedSidebar } from '~/core/constants';
-import { useScrollPosition } from '@n8tb1t/use-scroll-position';
 
 export const loader = async ({ request, context }: LoaderArgs) => {
   const { authConfig, sessionConfig } = generateConfigs(context);
@@ -32,33 +31,11 @@ export default function AppLayout() {
   const userNavigation = nav.userMenu;
 
   const [showSidebar, setShowSidebar] = useState(false);
-  const [headerLogoStyle, setHeaderLogoStyle] = useState({
-    transition: 'all 200ms ease-in'
-  });
-  const drawerContentRef = useRef(null);
 
   const toggleSidebar = () => {
     setShowSidebar(!showSidebar);
+    console.log('Sidebar toggle invoked');
   };
-
-  useScrollPosition(
-    ({ currPos }) => {
-      const isVisible = currPos.y > 40;
-
-      const shouldBeStyle = {
-        visibility: isVisible ? 'visible' : 'hidden',
-        transition: `all 200ms ${isVisible ? 'ease-in' : 'ease-out'}`,
-        transform: isVisible ? 'none' : 'translate(0, -100%)'
-      };
-
-      if (JSON.stringify(shouldBeStyle) === JSON.stringify(headerLogoStyle)) return;
-      setHeaderLogoStyle(shouldBeStyle);
-      console.log(headerLogoStyle);
-    },
-    [headerLogoStyle],
-    drawerContentRef,
-    false
-  );
 
   useEffect(
     (p = pathname) => {
@@ -80,8 +57,13 @@ export default function AppLayout() {
       <div className='flex flex-wrap'>
         <Drawer
           open={showSidebar}
-          sideClassName='w-80 scroll-smooth scroll-pt-20'
-          contentClassName='scroll-behavior: smooth; scroll-padding-top: 5rem;'
+          sideClassName={clsx(
+            'hidden items-top gap-2 px-4 py-2',
+            {
+              'lg:flex': pathname !== '/'
+            },
+            'w-80 scroll-smooth scroll-pt-20'
+          )}
           onClickOverlay={toggleSidebar}
           mobile={!pagesThatDontNeedSidebar.includes(pathname)}
           side={<AppSidebar nav={sidebarNavigation} />}

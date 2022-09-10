@@ -53,7 +53,7 @@ export default function Index() {
           egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et
           sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, <code>commodo vitae</code>, ornare sit
           amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus
-          enim ac dui. <a href='#'>Donec non enim</a> in turpis pulvinar facilisis. Ut felis.
+          enim ac dui. <a href='~/routes/index#'>Donec non enim</a> in turpis pulvinar facilisis. Ut felis.
         </p>
 
         <h2>Header Level 2</h2>
@@ -111,7 +111,7 @@ export default function Index() {
           egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et
           sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, <code>commodo vitae</code>, ornare sit
           amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus
-          enim ac dui. <a href='#'>Donec non enim</a> in turpis pulvinar facilisis. Ut felis.
+          enim ac dui. <a href='~/routes/index#'>Donec non enim</a> in turpis pulvinar facilisis. Ut felis.
         </p>
 
         <h2>Header Level 2</h2>

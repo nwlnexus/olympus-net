@@ -4,21 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc575d98-ede5-4dfb-9618-2b74da139d96" name="Changes" comment="Got Login working with redirect.&#10;[TODO] Build out logout.&#10;[TODO] Build session retrieval/destruction.&#10;[TODO] Build out User menu and nav.">
-      <change afterPath="$PROJECT_DIR$/apps/remix-app/app/@core/components/ThemeChanger.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/patches/@n8tb1t+use-scroll-position+2.0.3.patch" afterDir="false" />
+    <list default="true" id="fc575d98-ede5-4dfb-9618-2b74da139d96" name="Changes" comment="Working on UI flow">
+      <change afterPath="$PROJECT_DIR$/apps/remix-app/app/@core/components/AppSearch.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/remix-app/app/@core/components/AppNavbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/@core/components/AppNavbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/remix-app/app/@core/components/AppSidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/@core/components/AppSidebar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/remix-app/app/@core/components/ThemeChanger.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/@core/components/ThemeChanger.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/remix-app/app/@core/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/@core/components/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/remix-app/app/@core/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/@core/constants.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/remix-app/app/@core/services/auth/auth.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/@core/services/auth/auth.server.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/remix-app/app/@core/types/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/@core/types/user.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/remix-app/app/routes/__app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/routes/__app.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/remix-app/app/routes/__app/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/routes/__app/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/remix-app/app/routes/__app/tunnels/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/app/routes/__app/tunnels/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/remix-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/remix-app/styles/tailwind.css" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/styles/tailwind.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/remix-app/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/apps/remix-app/tailwind.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turbo.json" beforeDir="false" afterPath="$PROJECT_DIR$/turbo.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,11 +73,11 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/apps/remix-app/app/routes/auth" />
+      <recent name="$PROJECT_DIR$/apps/remix-app/app/routes/__app" />
       <recent name="$PROJECT_DIR$/apps/remix-app/app/routes" />
+      <recent name="$PROJECT_DIR$/apps/remix-app/app/routes/auth" />
       <recent name="$PROJECT_DIR$/apps/olympus-remix-app" />
       <recent name="$PROJECT_DIR$/apps/olympus-remix-app/types" />
-      <recent name="$PROJECT_DIR$/apps/remix-app" />
     </key>
   </component>
   <component name="RunManager">
@@ -112,6 +111,7 @@
       <workItem from="1662587818969" duration="226000" />
       <workItem from="1662590309014" duration="16633000" />
       <workItem from="1662667469159" duration="14021000" />
+      <workItem from="1662818888719" duration="5548000" />
     </task>
     <task id="LOCAL-00001" summary="Moved to monorepo format and structure">
       <created>1662547736892</created>

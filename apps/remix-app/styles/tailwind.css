@@ -10,4 +10,12 @@
   body {
     @apply h-full;
   }
+
+  .navbar-center {
+    @apply flex-1 w-1/2;
+  }
+
+  .navbar-start, .navbar-end {
+    @apply flex-1 w-1/4;
+  }
 }
