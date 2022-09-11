@@ -7,7 +7,7 @@ type SessionConfig = {
 };
 
 const appSessionStorage = async ({ tag, secrets, kv }: SessionConfig) => {
-  return createCloudflareKVSessionStorage({
+  const sessionStorage = createCloudflareKVSessionStorage({
     cookie: {
       name: tag, // use any name you want here
       sameSite: 'lax', // this helps with CSRF
@@ -18,6 +18,10 @@ const appSessionStorage = async ({ tag, secrets, kv }: SessionConfig) => {
     },
     kv
   });
+
+  const { getSession, commitSession, destroySession } = sessionStorage;
+
+  return { sessionStorage, getSession, commitSession, destroySession };
 };
 
 export { type SessionConfig, appSessionStorage };

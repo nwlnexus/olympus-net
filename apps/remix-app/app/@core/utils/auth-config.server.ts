@@ -1,5 +1,5 @@
-import type { AuthConfig } from '~/core/services/auth/auth.server';
-import type { SessionConfig } from '~/core/services/auth/session.server';
+import type { AuthConfig } from '~/services/auth/auth.server';
+import type { SessionConfig } from '~/services/auth/session.server';
 import type { LoaderArgs } from '~/remix';
 
 export function generateConfigs(context: LoaderArgs) {

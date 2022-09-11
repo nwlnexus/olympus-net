@@ -11,9 +11,11 @@ type AuthConfig = {
 };
 
 const getAuthenticator = async (authConfig: AuthConfig, sesssionConfig: SessionConfig) => {
-  const authenticator = new Authenticator<User>(await appSessionStorage(sesssionConfig));
+  const { sessionStorage } = await appSessionStorage(sesssionConfig);
+  const authenticator = new Authenticator<User>(sessionStorage);
 
   let auth0Strategy = new Auth0Strategy(authConfig, async ({ profile }) => {
+    console.log(profile);
     return {
       id: profile.id,
       displayName: profile._json.name,

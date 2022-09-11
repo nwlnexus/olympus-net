@@ -3,24 +3,22 @@ import { clsx } from 'clsx';
 import { Icon } from '@iconify/react';
 import bars3BottomLeft from '@iconify/icons-heroicons/bars-3-bottom-left';
 import { AppSearch, Logo, ThemeChanger } from '~/components';
-import type { NavMenu } from '~/types/nav';
 import { useLocation } from '~/remix';
-import type { User } from '~/types/user';
+import type { User } from '~/types';
 
 type AppNavbarProps = {
-  nav: NavMenu;
-  toggle: () => void;
+  toggleMenu: () => void;
   user: User | null;
 };
 
-export function AppNavbar({ nav, toggle, user }: AppNavbarProps) {
+export function AppNavbar({ toggleMenu, user }: AppNavbarProps) {
   const { pathname } = useLocation();
 
   return (
     <Navbar>
       <div className='flex flex-1 md:gap-1 lg:gap-2'>
         <Tooltip message='Menu' position='bottom'>
-          <Button color='ghost' tabIndex={0} onClick={toggle} className={clsx({ 'lg:hidden': pathname !== '/' })}>
+          <Button color='ghost' tabIndex={0} onClick={toggleMenu} className={clsx({ 'lg:hidden': pathname !== '/' })}>
             <Icon icon={bars3BottomLeft} width={20} height={20} className='inline-block h-5 w-5 md:h-6 md:w-6' />
           </Button>
         </Tooltip>
@@ -45,11 +43,9 @@ export function AppNavbar({ nav, toggle, user }: AppNavbarProps) {
               <Avatar shape='circle' size='xs' letters={user.displayName.at(0)} />
             </Button>
             <Dropdown.Menu className='menu-compact w-52'>
-              {nav.map(item => (
-                <Dropdown.Item key={item.label} href={item.href}>
-                  {item.label}
-                </Dropdown.Item>
-              ))}
+              <Dropdown.Item href={'/profile'}>Profile</Dropdown.Item>
+              <div className='mt-2 h-2 border-t' />
+              <Dropdown.Item href='/auth/logout'>Sign Out</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
         )}

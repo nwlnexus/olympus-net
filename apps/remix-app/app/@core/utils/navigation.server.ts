@@ -1,4 +1,4 @@
-import type { NavMenu } from '~/types/nav';
+import type { NavMenu } from '~/types';
 import { json } from '~/remix';
 
 export async function getNavItems() {
@@ -37,19 +37,8 @@ export async function getNavItems() {
       icon: 'heroicons:cog'
     }
   ];
-  const userMenu: NavMenu | [] = [
-    {
-      href: '/profile',
-      label: 'Profile'
-    },
-    {
-      href: '/auth/logout',
-      label: 'Sign Out'
-    }
-  ];
 
   return json({
-    navMenu,
-    userMenu
+    navMenu
   });
 }

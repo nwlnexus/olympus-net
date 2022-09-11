@@ -1,4 +1,4 @@
-import type { CFTunnel } from '~/types/tunnels';
+import type { CFTunnel } from '~/types';
 import { Card, Collapse } from 'react-daisyui';
 
 type TunnelViewProps = {

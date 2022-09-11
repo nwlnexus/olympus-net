@@ -2,12 +2,12 @@ import { AppSidebar, AppNavbar } from '~/components';
 import { getNavItems } from '~/utils/navigation.server';
 import { type LoaderArgs, json, Outlet, useCatch, useLoaderData, useLocation, redirect } from '~/remix';
 import { useState, useEffect } from 'react';
-import type { AppNav } from '~/types/nav';
+import type { AppNav } from '~/types';
 import { clsx } from 'clsx';
 import { Drawer } from 'react-daisyui';
 import { pagesThatDontNeedSidebar } from '~/core/constants';
 import { generateConfigs } from '~/utils/auth-config.server';
-import { getAuthenticator } from '~/core/services/auth/auth.server';
+import { getAuthenticator } from '~/services/auth/auth.server';
 
 export const loader = async ({ request, context }: LoaderArgs) => {
   const { authConfig, sessionConfig } = generateConfigs(context);
@@ -15,7 +15,6 @@ export const loader = async ({ request, context }: LoaderArgs) => {
   const user = await authenticator.isAuthenticated(request);
   const { pathname } = new URL(request.url);
 
-  // TODO: Correct this to block access to all other pages but main page and about
   if (pathname !== '/' && !user) {
     return redirect('/auth/login');
   }
@@ -30,7 +29,6 @@ export default function AppLayout() {
   const { nav, user } = useLoaderData<typeof loader>();
   const { pathname } = useLocation();
   const sidebarNavigation = nav.navMenu;
-  const userNavigation = nav.userMenu;
 
   const [showSidebar, setShowSidebar] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -62,6 +60,7 @@ export default function AppLayout() {
     <>
       <div className='flex flex-wrap'>
         <Drawer
+          id='main-menu'
           open={showSidebar}
           sideClassName={clsx(
             'hidden items-top gap-2',
@@ -76,7 +75,7 @@ export default function AppLayout() {
         >
           {/* Navbar */}
           <div className='sticky top-0 z-30 flex h-16 w-full justify-center bg-opacity-90 backdrop-blur duration-100'>
-            <AppNavbar nav={userNavigation} toggle={toggleSidebar} user={user} />
+            <AppNavbar toggleMenu={toggleSidebar} user={user} />
           </div>
 
           {/* Content Area */}
