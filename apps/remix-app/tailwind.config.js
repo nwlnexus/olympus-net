@@ -2,8 +2,8 @@
 module.exports = {
   content: [
     './app/**/*.{js,ts,jsx,tsx}',
-    '../../node_modules/daisyui/dist/**/*.js',
-    '../../node_modules/react-daisyui/dist/**/*.js'
+    './node_modules/daisyui/dist/**/*.js',
+    './node_modules/react-daisyui/dist/**/*.js'
   ],
   darkMode: 'class',
   theme: {
@@ -47,7 +47,7 @@ module.exports = {
   },
   daisyui: {
     styled: true,
-    themes: ['night', 'dracula', 'emerald'],
+    themes: ['night', 'dracula', 'emerald', 'valentine', 'autumn'],
     base: true,
     utils: true,
     logs: true,

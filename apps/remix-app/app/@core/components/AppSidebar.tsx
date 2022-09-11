@@ -13,15 +13,16 @@ type AppSidebarProps = {
 export function AppSidebar({ nav, toggle }: AppSidebarProps) {
   const { pathname } = useLocation();
   return (
-    <div className='w-80 overflow-y-auto bg-base-100 text-base-content'>
+    <div className='w-80 overflow-y-auto bg-base-100 p-0 text-base-content'>
       <div
         className={clsx(
-          'item-center sticky top-0 z-20 hidden gap-2 bg-base-200 bg-opacity-90 px-4 py-2 backdrop-blur',
-          { 'lg:flex': pathname === '/' }
+          'sticky top-0 z-20 hidden items-center gap-2 bg-base-200 bg-opacity-90 px-4 py-2 backdrop-blur',
+          { 'lg:flex': pathname !== '/' }
         )}
       >
-        <Logo />
+        <Logo showVersion={true} />
       </div>
+      <div className='h-4' />
       <Menu vertical={true} className='p-0'>
         {nav.map(item => (
           <Menu.Item key={item.label} className='hover-bordered'>

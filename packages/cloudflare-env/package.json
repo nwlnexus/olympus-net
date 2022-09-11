@@ -10,8 +10,8 @@
   "devDependencies": {
     "@cloudflare/workers-types": "^3.14.1",
     "eslint": "^8.15.0",
-    "eslint-config-custom": "*",
-    "tsconfig": "*",
+    "eslint-config-custom": "workspace:*",
+    "tsconfig": "workspace:*",
     "typescript": "^4.6.4"
   }
 }

@@ -8,8 +8,6 @@ interface LocationEntity {
 export const loader = async ({ context }: LoaderArgs) => {
   const kvLocs: LocationEntity[] | null = await context.env.HELIOS_KV.get('locations', { type: 'json' });
 
-  await context.env.HELIOS_KV.put('testing1', 'something');
-
   return json(kvLocs);
 };
 

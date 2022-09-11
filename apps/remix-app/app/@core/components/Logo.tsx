@@ -1,16 +1,17 @@
 import { clsx } from 'clsx';
-import { useLocation } from '~/remix';
+import { NavLink, useLocation } from '~/remix';
 
 type LogoProps = {
   href?: string;
+  showVersion?: boolean;
 };
 
-export function Logo({ href = '/' }: LogoProps) {
+export function Logo({ href = '/', showVersion = false }: LogoProps) {
   const { pathname } = useLocation();
 
   return (
     <>
-      <a href={href}>
+      <NavLink to={href} className='btn btn-ghost px-2'>
         <div className={'inline-flex text-lg text-primary transition-all duration-100 md:text-3xl'}>
           <span className={clsx('mr-2 lowercase', { 'text-primary': pathname !== '/' })}>helios</span>
           <span
@@ -21,7 +22,8 @@ export function Logo({ href = '/' }: LogoProps) {
             ui
           </span>
         </div>
-      </a>
+      </NavLink>
+      {showVersion && <NavLink to={'/docs/changlog'}>1.0.0</NavLink>}
     </>
   );
 }

@@ -1,21 +1,23 @@
 import { AppSidebar, AppNavbar } from '~/components';
 import { getNavItems } from '~/utils/navigation.server';
 import { type LoaderArgs, json, Outlet, redirect, useCatch, useLoaderData, useLocation } from '~/remix';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import type { AppNav } from '~/types/nav';
 import { clsx } from 'clsx';
 import { Drawer } from 'react-daisyui';
 import { getAuthenticator } from '~/core/services/auth/auth.server';
 import { generateConfigs } from '~/utils/auth-config.server';
 import { pagesThatDontNeedSidebar } from '~/core/constants';
+import { useScrollPosition } from '@n8tb1t/use-scroll-position';
 
 export const loader = async ({ request, context }: LoaderArgs) => {
   const { authConfig, sessionConfig } = generateConfigs(context);
   const authenticator = await getAuthenticator(authConfig, sessionConfig);
   const user = await authenticator.isAuthenticated(request);
+  const { pathname } = new URL(request.url);
 
   // TODO: Correct this to block access to all other pages but main page and about
-  if (!user) {
+  if (pathname !== '/' && !user) {
     return redirect('/auth/login');
   }
 
@@ -33,10 +35,21 @@ export default function AppLayout() {
 
   const [showSidebar, setShowSidebar] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const drawerContentRef = useRef(null);
 
   const toggleSidebar = () => {
     setShowSidebar(!showSidebar);
   };
+
+  useScrollPosition(
+    ({ currPos }) => {
+      console.log(currPos);
+    },
+    [],
+    drawerContentRef,
+    false,
+    300
+  );
 
   useEffect(() => {
     window.matchMedia('(min-width: 768px)').addEventListener('change', e => setIsMobile(e.matches));
@@ -74,12 +87,13 @@ export default function AppLayout() {
           side={<AppSidebar nav={sidebarNavigation} toggle={toggleSidebar} />}
         >
           {/* Navbar */}
-          <div className='sticky top-0 z-30 bg-opacity-90 backdrop-blur'>
+          <div className='sticky top-0 z-30 flex h-16 w-full justify-center bg-opacity-90 backdrop-blur duration-100'>
             <AppNavbar nav={userNavigation} toggle={toggleSidebar} user={user} />
           </div>
 
           {/* Content Area */}
           <div
+            ref={drawerContentRef}
             className={clsx('flex flex-1 flex-col overflow-hidden', {
               'p-6 pb-16': pagesThatDontNeedSidebar.includes(pathname)
             })}

@@ -16,8 +16,9 @@
     "typecheck": "turbo run typecheck"
   },
   "devDependencies": {
-    "@parcel/transformer-typescript-types": "^2.7.0",
+    "esbuild": "^0.15.7",
     "esbuild-register": "^3.3.3",
+    "eslint-config-custom": "workspace:*",
     "prettier": "^2.7.1",
     "prettier-package-json": "^2.6.4",
     "prettier-plugin-tailwindcss": "^0.1.13",

@@ -3,6 +3,7 @@ import { Logo } from '~/components';
 import { generateConfigs } from '~/utils/auth-config.server';
 import { getAuthenticator } from '~/core/services/auth/auth.server';
 import type { LoaderArgs } from '~/remix';
+import { Form } from '~/remix';
 
 export const loader = async ({ request, context }: LoaderArgs) => {
   const { authConfig, sessionConfig } = generateConfigs(context);
@@ -17,9 +18,9 @@ export const loader = async ({ request, context }: LoaderArgs) => {
 export default function Login() {
   return (
     <>
-      <div className='justify-center justify-items-center sm:mx-auto sm:w-full sm:max-w-md'>
-        <div>
-          <Logo href={'/'} />
+      <div className='justify-center place-items-center sm:mx-auto sm:w-full sm:max-w-md'>
+        <div className='flex justify-center'>
+          <Logo />
         </div>
         <Divider />
         <h2 className='mt-6 text-center text-3xl font-bold tracking-tight'>Sign in to your account</h2>
@@ -27,53 +28,11 @@ export default function Login() {
 
       <div className='mt-8 sm:mx-auto sm:w-full sm:max-w-md'>
         <div className='py-8 px-4 shadow sm:rounded-lg sm:px-10'>
-          <form className='space-y-6' action='/auth' method='POST'>
-            {/*<div>*/}
-            {/*  <label htmlFor='email' className='label'>*/}
-            {/*    <span className='label-text'>Email address</span>*/}
-            {/*  </label>*/}
-            {/*  <div className='mt-1'>*/}
-            {/*    <Input*/}
-            {/*      id='email'*/}
-            {/*      name='email'*/}
-            {/*      type='email'*/}
-            {/*      autoComplete='email'*/}
-            {/*      required*/}
-            {/*      className='block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm'*/}
-            {/*    />*/}
-            {/*  </div>*/}
-            {/*</div>*/}
-
-            {/*<div>*/}
-            {/*  <label htmlFor='password' className='label'>*/}
-            {/*    <span className='label-text'>Password</span>*/}
-            {/*  </label>*/}
-            {/*  <div className='mt-1'>*/}
-            {/*    <Input*/}
-            {/*      id='password'*/}
-            {/*      name='password'*/}
-            {/*      type='password'*/}
-            {/*      autoComplete='current-password'*/}
-            {/*      required*/}
-            {/*      className='block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm'*/}
-            {/*    />*/}
-            {/*  </div>*/}
-            {/*</div>*/}
-
-            {/*<div className='flex items-center justify-between'>*/}
-            {/*  <div className='text-sm'>*/}
-            {/*    <a href='/auth/forgot-password' className='font-medium text-primary hover:text-accent-focus'>*/}
-            {/*      Forgot your password?*/}
-            {/*    </a>*/}
-            {/*  </div>*/}
-            {/*</div>*/}
-
-            <div>
-              <Button type='submit' variant='outline' color='primary' fullWidth={true}>
-                Sign in
-              </Button>
-            </div>
-          </form>
+          <Form className='space-y-6' action='/auth' method='post'>
+            <Button type='submit' variant='outline' color='primary' fullWidth={true}>
+              Sign in
+            </Button>
+          </Form>
 
           {/*<div className='mt-6'>*/}
           {/*  <div className='relative'>*/}

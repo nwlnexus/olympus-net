@@ -19,7 +19,7 @@ export function AppNavbar({ nav, toggle, user }: AppNavbarProps) {
   return (
     <Navbar>
       <div className='flex flex-1 md:gap-1 lg:gap-2'>
-        <Tooltip message='Menu' position='right'>
+        <Tooltip message='Menu' position='bottom'>
           <Button color='ghost' tabIndex={0} onClick={toggle} className={clsx({ 'lg:hidden': pathname !== '/' })}>
             <Icon icon={bars3BottomLeft} width={20} height={20} className='inline-block h-5 w-5 md:h-6 md:w-6' />
           </Button>
@@ -36,12 +36,12 @@ export function AppNavbar({ nav, toggle, user }: AppNavbarProps) {
       <div className='flex-0'>
         <ThemeChanger />
         {user === null ? (
-          <Button href={'./auth/login'} color={'primary'} animation={true}>
+          <Button href={'./auth/login'} color={'primary'} animation={true} className='ml-2'>
             Log in
           </Button>
         ) : (
           <Dropdown vertical='end'>
-            <Button color='ghost' className='avatar' shape='circle'>
+            <Button color='ghost' className='avatar ml-1' shape='circle'>
               <Avatar shape='circle' size='xs' letters={user.displayName.at(0)} />
             </Button>
             <Dropdown.Menu className='menu-compact w-52'>

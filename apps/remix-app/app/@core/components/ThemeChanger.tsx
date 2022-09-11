@@ -18,11 +18,11 @@ export function ThemeChanger() {
           <Icon icon={swatchIcon} width={20} height={20} className='inline-block h-5 w-5 md:h-6 md:w-6' />
           <Icon icon={chevronDown} className='ml-1 hidden h-3 w-3 opacity-60 sm:inline-block' />
         </Dropdown.Toggle>
-        <Dropdown.Menu className='dropdown-content rounded-t-box rounded-b-box top-px mt-16 h-[70vh] max-h-96 w-52 overflow-y-auto bg-base-200 text-base-content shadow-2xl'>
+        <div className='dropdown-content rounded-t-box rounded-b-box top-px mt-16 max-h-96 w-52 overflow-y-auto bg-base-200 text-base-content shadow-2xl'>
           <div className='grid grid-cols-1 gap-3 p-3' tabIndex={0}>
             {themeOptions.map((item, idx) => (
-              <Dropdown.Item key={idx} data-set-theme={item}>
                 <div
+                  key={idx}
                   className='overflow-hidden rounded-lg outline outline-2 outline-offset-2 outline-base-content'
                   data-set-theme={item}
                   data-act-class='outline'
@@ -41,10 +41,9 @@ export function ThemeChanger() {
                     </div>
                   </div>
                 </div>
-              </Dropdown.Item>
             ))}
           </div>
-        </Dropdown.Menu>
+        </div>
       </Dropdown>
     </>
   );
