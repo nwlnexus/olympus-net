@@ -1,14 +1,13 @@
 import { AppSidebar, AppNavbar } from '~/components';
 import { getNavItems } from '~/utils/navigation.server';
-import { type LoaderArgs, json, Outlet, redirect, useCatch, useLoaderData, useLocation } from '~/remix';
-import { useState, useEffect, useRef } from 'react';
+import { type LoaderArgs, json, Outlet, useCatch, useLoaderData, useLocation, redirect } from '~/remix';
+import { useState, useEffect } from 'react';
 import type { AppNav } from '~/types/nav';
 import { clsx } from 'clsx';
 import { Drawer } from 'react-daisyui';
-import { getAuthenticator } from '~/core/services/auth/auth.server';
-import { generateConfigs } from '~/utils/auth-config.server';
 import { pagesThatDontNeedSidebar } from '~/core/constants';
-import { useScrollPosition } from '@n8tb1t/use-scroll-position';
+import { generateConfigs } from '~/utils/auth-config.server';
+import { getAuthenticator } from '~/core/services/auth/auth.server';
 
 export const loader = async ({ request, context }: LoaderArgs) => {
   const { authConfig, sessionConfig } = generateConfigs(context);
@@ -35,25 +34,14 @@ export default function AppLayout() {
 
   const [showSidebar, setShowSidebar] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const drawerContentRef = useRef(null);
 
   const toggleSidebar = () => {
     setShowSidebar(!showSidebar);
   };
 
-  useScrollPosition(
-    ({ currPos }) => {
-      console.log(currPos);
-    },
-    [],
-    drawerContentRef,
-    false,
-    300
-  );
-
   useEffect(() => {
     window.matchMedia('(min-width: 768px)').addEventListener('change', e => setIsMobile(e.matches));
-  });
+  }, []);
 
   useEffect(
     (p = pathname) => {
@@ -93,7 +81,6 @@ export default function AppLayout() {
 
           {/* Content Area */}
           <div
-            ref={drawerContentRef}
             className={clsx('flex flex-1 flex-col overflow-hidden', {
               'p-6 pb-16': pagesThatDontNeedSidebar.includes(pathname)
             })}

@@ -2,8 +2,21 @@ import { json, type LoaderArgs, useLoaderData } from '~/remix';
 import type { CFTunnelResp } from '~/types/tunnels';
 import { cfApiUrl } from '~/core/constants';
 import { Table } from 'react-daisyui';
+import { generateConfigs } from '~/utils/auth-config.server';
+import { getAuthenticator } from '~/core/services/auth/auth.server';
+import { redirect } from '~/remix';
 
-export const loader = async ({ context }: LoaderArgs) => {
+export const loader = async ({ request, context }: LoaderArgs) => {
+  const { authConfig, sessionConfig } = generateConfigs(context);
+  const authenticator = await getAuthenticator(authConfig, sessionConfig);
+  const user = await authenticator.isAuthenticated(request);
+  const { pathname } = new URL(request.url);
+
+  // TODO: Correct this to block access to all other pages but main page and about
+  if (pathname !== '/' && !user) {
+    return redirect('/auth/login');
+  }
+
   const resp = await fetch(`${cfApiUrl}/accounts/${context.env.CLOUDFLARE_ACCOUNT_ID}/cfd_tunnel`, {
     headers: {
       'content-type': 'application/json',

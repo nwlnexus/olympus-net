@@ -1,11 +1,7 @@
-import { json, redirect, useLoaderData, type LoaderArgs } from '~/remix';
 import { generateConfigs } from '~/utils/auth-config.server';
 import { getAuthenticator } from '~/core/services/auth/auth.server';
-
-type LocationEntity = {
-  name: string;
-  type: 'office' | 'home';
-};
+import { redirect } from '~/remix';
+import type { LoaderArgs } from '~/remix';
 
 export const loader = async ({ request, context }: LoaderArgs) => {
   const { authConfig, sessionConfig } = generateConfigs(context);
@@ -18,17 +14,9 @@ export const loader = async ({ request, context }: LoaderArgs) => {
     return redirect('/auth/login');
   }
 
-  const kvLocs: LocationEntity[] | null = await context.env.HELIOS_KV.get('locations', { type: 'json' });
-
-  return json(kvLocs);
+  return null;
 };
 
-export default function Location() {
-  const data = useLoaderData<typeof loader>();
-
-  if (data === null) {
-    return <>Empty</>;
-  } else if (data && data.length > 0) {
-    return <>Not Empty</>;
-  }
+export default function Nodes() {
+  return <></>;
 }
