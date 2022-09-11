@@ -13,6 +13,9 @@
     "lint": {
       "outputs": []
     },
+    "test": {
+      "cache": false
+    },
     "typecheck": {
       "outputs": ["tsconfig.tsbuildinfo"]
     }

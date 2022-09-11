@@ -1,9 +1,11 @@
+process.env.RUNNING_PRETTIER = 'true';
 module.exports = {
   arrowParens: 'avoid',
+  bracketSameLine: false,
   bracketSpacing: true,
+  embeddedLanguageFormatting: 'auto',
   htmlWhitespaceSensitivity: 'css',
   insertPragma: false,
-  bracketSameLine: false,
   jsxSingleQuote: true,
   printWidth: 120,
   proseWrap: 'preserve',
@@ -16,4 +18,4 @@ module.exports = {
   useTabs: false,
   plugins: [require('prettier-plugin-tailwindcss')],
   tailwindConfig: './tailwind.config.js'
-}
+};

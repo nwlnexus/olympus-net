@@ -12,7 +12,8 @@
   ],
   "exclude": ["node_modules", "build", "public/build"],
   "types": [
-    "@remix-run/cloudflare"
+    "@remix-run/cloudflare",
+    "cloudflare-env"
   ],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "esnext"],
@@ -36,6 +37,8 @@
       "~/types/*": ["./app/@core/types/*"],
       "~/components": ["./app/@core/components"],
       "~/components/*": ["./app/@core/components/*"],
+      "~/services": ["./app/@core/services"],
+      "~/services/*": ["./app/@core/services/*"],
       "~/utils/*": ["./app/@core/utils/*"]
     },
 

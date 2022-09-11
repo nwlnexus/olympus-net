@@ -1,7 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  // the NODE_ENV thing is for https://github.com/Acidic9/prettier-plugin-tailwind/issues/29
+  mode: process.env.NODE_ENV ? 'jit' : undefined,
   content: [
-    './app/**/*.{js,ts,jsx,tsx}',
+    './app/**/*.+(js|jsx|ts|tsx|mdx|md)',
     './node_modules/daisyui/dist/**/*.js',
     './node_modules/react-daisyui/dist/**/*.js'
   ],
