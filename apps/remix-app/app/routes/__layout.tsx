@@ -45,6 +45,8 @@ export default function AppLayout() {
     (p = pathname) => {
       if (p === '/') {
         setPageHeading('Home');
+      } else if (p === '/profile') {
+        setPageHeading('Profile');
       } else {
         setPageHeading(
           sidebarNavigation.filter(i => {

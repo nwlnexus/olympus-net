@@ -12,5 +12,5 @@ interface Env {
   HELIOS_KV: KVNamespace;
   HELIOS_DB: D1Database;
   SESSION_TAG: string;
-  SESSION_SECRET: string;
+  SESSION_SECRETS: string;
 }
