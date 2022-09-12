@@ -1,6 +1,6 @@
 import { Authenticator } from 'remix-auth';
 import { Auth0Strategy } from 'remix-auth-auth0';
-import { appSessionStorage, type SessionConfig } from '~/core/services/auth/session.server';
+import { appSessionStorage, type SessionConfig } from '~/services/auth/session.server';
 import type { User } from '~/types/user';
 
 type AuthConfig = {
