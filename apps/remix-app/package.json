@@ -11,10 +11,7 @@
     "clean": "rimraf ./cache ./build ./public/build \"./app/styles/**/*.css\" \"./functions/**\"",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
-    "dev": "concurrently \"npm:dev:*\"",
-    "dev:css": "postcss styles/**/*.css --base ./styles --dir ./app/styles -w",
-    "dev:remix": "remix watch",
-    "dev:wrangler": "wrangler dev --local --experimental-enable-local-persistence --node-compat",
+    "dev": "pm2-dev ./pm2.config.js",
     "format": "prettier --write \"./app/**/*.{ts,tsx}\"",
     "prepare": "cd ../.. && husky install apps/remix-app/.husky",
     "postinstall": "patch-package && remix-esbuild-override && rmx gen-remix --config ./gen-remix.config.json",
@@ -86,6 +83,7 @@
     "msw": "^0.47.1",
     "npm-run-all": "^4.1.5",
     "patch-package": "^6.4.7",
+    "pm2": "^5.2.0",
     "postcss": "^8.4.16",
     "postcss-cli": "^10.0.0",
     "postcss-import": "^15.0.0",
@@ -100,7 +98,7 @@
     "typescript": "^4.7.4",
     "wrangler": "^2.0.29"
   },
-  "packageManager": "pnpm@7",
+  "packageManager": "pnpm@7.9.5",
   "engines": {
     "node": ">=16.13"
   }
