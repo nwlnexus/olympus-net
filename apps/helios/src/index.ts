@@ -1,4 +1,4 @@
-import type { AppEnv, AppRequest } from '~/types/env';
+import type { AppEnv } from '~/types/env';
 import { error, ThrowableRouter } from 'itty-router-extras';
 
 const router = ThrowableRouter();

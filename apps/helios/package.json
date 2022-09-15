@@ -1,7 +1,7 @@
 {
   "name": "@nwlnexus/helios",
   "module": "dist/index.mjs",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "devDependencies": {
     "@cloudflare/workers-types": "^3.14.1",
     "@types/itty-router-extras": "^0.4.0",
@@ -21,7 +21,7 @@
   "scripts": {
     "build": "node build.mjs",
     "deploy": "wrangler publish",
-    "dev": "wrangler dev --local --experimental-enable-local-persistence --node-compat",
+    "dev": "wrangler dev --local --persist --node-compat",
     "format": "prettier --write '**/*.{ts,mjs,js,html,css,json,md}'",
     "test": "jest"
   },

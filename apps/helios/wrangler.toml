@@ -1,4 +1,5 @@
 name = "helios"
+main = "src/index.ts"
 compatibility_date = "2022-09-14"
 workers_dev = false
 minify = true
@@ -17,6 +18,5 @@ node_compat = true
 [build]
 command = "pnpm build"
 
-[build.upload]
-format = "modules"
-main = "./worker.mjs"
+[dev]
+port = 8789
