@@ -19,7 +19,7 @@ module.exports = {
     },
     {
       name: 'Wrangler',
-      script: 'wrangler dev --local --experimental-enable-local-persistence --node-compat',
+      script: 'wrangler dev --local --persist --node-compat',
       ignore_watch: ['.'],
       env: {
         NODE_ENV: process.env.NODE_ENV ?? 'development',

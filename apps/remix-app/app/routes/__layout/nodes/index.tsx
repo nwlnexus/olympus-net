@@ -38,7 +38,7 @@ export default function Nodes() {
   return (
     <>
       <NodeEmpty toggle={toggleNewNodeMdl} />
-      <Modal open={showNewNodeMdl} onClickBackdrop={toggleNewNodeMdl}>
+      <Modal open={showNewNodeMdl} onClickBackdrop={toggleNewNodeMdl} className='w-11/12 max-w-5xl'>
         <Modal.Header>New Node</Modal.Header>
       </Modal>
     </>

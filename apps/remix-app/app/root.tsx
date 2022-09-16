@@ -11,9 +11,11 @@ import {
   useCatch
 } from '~/remix';
 import { Button } from 'react-daisyui';
+import { GlobalStateProvider } from '~/store/global/global.provider';
 
 export const meta: MetaFunction = () => ({
   charset: 'utf-8',
+  description: 'Helios App',
   title: 'heliosUI',
   viewport: 'width=device-width,initial-scale=1'
 });
@@ -24,7 +26,7 @@ export const loader = async () => {
   return null;
 };
 
-export default function App() {
+function App() {
   return (
     <html lang='en' data-theme='night'>
       <head>
@@ -38,6 +40,14 @@ export default function App() {
         <LiveReload />
       </body>
     </html>
+  );
+}
+
+export default function AppwithProviders() {
+  return (
+    <GlobalStateProvider>
+      <App />
+    </GlobalStateProvider>
   );
 }
 

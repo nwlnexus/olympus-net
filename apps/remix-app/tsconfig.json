@@ -39,6 +39,8 @@
       "~/components/*": ["./app/@core/components/*"],
       "~/services": ["./app/@core/services"],
       "~/services/*": ["./app/@core/services/*"],
+      "~/store": ["./app/@core/store"],
+      "~/store/*": ["./app/@core/store/*"],
       "~/utils/*": ["./app/@core/utils/*"]
     },
 
