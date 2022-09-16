@@ -14,7 +14,7 @@
     "dev": "pm2-dev ./pm2.config.js",
     "format": "prettier --write \"./app/**/*.{ts,tsx}\"",
     "prepare": "cd ../.. && husky install apps/remix-app/.husky",
-    "postinstall": "patch-package && remix-esbuild-override && rmx gen-remix --config ./gen-remix.config.json",
+    "postinstall": "patch-package && remix-esbuild-override",
     "lint": "eslint .",
     "lint:fix": "pnpm run lint -- --fix",
     "test": "jest",
@@ -96,7 +96,7 @@
     "tailwindcss": "^3.1.8",
     "tsconfig": "workspace:*",
     "typescript": "^4.7.4",
-    "wrangler": "^2.0.29"
+    "wrangler": "0.0.0-c4c27925"
   },
   "packageManager": "pnpm@7.9.5",
   "engines": {

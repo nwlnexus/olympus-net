@@ -1,6 +1,6 @@
 {
   "name": "olympus-net",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "workspaces": [
     "apps/*",
@@ -17,6 +17,7 @@
     "typecheck": "turbo run typecheck"
   },
   "devDependencies": {
+    "auto-changelog-2": "^1.1.0",
     "esbuild": "^0.15.7",
     "esbuild-register": "^3.3.3",
     "eslint-config-custom": "workspace:*",
