@@ -1,13 +1,14 @@
-import { AppSidebar, AppNavbar } from '~/components';
+import { AppSidebar, AppNavbar, NewNodeForm } from '~/components';
 import { getNavItems } from '~/utils/navigation.server';
 import { type LoaderArgs, json, Outlet, useCatch, useLoaderData, useLocation, redirect } from '~/remix';
 import { useState, useEffect } from 'react';
 import type { AppNav } from '~/types';
 import { clsx } from 'clsx';
-import { Drawer } from 'react-daisyui';
+import { Drawer, Modal } from 'react-daisyui';
 import { pagesThatDontNeedSidebar } from '~/core/constants';
 import { generateConfigs } from '~/utils/auth-config.server';
 import { getAuthenticator } from '~/services/auth/auth.server';
+import { useGlobalState } from '~/store/global/global.provider';
 
 export const loader = async ({ request, context }: LoaderArgs) => {
   const { authConfig, sessionConfig } = generateConfigs(context);
@@ -26,6 +27,7 @@ export const loader = async ({ request, context }: LoaderArgs) => {
 
 export default function AppLayout() {
   const [pageHeading, setPageHeading] = useState<string | null>(null);
+  const { state, dispatch } = useGlobalState();
   const { nav, user } = useLoaderData<typeof loader>();
   const { pathname } = useLocation();
   const sidebarNavigation = nav.navMenu;
@@ -105,6 +107,36 @@ export default function AppLayout() {
             </div>
           </div>
         </Drawer>
+        {/* New Node Modal */}
+        <Modal
+          id='mdl-new-node'
+          open={state.showNewNodeMdl}
+          onClickBackdrop={() => dispatch({ type: 'CLOSE_NEWNODE_MDL' })}
+          className='w-11/12 max-w-5xl'
+        >
+          <Modal.Header>New Node</Modal.Header>
+          <Modal.Body>
+            <NewNodeForm />
+          </Modal.Body>
+        </Modal>
+        {/* New Tunnel Modal */}
+        <Modal
+          id='mdl-new-tunnel'
+          open={state.showNewTunnelMdl}
+          onClickBackdrop={() => dispatch({ type: 'CLOSE_NEWTUNNEL_MDL' })}
+          className='w-11/12 max-w-5xl'
+        >
+          <Modal.Header>New Tunnel</Modal.Header>
+        </Modal>
+        {/* New Location Modal */}
+        <Modal
+          id='mdl-new-location'
+          open={state.showNewLocationMdl}
+          onClickBackdrop={() => dispatch({ type: 'CLOSE_NEWLOCATION_MDL' })}
+          className='w-11/12 max-w-5xl'
+        >
+          <Modal.Header>New Location</Modal.Header>
+        </Modal>
       </div>
     </>
   );
@@ -155,3 +187,5 @@ export function CatchBoundary() {
     </div>
   );
 }
+
+export function ErrorBoundary() {}

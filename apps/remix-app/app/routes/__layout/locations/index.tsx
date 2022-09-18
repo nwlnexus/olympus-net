@@ -1,6 +1,7 @@
 import { json, redirect, useLoaderData, type LoaderArgs } from '~/remix';
 import { generateConfigs } from '~/utils/auth-config.server';
 import { getAuthenticator } from '~/core/services/auth/auth.server';
+import { EmptyObject } from '../../../@core/components';
 
 type LocationEntity = {
   name: string;
@@ -24,11 +25,18 @@ export const loader = async ({ request, context }: LoaderArgs) => {
 };
 
 export default function Location() {
-  const data = useLoaderData<typeof loader>();
+  const locations = useLoaderData<typeof loader>();
 
-  if (data === null) {
-    return <>Empty</>;
-  } else if (data && data.length > 0) {
-    return <>Not Empty</>;
+  if (locations) {
+    return (
+      <>
+        <h1>Locations</h1>
+      </>
+    );
   }
+  return (
+    <>
+      <EmptyObject objectType={'location'} />
+    </>
+  );
 }

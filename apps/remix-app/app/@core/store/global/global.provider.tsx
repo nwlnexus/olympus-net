@@ -1,24 +1,55 @@
 import type { ReactNode } from 'react';
 import { createContext, useContext, useMemo, useReducer } from 'react';
 
-type Action = { type: 'OPEN_NEWNODE_MDL' } | { type: 'CLOSE_NEWNODE_MDL' };
-type Dispatch = (action: Action) => void;
-type GlobalContextType = {
-  showNewNodeMdl: boolean;
+const GLOBAL_STATE = {
+  isLoggedIn: false,
+  showNewNodeMdl: false,
+  showNewLocationMdl: false,
+  showNewTunnelMdl: false
 };
-const GlobalContext = createContext<{ state: GlobalContextType; dispatch: Dispatch } | undefined>(undefined);
+
+type Action =
+  | { type: 'OPEN_NEWNODE_MDL' }
+  | { type: 'CLOSE_NEWNODE_MDL' }
+  | { type: 'OPEN_NEWTUNNEL_MDL' }
+  | { type: 'CLOSE_NEWTUNNEL_MDL' }
+  | { type: 'OPEN_NEWLOCATION_MDL' }
+  | { type: 'CLOSE_NEWLOCATION_MDL' };
+type Dispatch = (action: Action) => void;
+
+const GlobalContext = createContext<{ state: typeof GLOBAL_STATE; dispatch: Dispatch } | undefined>(undefined);
 
 const globalReducer = (state: any, action: Action) => {
   switch (action.type) {
     case 'OPEN_NEWNODE_MDL':
       return {
         ...state,
-        showNewNodeMDL: true
+        showNewNodeMdl: true
       };
     case 'CLOSE_NEWNODE_MDL':
       return {
         ...state,
-        showNewNodeMDL: false
+        showNewNodeMdl: false
+      };
+    case 'OPEN_NEWTUNNEL_MDL':
+      return {
+        ...state,
+        showNewTunnelMdl: true
+      };
+    case 'CLOSE_NEWTUNNEL_MDL':
+      return {
+        ...state,
+        showNewTunnelMdl: false
+      };
+    case 'OPEN_NEWLOCATION_MDL':
+      return {
+        ...state,
+        showNewLocationMdl: true
+      };
+    case 'CLOSE_NEWLOCATION_MDL':
+      return {
+        ...state,
+        showNewLocationMdl: false
       };
     default:
       return state;

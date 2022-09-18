@@ -117,6 +117,7 @@ importers:
       '@remix-run/dev': ^1.7.0
       '@remix-run/react': ^1.7.0
       '@remix-run/server-runtime': ^1.7.0
+      '@remix-validated-form/with-zod': ^2.0.1
       '@tailwindcss/forms': ^0.5.3
       '@tailwindcss/typography': ^0.5.7
       '@testing-library/cypress': ^8.0.3
@@ -167,6 +168,7 @@ importers:
       remix-auth-auth0: ^1.3.8
       remix-esbuild-override: ^3.0.4
       remix-typedjson: ^0.1.1
+      remix-validated-form: ^4.5.5
       rimraf: ^3.0.2
       rmx-cli: ^0.3.1
       start-server-and-test: ^1.14.0
@@ -176,6 +178,8 @@ importers:
       tsconfig: workspace:*
       typescript: ^4.7.4
       wrangler: 0.0.0-c4c27925
+      zod: ^3.19.1
+      zod-form-data: ^1.2.1
     dependencies:
       '@cfworker/base64url': 1.12.4
       '@cloudflare/kv-asset-handler': 0.2.0
@@ -184,6 +188,7 @@ importers:
       '@remix-run/cloudflare-workers': 1.7.0_rmlhqq3wqa7qw2ydvcfy7r72ym
       '@remix-run/react': 1.7.0_biqbaboplfbrettd7655fr4n2y
       '@remix-run/server-runtime': 1.7.0_biqbaboplfbrettd7655fr4n2y
+      '@remix-validated-form/with-zod': 2.0.1_7tnd2xxyfiah36aob2rdbn25be
       '@xstate/react': 3.0.1_fn6mmk7tilns4p7ajkklhuudvi
       chalk: 5.0.1
       clsx: 1.2.1
@@ -198,8 +203,11 @@ importers:
       remix-auth: 3.2.2_iwkoj4i7onot5qamk6olkm5qze
       remix-auth-auth0: 1.3.8_uisoknjrubkchd3ceqmxoc4lha
       remix-typedjson: 0.1.2_lvq2f5j7fmmk6kcnb47xwonfeq
+      remix-validated-form: 4.5.5_hsyx54cdmnzdf7hjncs52aiuaq
       theme-change: 2.2.0
       tiny-invariant: 1.2.0
+      zod: 3.19.1
+      zod-form-data: 1.2.1_zod@3.19.1
     devDependencies:
       '@cloudflare/workers-types': 3.16.0
       '@esbuild-plugins/node-globals-polyfill': 0.1.1_esbuild@0.15.7
@@ -2736,6 +2744,16 @@ packages:
       react-router-dom: 6.3.0_biqbaboplfbrettd7655fr4n2y
       set-cookie-parser: 2.5.1
       source-map: 0.7.4
+
+  /@remix-validated-form/with-zod/2.0.1_7tnd2xxyfiah36aob2rdbn25be:
+    resolution: {integrity: sha512-PerWFOeMFSd8FZRcT2kcqEnYEcmokBzuk87URZ5ij0cRtTlrGNUk7UlxYLG1e7lbPWBj+QfSSsLBrJu8PxhNeg==}
+    peerDependencies:
+      remix-validated-form: ^4.x
+      zod: ^3.11.x
+    dependencies:
+      remix-validated-form: 4.5.5_hsyx54cdmnzdf7hjncs52aiuaq
+      zod: 3.19.1
+    dev: false
 
   /@rollup/pluginutils/4.2.1:
     resolution: {integrity: sha512-iKnFXr7NkdZAIHiIWE+BX5ULi/ucVFYWD6TbAV+rZctiRTY2PL6tsIKhoIOaoskiWAkgu+VsbXgUVDNLHf+InQ==}
@@ -7697,6 +7715,10 @@ packages:
     engines: {node: '>= 4'}
     dev: true
 
+  /immer/9.0.15:
+    resolution: {integrity: sha512-2eB/sswms9AEUSkOm4SbV5Y7Vmt/bKRwByd52jfLkW4OLYeaTP3EEiJ9agqU0O/tq6Dk62Zfj+TJSqfm1rLVGQ==}
+    dev: false
+
   /import-fresh/3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
     engines: {node: '>=6'}
@@ -9189,7 +9211,6 @@ packages:
 
   /lodash/4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
-    dev: true
 
   /log-driver/1.2.7:
     resolution: {integrity: sha512-U7KCmLdqsGHBLeWqYlFA0V0Sl6P08EE1ZrmA9cxjUE0WVqT9qnyVDPz1kzpFEP0jdJuFnasWIfSd7fsaNXkpbg==}
@@ -11929,6 +11950,20 @@ packages:
       react: 18.2.0
     dev: false
 
+  /remix-validated-form/4.5.5_hsyx54cdmnzdf7hjncs52aiuaq:
+    resolution: {integrity: sha512-cox4nDQLYBoqPLr/LGHt2TbCW0Wk8S2B+yPbZzBHgVJn1gYWEjzmqUu1diM9QAMSux6GYW3ZrRBetKxHjm0r1A==}
+    peerDependencies:
+      '@remix-run/react': 1.x
+      react: ^17.0.2 || ^18.0.0
+    dependencies:
+      '@remix-run/react': 1.7.0_biqbaboplfbrettd7655fr4n2y
+      immer: 9.0.15
+      lodash: 4.17.21
+      react: 18.2.0
+      tiny-invariant: 1.2.0
+      zustand: 4.1.1_immer@9.0.15+react@18.2.0
+    dev: false
+
   /remove-trailing-separator/1.1.0:
     resolution: {integrity: sha512-/hS+Y0u3aOfIETiaiirUFwDBDzmXPvO+jAfKTitUngIPzdKc6Z0LoFjM/CK5PL4C+eKwHohlHAb6H0VFfmmUsw==}
     dev: true
@@ -14334,6 +14369,35 @@ packages:
       mustache: 4.2.0
       stack-trace: 0.0.10
     dev: true
+
+  /zod-form-data/1.2.1_zod@3.19.1:
+    resolution: {integrity: sha512-L4zocmlzikYB9A2uVVj3OUKX/t3spOZTzQLOhoCXECn9w+eN3bw0D/KYGX4J72iLdCIwDP6YJyYwVXkx3WTu7A==}
+    peerDependencies:
+      zod: ^3.11.x
+    dependencies:
+      zod: 3.19.1
+    dev: false
+
+  /zod/3.19.1:
+    resolution: {integrity: sha512-LYjZsEDhCdYET9ikFu6dVPGp2YH9DegXjdJToSzD9rO6fy4qiRYFoyEYwps88OseJlPyl2NOe2iJuhEhL7IpEA==}
+    dev: false
+
+  /zustand/4.1.1_immer@9.0.15+react@18.2.0:
+    resolution: {integrity: sha512-h4F3WMqsZgvvaE0n3lThx4MM81Ls9xebjvrABNzf5+jb3/03YjNTSgZXeyrvXDArMeV9untvWXRw1tY+ntPYbA==}
+    engines: {node: '>=12.7.0'}
+    peerDependencies:
+      immer: '>=9.0'
+      react: '>=16.8'
+    peerDependenciesMeta:
+      immer:
+        optional: true
+      react:
+        optional: true
+    dependencies:
+      immer: 9.0.15
+      react: 18.2.0
+      use-sync-external-store: 1.2.0_react@18.2.0
+    dev: false
 
   /zwitch/2.0.2:
     resolution: {integrity: sha512-JZxotl7SxAJH0j7dN4pxsTV6ZLXoLdGME+PsjkL/DaBrVryK9kTGq06GfKrwcSOqypP+fdXGoCHE36b99fWVoA==}

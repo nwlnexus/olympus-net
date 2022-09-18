@@ -5,6 +5,7 @@ import { Table } from 'react-daisyui';
 import { generateConfigs } from '~/utils/auth-config.server';
 import { getAuthenticator } from '~/core/services/auth/auth.server';
 import { redirect } from '~/remix';
+import { EmptyObject } from '../../../@core/components';
 
 export const loader = async ({ request, context }: LoaderArgs) => {
   const { authConfig, sessionConfig } = generateConfigs(context);
@@ -33,31 +34,37 @@ export const loader = async ({ request, context }: LoaderArgs) => {
 };
 
 export default function Index() {
-  const data = useLoaderData<typeof loader>();
+  const tunnels = useLoaderData<typeof loader>();
 
-  return (
-    <div className='p-6'>
-      {/* Table display */}
-      <div className='overflow-x-auto'>
-        <Table>
-          <Table.Head>
-            <span />
-            <span>Name</span>
-            <span>Status</span>
-            <span>Remote Config</span>
-          </Table.Head>
-          <Table.Body>
-            {data.map((item, idx) => (
-              <Table.Row key={idx}>
-                <span />
-                <span>{item.name}</span>
-                <span>{item.status}</span>
-                <span>{item.remote_config}</span>
-              </Table.Row>
-            ))}
-          </Table.Body>
-        </Table>
+  if (tunnels) {
+    return (
+      <div className='p-6'>
+        <header>Some value goes here</header>
+        {/* Table display */}
+        <div className='overflow-x-auto'>
+          <Table>
+            <Table.Head key={'tunnels-head'}>
+              <span key={'blank'} />
+              <span key={'name'}>Name</span>
+              <span key={'status'}>Status</span>
+            </Table.Head>
+            <Table.Body>
+              {tunnels.map((item, idx) => (
+                <Table.Row key={idx}>
+                  <span>{idx}</span>
+                  <span>{item.name}</span>
+                  <span>{item.status}</span>
+                </Table.Row>
+              ))}
+            </Table.Body>
+          </Table>
+        </div>
       </div>
-    </div>
+    );
+  }
+  return (
+    <>
+      <EmptyObject objectType={'tunnel'} />
+    </>
   );
 }

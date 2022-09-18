@@ -2,9 +2,7 @@ import { generateConfigs } from '~/utils/auth-config.server';
 import { getAuthenticator } from '~/core/services/auth/auth.server';
 import { redirect, useLoaderData } from '~/remix';
 import type { LoaderArgs } from '~/remix';
-import { NodeEmpty } from '~/components';
-import { Modal } from 'react-daisyui';
-import { useState } from 'react';
+import { EmptyObject } from '~/components';
 
 export const loader = async ({ request, context }: LoaderArgs) => {
   const { authConfig, sessionConfig } = generateConfigs(context);
@@ -22,11 +20,6 @@ export const loader = async ({ request, context }: LoaderArgs) => {
 
 export default function Nodes() {
   const nodes = useLoaderData<typeof loader>();
-  const [showNewNodeMdl, setShowNewNodeMdl] = useState(false);
-
-  const toggleNewNodeMdl = () => {
-    setShowNewNodeMdl(!showNewNodeMdl);
-  };
 
   if (nodes) {
     return (
@@ -37,10 +30,7 @@ export default function Nodes() {
   }
   return (
     <>
-      <NodeEmpty toggle={toggleNewNodeMdl} />
-      <Modal open={showNewNodeMdl} onClickBackdrop={toggleNewNodeMdl} className='w-11/12 max-w-5xl'>
-        <Modal.Header>New Node</Modal.Header>
-      </Modal>
+      <EmptyObject objectType={'node'} />
     </>
   );
 }

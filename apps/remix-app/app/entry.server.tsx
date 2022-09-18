@@ -1,7 +1,7 @@
-// @ts-ignore
-import type { EntryContext } from '@remix-run/cloudflare';
+import type { EntryContext } from '~/remix';
 import { RemixServer } from '@remix-run/react';
 import { renderToString } from 'react-dom/server';
+import { GlobalStateProvider } from '~/store/global/global.provider';
 
 export default function handleRequest(
   request: Request,
@@ -9,7 +9,11 @@ export default function handleRequest(
   responseHeaders: Headers,
   remixContext: EntryContext
 ) {
-  const view = renderToString(<RemixServer context={remixContext} url={request.url} />);
+  const view = renderToString(
+    <GlobalStateProvider>
+      <RemixServer context={remixContext} url={request.url} />
+    </GlobalStateProvider>
+  );
 
   responseHeaders.set('Content-Type', 'text/html');
 

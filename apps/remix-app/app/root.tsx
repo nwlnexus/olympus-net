@@ -11,7 +11,7 @@ import {
   useCatch
 } from '~/remix';
 import { Button } from 'react-daisyui';
-import { GlobalStateProvider } from '~/store/global/global.provider';
+import type { ReactNode } from 'react';
 
 export const meta: MetaFunction = () => ({
   charset: 'utf-8',
@@ -26,7 +26,7 @@ export const loader = async () => {
   return null;
 };
 
-function App() {
+function Document({ children }: { children: ReactNode }) {
   return (
     <html lang='en' data-theme='night'>
       <head>
@@ -34,7 +34,7 @@ function App() {
         <Links />
       </head>
       <body>
-        <Outlet />
+        {children}
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
@@ -43,11 +43,13 @@ function App() {
   );
 }
 
-export default function AppwithProviders() {
+export default function App() {
   return (
-    <GlobalStateProvider>
-      <App />
-    </GlobalStateProvider>
+    <>
+      <Document>
+        <Outlet />
+      </Document>
+    </>
   );
 }
 

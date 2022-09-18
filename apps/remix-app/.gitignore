@@ -4,6 +4,7 @@ node_modules
 /build
 /dist
 /public/build
+/public/_worker*
 /.mf
 .env
 app/styles
