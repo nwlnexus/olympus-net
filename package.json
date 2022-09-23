@@ -17,13 +17,17 @@
     "typecheck": "turbo run typecheck"
   },
   "devDependencies": {
+    "@types/better-sqlite3": "^7.6.0",
+    "@types/node": "^18.7.18",
     "auto-changelog-2": "^1.1.0",
+    "better-sqlite3": "7.6.2",
     "esbuild": "^0.15.7",
     "esbuild-register": "^3.3.3",
     "eslint-config-custom": "workspace:*",
     "prettier": "^2.7.1",
     "prettier-package-json": "^2.6.4",
     "prettier-plugin-tailwindcss": "^0.1.13",
+    "ts-node": "^10.9.1",
     "turbo": "latest",
     "typescript": "^4.8.3"
   },

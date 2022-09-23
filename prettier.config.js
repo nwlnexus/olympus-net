@@ -14,6 +14,5 @@ module.exports = {
   tabWidth: 2,
   trailingComma: 'none',
   useTabs: false,
-  plugins: [require('prettier-plugin-tailwindcss')],
-  tailwindConfig: './apps/remix-app/tailwind.config.js'
-}
+  plugins: []
+};

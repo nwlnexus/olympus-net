@@ -15,8 +15,14 @@ node_compat = true
   bucket_name = "helios-r2"
   preview_bucket_name = "helios-pvw-r2"
 
+[[d1_databases]]
+  binding = "DB"
+  database_id = "75eee409-72e2-4df4-a6bb-e790aff52cbd"
+  preview_id = "75eee409-72e2-4df4-a6bb-e790aff52cbd"
+
 [build]
 command = "pnpm build"
 
 [dev]
 port = 8789
+inspector_port = 9230

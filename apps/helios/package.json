@@ -3,14 +3,15 @@
   "module": "dist/index.mjs",
   "version": "0.0.1",
   "devDependencies": {
-    "@cloudflare/workers-types": "^3.14.1",
+    "@cloudflare/workers-types": "^3.16.0",
     "@types/itty-router-extras": "^0.4.0",
     "@types/jest": "^29.0.2",
     "@types/service-worker-mock": "^2.0.1",
+    "better-sqlite3": "7.6.2",
     "cloudflare-env": "workspace:*",
-    "eslint": "8.22.0",
-    "esbuild": "^0.15.7",
+    "esbuild": "^0.15.9",
     "esbuild-jest": "^0.5.0",
+    "eslint": "8.22.0",
     "eslint-config-custom": "workspace:*",
     "prettier": "^2.7.1",
     "tsconfig": "workspace:*",
@@ -21,13 +22,13 @@
   "scripts": {
     "build": "node build.mjs",
     "deploy": "wrangler publish",
-    "dev": "wrangler dev --local --persist --node-compat",
+    "dev": "wrangler dev --local --node-compat --persist --persist-to ../../.wrangler",
     "format": "prettier --write '**/*.{ts,mjs,js,html,css,json,md}'",
     "test": "jest"
   },
   "dependencies": {
     "@esbuild-plugins/node-modules-polyfill": "^0.1.4",
-    "itty-router": "^2.6.1",
+    "itty-router": "^2.6.3",
     "itty-router-extras": "^0.4.2"
   }
 }

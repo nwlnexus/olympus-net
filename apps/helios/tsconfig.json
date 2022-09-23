@@ -1,21 +1,9 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "tsconfig/base.json",
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    "**/*.js",
-    "**/*.jsx",
-    "../../packages/cloudflare-env/index.d.ts",
-  ],
+  "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "../../packages/cloudflare-env/index.d.ts"],
   "exclude": ["node_modules", "build", "public/build", "dist", "test", "__tests__"],
-  "types": [
-    "cloudflare-env",
-    "@cloudflare/workers-types",
-    "@types/node",
-    "@types/jest",
-    "@types/service-worker-mock"
-  ],
+  "types": ["cloudflare-env", "@cloudflare/workers-types", "node", "jest"],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "esnext"],
     "isolatedModules": true,
@@ -36,7 +24,6 @@
       "~/types/*": ["./types/*"]
     },
 
-    // Remix takes care of building everything in `remix build`.
     "noEmit": true
   }
 }
