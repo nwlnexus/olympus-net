@@ -6,6 +6,7 @@ importers:
     specifiers:
       '@types/better-sqlite3': ^7.6.0
       '@types/node': ^18.7.18
+      '@types/yargs': ^17.0.13
       auto-changelog-2: ^1.1.0
       better-sqlite3: 7.6.2
       esbuild: ^0.15.7
@@ -17,9 +18,11 @@ importers:
       ts-node: ^10.9.1
       turbo: latest
       typescript: ^4.8.3
+      yargs: ^17.5.1
     devDependencies:
       '@types/better-sqlite3': 7.6.0
       '@types/node': 18.7.18
+      '@types/yargs': 17.0.13
       auto-changelog-2: 1.1.0
       better-sqlite3: 7.6.2
       esbuild: 0.15.9
@@ -29,8 +32,9 @@ importers:
       prettier-package-json: 2.6.4
       prettier-plugin-tailwindcss: 0.1.13_prettier@2.7.1
       ts-node: 10.9.1_bidgzm5cq2du6gnjtweqqjrrn4
-      turbo: 1.5.1
+      turbo: 1.5.3
       typescript: 4.8.3
+      yargs: 17.5.1
 
   apps/docs:
     specifiers:
@@ -91,16 +95,20 @@ importers:
       esbuild-jest: ^0.5.0
       eslint: 8.22.0
       eslint-config-custom: workspace:*
-      itty-router: ^2.6.3
+      itty-router: ^2.6.5
       itty-router-extras: ^0.4.2
       prettier: ^2.7.1
       tsconfig: workspace:*
       typescript: ^4.8.3
+      ulid-workers: ^2.0.0
       wrangler: 0.0.0-c4c27925
+      zod: ^3.19.1
     dependencies:
       '@esbuild-plugins/node-modules-polyfill': 0.1.4_esbuild@0.15.9
-      itty-router: 2.6.3
+      itty-router: 2.6.5
       itty-router-extras: 0.4.2
+      ulid-workers: 2.0.0
+      zod: 3.19.1
     devDependencies:
       '@cloudflare/workers-types': 3.16.0
       '@types/itty-router-extras': 0.4.0
@@ -3272,7 +3280,7 @@ packages:
   /@types/itty-router-extras/0.4.0:
     resolution: {integrity: sha512-IcXmXB8vVbjWy4McZjKzo+3sdQyzMpyHi5mQ4iViu6yX9cS/SVlGR+6H/AgzfG32svaQJeOhl2gfXYwf1AKEgg==}
     dependencies:
-      itty-router: 2.6.3
+      itty-router: 2.6.5
     dev: true
 
   /@types/javascript-time-ago/2.0.3:
@@ -3435,6 +3443,12 @@ packages:
 
   /@types/yargs/17.0.12:
     resolution: {integrity: sha512-Nz4MPhecOFArtm81gFQvQqdV7XYCrWKx5uUt6GNHredFHn1i2mtWqXTON7EPXMtNi1qjtjEM/VCHDhcHsAMLXQ==}
+    dependencies:
+      '@types/yargs-parser': 21.0.0
+    dev: true
+
+  /@types/yargs/17.0.13:
+    resolution: {integrity: sha512-9sWaruZk2JGxIQU+IhI1fhPYRcQ0UuTNuKuCW9bR5fp7qi2Llf7WDzNa17Cy7TKnh3cdxDOiyTu6gaLS0eDatg==}
     dependencies:
       '@types/yargs-parser': 21.0.0
     dev: true
@@ -8580,8 +8594,8 @@ packages:
     resolution: {integrity: sha512-ppHaBzcTXs7idFSDISehG+8kif2/4aqLCfyY/Y/uIZv79sfEfNmTq9G+rDeqblun/VZRBiXZD8ztYmMS8EOsKw==}
     dev: false
 
-  /itty-router/2.6.3:
-    resolution: {integrity: sha512-w9aELaE7U/vH5ykJ2wacgNe0hOa1z4XdiSgYgAuEg1eZ+G8wZvURWIa3Vib2UhrFY2r+hZgVIjP1mFO+Vkhk5Q==}
+  /itty-router/2.6.5:
+    resolution: {integrity: sha512-EzfbnYF/ksgpoKgsJuk8Sknk6QDC8hd2HeOCFmDOVT+9mmk5nOfgCTglpILBOj4zX3e1RB8r4+2js6i3Zx/KQw==}
 
   /jest-changed-files/29.0.0:
     resolution: {integrity: sha512-28/iDMDrUpGoCitTURuDqUzWQoWmOmOKOFST1mi2lwh62X4BFf6khgH3uSuo1e49X/UDjuApAj3w0wLOex4VPQ==}
@@ -13877,65 +13891,65 @@ packages:
       safe-buffer: 5.2.1
     dev: true
 
-  /turbo-darwin-64/1.5.1:
-    resolution: {integrity: sha512-63vbObfUOR26UNjwCEKLxrWiJFJE0XNSFNt2/CFF0nhx0I9RqNf21KCZk2FwcbHLSM/ca0Yqr/nJV9Wu+yo1Tg==}
+  /turbo-darwin-64/1.5.3:
+    resolution: {integrity: sha512-MBS8b/3DuMY6v3ljEX9qssHGQXnI4VDWLqvQ6FGfZFMp8lqa7mfoXv1U/MNR9OhSczaftsIS1e9mnD9m/qv7TQ==}
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-darwin-arm64/1.5.1:
-    resolution: {integrity: sha512-VVrJdOvAXw17qKFdC5PlsoJ6Jupp5yCGUN+OJVWG/BvDVdcWJw3n0m3jpcvZ0JVKhGnjW4pRJudKLD1vR879Ng==}
+  /turbo-darwin-arm64/1.5.3:
+    resolution: {integrity: sha512-XNSV6SaxS8dAvGx2BF3H7MsKZ4zchj2kP/eXTss/vUcSRsS+zx0urZcEgxeGUeMk7V7fJq/5Ow7thApNojpwpw==}
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-linux-64/1.5.1:
-    resolution: {integrity: sha512-0PKkribBtjcuOllSbpA9rtLbyLdCJSAXO6G2TpZye6HUj/zRMeTVh3hpGwJJLsiaN/wCbF1g8uLtcrbEU0CcOw==}
+  /turbo-linux-64/1.5.3:
+    resolution: {integrity: sha512-YhYu50CUvy5m80l6dEXEgC3CvjjTelQb14fknAzIXoKztbWhBZqUCucR6jLRZpKgODwP4Fo4LUzz478EMwqy/Q==}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-linux-arm64/1.5.1:
-    resolution: {integrity: sha512-EzGwaNs1cHLlyYKNzJ1X2yvBE8ulFlVymW8lmllEwgXU801XlA8OEv8gfZOhtugvNr0F9eK3x0c30tGL/wco1w==}
+  /turbo-linux-arm64/1.5.3:
+    resolution: {integrity: sha512-JjJjxy0kkr/xAWAAE8t7UaTBc3GUc5Tz/Bupbve2VzG0w75md0LqXUV34WpyxMiNTNLmK8Dq7bIczG6OkJ29xQ==}
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-windows-64/1.5.1:
-    resolution: {integrity: sha512-XX/0SB3cSpSGg33z4t0H3O0McHkqu5iIxmSZwqrrCG4h65ZUTVzr4AHG4cKF/vYYs4RRaPj9LaByveoh+AcZkA==}
+  /turbo-windows-64/1.5.3:
+    resolution: {integrity: sha512-PS7+Isy7OX9xWWvtg2FKmh/eN4fTNR2r6RW5m+b+zR7t04QLWYOya1R8CeqgA6GyeFpn4KUxC+AeZ0wOi8RSPw==}
     cpu: [x64]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-windows-arm64/1.5.1:
-    resolution: {integrity: sha512-dKGKvCHiooCRv3liETY67XA5skrOYhjt1scEeVQ1dMRfb2ePq2NypldPRrVF/ykMoTPrVHul7N5+SJa/NoGXvQ==}
+  /turbo-windows-arm64/1.5.3:
+    resolution: {integrity: sha512-DQzjFbPRd/Db5kkJtCER5DNcbY4ez5Bh8usemNlPZQ7I/5XwEUl9Rn3ss2LJsiv/pR7PkY92TUvmyFtBnqao8Q==}
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo/1.5.1:
-    resolution: {integrity: sha512-AM6t4BBFt6ek96bRDr/UqF+zxlYjagPc29P4q/5phMKOH8SRNEb43MXjM2to8NwRhiaoPqNyct0gwgGM2rSRvA==}
+  /turbo/1.5.3:
+    resolution: {integrity: sha512-/94cswfhXr6wWD6CFyF7E8bjEdjar4O+gzCJ3d49X9t9u9aDYFoQH/TlYTSNbAwXYiGqzJoodhf3kXRyrAiqSg==}
     hasBin: true
     requiresBuild: true
     optionalDependencies:
-      turbo-darwin-64: 1.5.1
-      turbo-darwin-arm64: 1.5.1
-      turbo-linux-64: 1.5.1
-      turbo-linux-arm64: 1.5.1
-      turbo-windows-64: 1.5.1
-      turbo-windows-arm64: 1.5.1
+      turbo-darwin-64: 1.5.3
+      turbo-darwin-arm64: 1.5.3
+      turbo-linux-64: 1.5.3
+      turbo-linux-arm64: 1.5.3
+      turbo-windows-64: 1.5.3
+      turbo-windows-arm64: 1.5.3
     dev: true
 
   /tv4/1.3.0:
@@ -14039,6 +14053,10 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /ulid-workers/2.0.0:
+    resolution: {integrity: sha512-iPme4QPFVeH4b5wq3zYBpLC4qwrW9FhfGN+EaAZw+NNiMz62vl+nioir5g/ps7KknRPOhVjTM3GDPFcisHZTxA==}
+    dev: false
 
   /unbox-primitive/1.0.2:
     resolution: {integrity: sha512-61pPlCD9h51VoreyJ0BReideM3MDKMKnh6+V9L08331ipq6Q8OFXZYiqP6n/tbHx4s5I9uRhcye6BrbkizkBDw==}

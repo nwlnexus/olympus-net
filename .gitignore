@@ -24,3 +24,5 @@ wrangler-local-state
 .idea/workspace.xml
 .idea/shelf
 .idea/usage.statistics.xml
+.idea/httpRequests/
+.idea/dataSources/

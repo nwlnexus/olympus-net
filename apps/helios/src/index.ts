@@ -1,17 +1,21 @@
+import { error, ThrowableRouter, withContent, withParams } from 'itty-router-extras';
+import { createLocation, getLocations, getNodes, getTunnels } from './handlers';
 import type { AppEnv, AppRequest } from '~/types/env';
-import { error, json, ThrowableRouter } from 'itty-router-extras';
 
 const router = ThrowableRouter();
 
 router
-  .get('/locations', (_req: AppRequest, _env: AppEnv) => {
-    return json({});
+  .get('/locations', withParams, (req: AppRequest, env: AppEnv, ctx: ExecutionContext) => {
+    return getLocations(req, env, ctx);
   })
-  .get('/nodes', (_req: AppRequest, _env: AppEnv) => {
-    return json({});
+  .post('/locations', withContent, (req: AppRequest, env: AppEnv, ctx: ExecutionContext) => {
+    return createLocation(req, env, ctx);
   })
-  .get('/tunnels', (_req: AppRequest, _env: AppEnv) => {
-    return json({});
+  .get('/nodes/:uuid?', withParams, (req: AppRequest, env: AppEnv, ctx: ExecutionContext) => {
+    return getNodes(req, env, ctx);
+  })
+  .get('/tunnels', (req: AppRequest, env: AppEnv, ctx: ExecutionContext) => {
+    return getTunnels(req, env, ctx);
   })
   .all('*', () => {
     return error(404, 'Not found');

@@ -9,8 +9,9 @@ interface Env {
   AUTH0_DOMAIN: string;
   CLOUDFLARE_ACCOUNT_ID: string;
   CLOUDFLARE_API_TOKEN: string;
-  HELIOS_KV: KVNamespace;
-  HELIOS_DB: D1Database;
+  KV: KVNamespace;
+  DB: D1Database;
+  R2: R2Bucket;
   SESSION_TAG: string;
   SESSION_SECRETS: string;
 }

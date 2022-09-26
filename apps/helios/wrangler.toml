@@ -6,12 +6,12 @@ minify = true
 node_compat = true
 
 [[kv_namespaces]]
-  binding = "HELIOS_KV"
+  binding = "KV"
   id = "ebe5f7523c3e4b3cb24d0d09e943b561"
   preview_id = "e5f7fce4e4b7496b8f2fb4745ccf943d"
 
 [[r2_buckets]]
-  binding = "HELIOS_R2"
+  binding = "R2"
   bucket_name = "helios-r2"
   preview_bucket_name = "helios-pvw-r2"
 
