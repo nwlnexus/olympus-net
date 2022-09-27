@@ -10,3 +10,4 @@ node_modules
 app/styles
 /.wrangler
 /wrangler-local-state
+*.tsbuildinfo

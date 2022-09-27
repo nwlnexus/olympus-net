@@ -203,7 +203,7 @@ importers:
       tiny-invariant: ^1.2.0
       tsconfig: workspace:*
       typescript: ^4.7.4
-      wrangler: 2.1.6
+      wrangler: 2.1.8
       zod: ^3.19.1
       zod-form-data: ^1.2.1
     dependencies:
@@ -282,7 +282,7 @@ importers:
       tailwindcss: 3.1.8_postcss@8.4.16
       tsconfig: link:../../packages/tsconfig
       typescript: 4.8.3
-      wrangler: 2.1.6
+      wrangler: 2.1.8
 
   packages/cloudflare-env:
     specifiers:
@@ -14589,14 +14589,17 @@ packages:
       - utf-8-validate
     dev: true
 
-  /wrangler/2.1.6:
-    resolution: {integrity: sha512-gwIdA5UPNA/u6U2vCVit3t75ldWmBiN11OQOK48G0u1xN/gdH/ktHWR/C8blDXTAM4c53mLJJw5u5X55ZR1LLw==}
+  /wrangler/2.1.8:
+    resolution: {integrity: sha512-9QJ/X+xz5uLFUPaE4ENuJY8smt88b05kXSuauXB4DhfF79ndY4tjlgiS2+EVjPv1hB/xkB1KFBSoUMTrMDH3qw==}
     engines: {node: '>=16.13.0'}
     hasBin: true
     dependencies:
       '@cloudflare/kv-asset-handler': 0.2.0
       '@esbuild-plugins/node-globals-polyfill': 0.1.1_esbuild@0.14.51
       '@esbuild-plugins/node-modules-polyfill': 0.1.4_esbuild@0.14.51
+      '@miniflare/core': 2.9.0
+      '@miniflare/d1': 2.9.0
+      '@miniflare/durable-objects': 2.9.0
       blake3-wasm: 2.1.5
       chokidar: 3.5.3
       esbuild: 0.14.51

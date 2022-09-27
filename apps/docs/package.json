@@ -3,9 +3,6 @@
   "name": "@nwlnexus/docs",
   "description": "NWL Nexus documentation site",
   "version": "0.0.1",
-  "engines": {
-    "node": ">=16.16.0"
-  },
   "browserslist": [
     "defaults"
   ],
@@ -57,7 +54,10 @@
     "stylelint": "^14.11.0",
     "stylelint-config-standard-scss": "^5.0.0"
   },
-  "packageManager": "pnpm@7.9.5",
+  "packageManager": "pnpm@7.11.0",
+  "engines": {
+    "node": ">=16.13"
+  },
   "otherDependencies": {
     "hugo": "0.102.3"
   }

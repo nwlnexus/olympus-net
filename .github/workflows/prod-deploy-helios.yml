@@ -1,16 +1,16 @@
-name: 'PROD: Deploy Docs'
+name: 'PROD: Deploy Helios'
 on:
   push:
     branches:
       - main
     paths:
-      - 'apps/docs/**'
-      - '.github/workflows/prod-deploy-docs.yml'
+      - 'apps/helios/**'
+      - '.github/workflows/prod-deploy-helios.yml'
 
 defaults:
   run:
     shell: bash
-    working-directory: apps/docs
+    working-directory: apps/helios
 
 env:
   CI: true
@@ -18,49 +18,30 @@ env:
   BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
 
 jobs:
-  docs_build-and-deploy:
-    name: 'Docs: Build and deploy to CF Pages'
+  helios_build-and-deploy:
+    name: 'Helios: Build and deploy to CF'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-
-      - uses: pnpm/action-setup@v2.2.2
-        name: Install pnpm
-        id: pnpm-install
+      - uses: nwlnexus/olmypus-net/.github/workflows/git-tasks.yml@main
         with:
-          version: 7
-          run_install: false
-
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '16'
-          cache: 'pnpm'
-
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        run: |
-          echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
-
-      - uses: actions/cache@v3
-        name: Setup pnpm cache
-        with:
-          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
+          secrets: inherit
 
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build Hugo
+#      - name: Run Unit Tests
+#        run: pnpm test
+
+      - name: Build app
         run: pnpm build
 
-      - name: Deploy Docs Pages App
+      - name: Deploy Helios
         uses: cloudflare/wrangler-action@2.0.0
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          workingDirectory: 'apps/docs'
-          command: pages publish --project-name='nwlnexus-docs' --branch=${{ BRANCH_NAME }} ./public
+          workingDirectory: 'apps/helios'
+          precommads: |
+            pnpm dlx wrangler@d1 d1 execute olympus --file=../../schema.sql
           secrets: |
             SESSION_TAG
             SESSION_SECRETS

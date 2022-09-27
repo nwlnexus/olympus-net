@@ -7,7 +7,7 @@
     "prebuild": "pnpm run clean && echo All clean ✨",
     "build": "run-s \"build:*\"",
     "build:css": "postcss styles/**/*.css --base ./styles --dir ./app/styles --env production",
-    "build:remix": "cross-env NODE_ENV=production remix build --sourcemap",
+    "build:remix": "cross-env NODE_ENV=production remix build",
     "clean": "rimraf ./cache ./build ./public/build \"./app/styles/**/*.css\" \"./functions/**\"",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
@@ -15,9 +15,9 @@
     "format": "prettier --write \"./app/**/*.{ts,tsx}\"",
     "prepare": "cd ../.. && husky install apps/remix-app/.husky",
     "postinstall": "patch-package && remix-esbuild-override",
-    "lint": "eslint .",
+    "lint": "eslint ./app",
     "lint:fix": "pnpm run lint -- --fix",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "test:e2e:dev": "cross-env RUNNING_E2E=true ENABLE_TEST_ROUTES=true start-server-and-test dev http-get://localhost:3000/build/info.json cy:open",
     "test:e2e:run": "cross-env RUNNING_E2E=true PORT=8811 start-server-and-test start:mocks http-get://localhost:8811/build/info.json cy:run",
     "typecheck": "tsc -b"
@@ -100,9 +100,9 @@
     "tailwindcss": "^3.1.8",
     "tsconfig": "workspace:*",
     "typescript": "^4.7.4",
-    "wrangler": "2.1.6"
+    "wrangler": "2.1.8"
   },
-  "packageManager": "pnpm@7.9.5",
+  "packageManager": "pnpm@7.11.0",
   "engines": {
     "node": ">=16.13"
   }
