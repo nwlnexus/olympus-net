@@ -1,0 +1,13 @@
+name: 'PROD: Deploy Docs'
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'apps/docs/**'
+      - '.github/workflows/prod-deploy-docs.yml'
+
+env:
+  HUSKY: 0
+
+jobs:

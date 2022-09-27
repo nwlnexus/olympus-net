@@ -4,6 +4,8 @@ importers:
 
   .:
     specifiers:
+      '@databases/split-sql-query': 1.0.3
+      '@databases/sql': 3.2.0
       '@types/better-sqlite3': ^7.6.0
       '@types/node': ^18.7.18
       '@types/yargs': ^17.0.13
@@ -20,6 +22,8 @@ importers:
       typescript: ^4.8.3
       yargs: ^17.5.1
     devDependencies:
+      '@databases/split-sql-query': 1.0.3_@databases+sql@3.2.0
+      '@databases/sql': 3.2.0
       '@types/better-sqlite3': 7.6.0
       '@types/node': 18.7.18
       '@types/yargs': 17.0.13
@@ -1778,6 +1782,18 @@ packages:
       lodash.once: 4.1.1
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@databases/split-sql-query/1.0.3_@databases+sql@3.2.0:
+    resolution: {integrity: sha512-Q3UYX85e34yE9KXa095AJtJhBQ0NpLfC0kS9ydFKuNB25cto4YddY52RuXN81m2t0pS1Atg31ylNpKfNCnUPdA==}
+    peerDependencies:
+      '@databases/sql': '*'
+    dependencies:
+      '@databases/sql': 3.2.0
+    dev: true
+
+  /@databases/sql/3.2.0:
+    resolution: {integrity: sha512-xQZzKIa0lvcdo0MYxnyFMVS1TRla9lpDSCYkobJl19vQEOJ9TqE4o8QBGRJNUfhSkbQIWyvMeBl3KBBbqyUVQQ==}
     dev: true
 
   /@emotion/is-prop-valid/0.8.8:

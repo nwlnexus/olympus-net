@@ -10,6 +10,8 @@
   "scripts": {
     "build": "turbo run build",
     "clean": "turbo run clean",
+    "db:prepare": "pnpm dlx wrangler@d1 --config ./apps/helios/wrangler.toml d1 execute DB --local --file=./schema.sql --persist-to ./.wrangler",
+    "db:seed": "pnpm dlx wrangler@d1 --config ./apps/helios/wrangler.toml d1 execute DB --local --file=./seed.sql --persist-to ./.wrangler",
     "dev": "turbo run dev --parallel",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,md,yml}\"",
     "lint": "turbo run lint",
@@ -17,6 +19,8 @@
     "typecheck": "turbo run typecheck"
   },
   "devDependencies": {
+    "@databases/split-sql-query": "1.0.3",
+    "@databases/sql": "3.2.0",
     "@types/better-sqlite3": "^7.6.0",
     "@types/node": "^18.7.18",
     "@types/yargs": "^17.0.13",
