@@ -18,7 +18,7 @@ env:
   BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
 
 jobs:
-  helios-git-tasks:
+  helios-test-build-app:
     name: 'Helios: Setup Git, Node and dependencies'
     runs-on: ubuntu-latest
     steps:
@@ -68,7 +68,7 @@ jobs:
 
   helios-deploy:
     name: 'Helios: Deploy to CF'
-    needs: ['helios-git-tasks','helios-code-quality','helios-build-app']
+    needs: ['helios-test-build-app']
     runs-on: ubuntu-latest
     steps:
       - name: Deploy Helios
