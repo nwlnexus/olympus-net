@@ -18,7 +18,7 @@ env:
   BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
 
 jobs:
-  docs_build-and-deploy:
+  docs-build-and-deploy:
     name: 'Docs: Build and deploy to CF Pages'
     runs-on: ubuntu-latest
     steps:

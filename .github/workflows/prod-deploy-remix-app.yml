@@ -18,7 +18,7 @@ env:
   BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
 
 jobs:
-  remix_build-and-deploy:
+  remix-build-and-deploy:
     name: 'Remix App: Build and deploy to CF'
     runs-on: ubuntu-latest
     steps:

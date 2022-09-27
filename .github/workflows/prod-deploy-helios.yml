@@ -18,13 +18,36 @@ env:
   BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
 
 jobs:
-  helios_build-and-deploy:
+  helios-build-and-deploy:
     name: 'Helios: Build and deploy to CF'
     runs-on: ubuntu-latest
     steps:
-      - uses: nwlnexus/olmypus-net/.github/workflows/git-tasks.yml@main
+      - uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v2.2.2
+        name: Install pnpm
+        id: pnpm-install
         with:
-          secrets: inherit
+          version: 7
+          run_install: false
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'pnpm'
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        run: |
+          echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
         run: pnpm install
