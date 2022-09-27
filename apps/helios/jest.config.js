@@ -2,10 +2,10 @@ const path = require('path');
 
 const fromRoot = d => path.join(__dirname, d);
 module.exports = {
-  roots: [fromRoot('app')],
+  roots: [fromRoot('src')],
   resetMocks: true,
   coveragePathIgnorePatterns: [],
-  collectCoverageFrom: ['**/app/**/*.{js,ts,tsx}'],
+  collectCoverageFrom: ['**/src/**/*.{js,ts,tsx}'],
   coverageThreshold: null,
   testEnvironment: 'jsdom',
   transform: {
@@ -16,7 +16,7 @@ module.exports = {
   moduleDirectories: ['node_modules', fromRoot('tests')],
   moduleFileExtensions: ['js', 'jsx', 'json', 'ts', 'tsx'],
   moduleNameMapper: {
-    '~/(.*)': fromRoot('app/$1')
+    '~/(.*)': fromRoot('src/$1')
   },
   watchPlugins: ['jest-watch-typeahead/filename', 'jest-watch-typeahead/testname']
 };

@@ -13,6 +13,7 @@
     "esbuild-jest": "^0.5.0",
     "eslint": "8.22.0",
     "eslint-config-custom": "workspace:*",
+    "jest": "^29.0.1",
     "prettier": "^2.7.1",
     "tsconfig": "workspace:*",
     "typescript": "^4.8.3",
@@ -25,7 +26,7 @@
     "dev": "wrangler dev --local --node-compat --persist --persist-to ../../.wrangler",
     "lint": "eslint ./src",
     "format": "prettier --write '**/*.{ts,mjs,js,html,css,json,md}'",
-    "test": "jest"
+    "test": "jest --passWithNoTests"
   },
   "dependencies": {
     "@esbuild-plugins/node-modules-polyfill": "^0.1.4",
