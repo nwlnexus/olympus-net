@@ -65,7 +65,7 @@ jobs:
 
   helios-build-app:
     name: 'Helios: App build'
-    needs: ['helios-git-tasks']
+    needs: ['helios-git-tasks', 'helios-code-quality']
     runs-on: ubuntu-latest
     steps:
       - name: Build app
