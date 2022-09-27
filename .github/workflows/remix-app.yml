@@ -1,16 +1,14 @@
-name: 'PROD: Deploy Helios'
+name: 'Deploy Remix App'
 on:
   push:
-    branches:
-      - main
     paths:
-      - 'apps/helios/**'
-      - '.github/workflows/prod-deploy-helios.yml'
+      - 'apps/remix-app/**'
+      - '.github/workflows/remix-app.yml'
 
 defaults:
   run:
     shell: bash
-    working-directory: apps/helios
+    working-directory: apps/remix-app
 
 env:
   CI: true
@@ -18,8 +16,8 @@ env:
   BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
 
 jobs:
-  helios-build-and-deploy:
-    name: 'Helios: Build and deploy to CF'
+  remix-git-tasks:
+    name: 'Remix App: Setup Git, Node and dependencies'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -52,19 +50,35 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-#      - name: Run Unit Tests
-#        run: pnpm test
+  remix-code-quality:
+    name: 'Remix: Code quality'
+    needs: ['remix-git-tasks']
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lint code
+        run: pnpm lint
 
+      - name: Run Unit Tests
+        run: pnpm test
+
+  remix-build-app:
+    name: 'Remix: App build'
+    needs: ['remix-git-tasks','remix-code-quality']
+    runs-on: ubuntu-latest
+    steps:
       - name: Build app
         run: pnpm build
 
-      - name: Deploy Helios
+  remix-deploy:
+    name: 'Remix: Deploy to CF'
+    needs: ['remix-git-tasks','remix-code-quality','remix-build-app']
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy Remix App
         uses: cloudflare/wrangler-action@2.0.0
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          workingDirectory: 'apps/helios'
-          preCommands: |
-            pnpm dlx wrangler@d1 d1 execute olympus --file=../../schema.sql
+          workingDirectory: 'apps/remix-app'
           secrets: |
             SESSION_TAG
             SESSION_SECRETS

@@ -1,16 +1,14 @@
-name: 'PROD: Deploy Remix App'
+name: 'Deploy Docs'
 on:
   push:
-    branches:
-      - main
     paths:
-      - 'apps/remix-app/**'
-      - '.github/workflows/prod-deploy-remix-app.yml'
+      - 'apps/docs/**'
+      - '.github/workflows/docs.yml'
 
 defaults:
   run:
     shell: bash
-    working-directory: apps/remix-app
+    working-directory: apps/docs
 
 env:
   CI: true
@@ -18,8 +16,8 @@ env:
   BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
 
 jobs:
-  remix-build-and-deploy:
-    name: 'Remix App: Build and deploy to CF'
+  docs-git-tasks:
+    name: 'Docs: Setup Git, Node and dependencies'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -45,27 +43,32 @@ jobs:
         name: Setup pnpm cache
         with:
           path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('../../pnpm-lock.yaml') }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
         run: pnpm install
 
-      - name: Lint code
-        run: pnpm lint
-
-      - name: Run Unit Tests
-        run: pnpm test
-
-      - name: Build app
+  docs-build-site:
+    name: 'Docs: Build site with Hugo'
+    needs: ['docs-git-tasks']
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build Hugo
         run: pnpm build
 
-      - name: Deploy Remix App
+  docs-deploy:
+    name: 'Docs: Deploy to CF Pages'
+    needs: ['docs-git-tasks', 'docs-build-site']
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy Docs Pages App
         uses: cloudflare/wrangler-action@2.0.0
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          workingDirectory: 'apps/remix-app'
+          workingDirectory: 'apps/docs'
+          command: pages publish --project-name='nwlnexus-docs' --branch=$BRANCH_NAME ./public
           secrets: |
             SESSION_TAG
             SESSION_SECRETS

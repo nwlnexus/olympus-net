@@ -1,16 +1,16 @@
-name: 'PROD: Deploy Docs'
+name: 'Deploy Helios'
 on:
   push:
     branches:
       - main
     paths:
-      - 'apps/docs/**'
-      - '.github/workflows/prod-deploy-docs.yml'
+      - 'apps/helios/**'
+      - '.github/workflows/helios.yml'
 
 defaults:
   run:
     shell: bash
-    working-directory: apps/docs
+    working-directory: apps/helios
 
 env:
   CI: true
@@ -18,8 +18,8 @@ env:
   BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
 
 jobs:
-  docs-build-and-deploy:
-    name: 'Docs: Build and deploy to CF Pages'
+  helios-git-tasks:
+    name: 'Helios: Setup Git, Node and dependencies'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -52,15 +52,37 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build Hugo
+  helios-code-quality:
+    name: 'Helios: Code quality'
+    needs: ['helios-git-tasks']
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lint code
+        run: pnpm lint
+
+      - name: Run Unit Tests
+        run: pnpm test
+
+  helios-build-app:
+    name: 'Helios: App build'
+    needs: ['helios-git-tasks']
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build app
         run: pnpm build
 
-      - name: Deploy Docs Pages App
+  helios-deploy:
+    name: 'Helios: Deploy to CF'
+    needs: ['helios-git-tasks','helios-code-quality','helios-build-app']
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy Helios
         uses: cloudflare/wrangler-action@2.0.0
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          workingDirectory: 'apps/docs'
-          command: pages publish --project-name='nwlnexus-docs' --branch=$BRANCH_NAME ./public
+          workingDirectory: 'apps/helios'
+          preCommands: |
+            pnpm dlx wrangler@d1 d1 execute olympus --file=../../schema.sql
           secrets: |
             SESSION_TAG
             SESSION_SECRETS
