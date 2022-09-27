@@ -23,6 +23,7 @@
     "build": "NODE_ENV=production node build.mjs",
     "deploy": "wrangler publish",
     "dev": "wrangler dev --local --node-compat --persist --persist-to ../../.wrangler",
+    "lint": "eslint ./src",
     "format": "prettier --write '**/*.{ts,mjs,js,html,css,json,md}'",
     "test": "jest"
   },
