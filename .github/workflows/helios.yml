@@ -62,6 +62,7 @@ jobs:
           retention-days: 1 day
           path: |
             apps/helios
+            !apps/helios/node_modules
             schema.sql
 
   helios-deploy:
