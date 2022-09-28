@@ -61,9 +61,9 @@ jobs:
           name: helios-app
           retention-days: 1 day
           path: |
-            dist
-            wrangler.toml
-            package.json
+            apps/helios/dist
+            apps/helios/wrangler.toml
+            apps/helios/package.json
             schema.sql
 
   helios-deploy:
@@ -80,8 +80,9 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           wranglerVersion: '0.0.0-200c7f22'
+          workingDirectory: 'apps/helios'
           preCommands: |
-            wrangler d1 execute olympus --file=schema.sql
+            wrangler d1 execute olympus --file=../../schema.sql
           secrets: |
             SESSION_TAG
             SESSION_SECRETS
