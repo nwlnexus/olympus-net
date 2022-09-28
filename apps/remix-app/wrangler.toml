@@ -1,4 +1,4 @@
-name = "olympus-helios"
+name = "helios-remix"
 
 workers_dev = false
 main = "./server.ts"

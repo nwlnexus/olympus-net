@@ -1,8 +1,6 @@
 name: 'Deploy Helios'
 on:
   push:
-    branches:
-      - main
     paths:
       - 'apps/helios/**'
       - '.github/workflows/helios.yml'
@@ -54,30 +52,11 @@ jobs:
       - name: Build app
         run: pnpm build
 
-#      - name: Upload build
-#        uses: actions/upload-artifact@v3
-#        with:
-#          name: helios-app
-#          retention-days: 1 day
-#          path: |
-#            apps/helios
-#            !apps/helios/node_modules
-#            schema.sql
-
-#  helios-deploy:
-#    name: 'Helios: Deploy to CF'
-#    needs: ['helios-test-build-app']
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/download-artifact@v3
-#        with:
-#          name: helios-app
-
       - name: Deploy Helios
         uses: cloudflare/wrangler-action@2.0.0
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          wranglerVersion: '0.0.0-200c7f22'
+          wranglerVersion: '2.1.9'
           workingDirectory: 'apps/helios'
           preCommands: |
             wrangler d1 execute olympus --file=../../schema.sql

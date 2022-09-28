@@ -21,6 +21,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          submodules: recursive
 
       - uses: pnpm/action-setup@v2.2.2
         name: Install pnpm
@@ -33,37 +35,22 @@ jobs:
         with:
           node-version: '16'
           cache: 'pnpm'
-
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        run: |
-          echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
-
-      - uses: actions/cache@v3
-        name: Setup pnpm cache
-        with:
-          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
+          cache-dependency-path: '**/pnpm-lock.yaml'
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --forzen-lockfile
 
-  docs-build-site:
-    name: 'Docs: Build site with Hugo'
-    needs: ['docs-git-tasks']
-    runs-on: ubuntu-latest
-    steps:
+      - uses: actions/cache@v3
+        with:
+          path: /tmp/hugo_cache
+          key: ${{ runner.os }}-hugomod-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-hugomod-
+
       - name: Build Hugo
         run: pnpm build
 
-  docs-deploy:
-    name: 'Docs: Deploy to CF Pages'
-    needs: ['docs-git-tasks', 'docs-build-site']
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy Docs Pages App
+      - name: Deploy Docs Pages App Production
         uses: cloudflare/wrangler-action@2.0.0
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
