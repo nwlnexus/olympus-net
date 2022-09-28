@@ -61,9 +61,9 @@ jobs:
           name: helios-app
           retention-days: 1 day
           path: |
-            dist
-            wrangler.toml
-            package.json
+            apps/helios/dist
+            apps/helios/wrangler.toml
+            apps/helios/package.json
             schema.sql
 
   helios-deploy:
