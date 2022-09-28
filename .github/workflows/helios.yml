@@ -47,32 +47,31 @@ jobs:
           key: ${{ runner.os }}-helios
 
       - name: Lint code
-        run: pnpm lint
-
-      - name: Run Unit Tests
-        run: pnpm test
+        run: |
+          pnpm lint
+          pnpm test
 
       - name: Build app
         run: pnpm build
 
-      - name: Upload build
-        uses: actions/upload-artifact@v3
-        with:
-          name: helios-app
-          retention-days: 1 day
-          path: |
-            apps/helios
-            !apps/helios/node_modules
-            schema.sql
+#      - name: Upload build
+#        uses: actions/upload-artifact@v3
+#        with:
+#          name: helios-app
+#          retention-days: 1 day
+#          path: |
+#            apps/helios
+#            !apps/helios/node_modules
+#            schema.sql
 
-  helios-deploy:
-    name: 'Helios: Deploy to CF'
-    needs: ['helios-test-build-app']
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/download-artifact@v3
-        with:
-          name: helios-app
+#  helios-deploy:
+#    name: 'Helios: Deploy to CF'
+#    needs: ['helios-test-build-app']
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/download-artifact@v3
+#        with:
+#          name: helios-app
 
       - name: Deploy Helios
         uses: cloudflare/wrangler-action@2.0.0
