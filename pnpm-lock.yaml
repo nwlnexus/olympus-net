@@ -60,6 +60,7 @@ importers:
       shx: ^0.3.4
       stylelint: ^14.11.0
       stylelint-config-standard-scss: ^5.0.0
+      wrangler: 2.1.9
     devDependencies:
       '@babel/cli': 7.18.10_@babel+core@7.19.1
       '@babel/core': 7.19.1
@@ -79,6 +80,7 @@ importers:
       shx: 0.3.4
       stylelint: 14.12.1
       stylelint-config-standard-scss: 5.0.0_nqmbdxq5redfjw6kdtxj73dev4
+      wrangler: 2.1.9
 
   apps/helios:
     specifiers:

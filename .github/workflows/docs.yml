@@ -14,6 +14,8 @@ env:
   CI: true
   HUSKY: 0
   BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+  CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+  CLOUDFLAREACCOUNT_ID: ${[ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
 jobs:
   docs-git-tasks:
@@ -54,10 +56,4 @@ jobs:
         run: pnpm build
 
       - name: Deploy Docs Pages App
-        uses: cloudflare/pages-action@1
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${[ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: nwlnexus-docs
-          directory: apps/docs/public
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+        run: pnpm exec wrangler pages publish --project-name nwlnexus-docs ./public
