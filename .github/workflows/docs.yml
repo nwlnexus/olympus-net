@@ -50,13 +50,13 @@ jobs:
       - name: Build Hugo
         run: pnpm build
 
-      - name: Deploy Docs Pages App Production
+      - name: Deploy Docs Pages App
         uses: cloudflare/wrangler-action@2.0.0
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${[ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: 'apps/docs'
-          command: pages publish --project-name=nwlnexus-docs --branch=$BRANCH_NAME ./public
+          command: pages publish --project-name=nwlnexus-docs ./public
           secrets: |
             SESSION_TAG
             SESSION_SECRETS
