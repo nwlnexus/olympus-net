@@ -9,3 +9,5 @@ node_modules
 app/styles
 /.wrangler
 /wrangler-local-state
+.rollup.cache
+tscOutDir

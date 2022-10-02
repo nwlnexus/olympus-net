@@ -19,6 +19,7 @@
     "incremental": true,
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
+    "outDir": "tscOutDir",
     "paths": {
       "~/*": ["./src/*"],
       "~/types/*": ["./types/*"]

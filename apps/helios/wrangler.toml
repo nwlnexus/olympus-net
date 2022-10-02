@@ -20,8 +20,8 @@ node_compat = true
   database_id = "75eee409-72e2-4df4-a6bb-e790aff52cbd"
   preview_id = "75eee409-72e2-4df4-a6bb-e790aff52cbd"
 
-#[build]
-#command = "pnpm build"
+[build]
+command = "pnpm build:esbuild"
 
 [dev]
 port = 8789
