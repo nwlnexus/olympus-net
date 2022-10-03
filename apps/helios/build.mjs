@@ -4,7 +4,6 @@ import { fileURLToPath } from 'url';
 import { createRequire as topLevelCreateRequire } from 'module';
 import commonjsPlugin from '@chialab/esbuild-plugin-commonjs';
 
-const require = topLevelCreateRequire(import.meta.url);
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
