@@ -11,6 +11,9 @@ let config = {
   settings: {
     files: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx']
   },
+  parserOptions: {
+    sourceType: 'module'
+  },
   plugins: ['testing-library', 'jest-dom']
 };
 

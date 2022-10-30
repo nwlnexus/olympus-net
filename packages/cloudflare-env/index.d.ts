@@ -12,6 +12,8 @@ interface Env {
   KV: KVNamespace;
   DB: D1Database;
   R2: R2Bucket;
+  HELIOS: Fetcher;
+  HERMES: Fetcher;
   SESSION_TAG: string;
   SESSION_SECRETS: string;
 }

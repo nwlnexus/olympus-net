@@ -12,7 +12,7 @@ export function generateConfigs(context: LoaderArgs) {
   const sessionConfig: SessionConfig = {
     tag: context.env.SESSION_TAG,
     secrets: context.env.SESSION_SECRETS.split(','),
-    kv: context.env.HELIOS_KV
+    kv: context.env.KV
   };
 
   const baseURL = context.env.APP_BASE_URL;
