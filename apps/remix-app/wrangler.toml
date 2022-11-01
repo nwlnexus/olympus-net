@@ -1,7 +1,7 @@
 name = "helios-remix"
 
 workers_dev = false
-main = "./server.ts"
+main = "./server.js"
 # https://developers.cloudflare.com/workers/platform/compatibility-dates
 compatibility_date = "2022-09-06"
 

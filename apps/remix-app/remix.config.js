@@ -16,8 +16,8 @@ withEsbuildOverride((option, { isServer }) => {
 
 /** @type {import('@remix-run/dev').AppConfig} */
 module.exports = {
-  serverBuildTarget: 'cloudflare-workers',
-  // server: './server.js',
+  serverBuildTarget: 'cloudflare-pages',
+  server: './server.js',
   devServerBroadcastDelay: 1000,
   ignoredRouteFiles: ['**/.*']
   // appDirectory: "app",
