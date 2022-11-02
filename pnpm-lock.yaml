@@ -172,6 +172,7 @@ importers:
       '@cloudflare/kv-asset-handler': ^0.2.0
       '@cloudflare/workers-types': ^3.18.0
       '@esbuild-plugins/node-globals-polyfill': ^0.1.1
+      '@iconify/icons-carbon': ^1.2.11
       '@iconify/icons-heroicons': ^1.2.5
       '@iconify/react': ^3.2.2
       '@n8tb1t/use-scroll-position': ^2.0.3
@@ -247,6 +248,7 @@ importers:
     dependencies:
       '@cfworker/base64url': 1.12.5
       '@cloudflare/kv-asset-handler': 0.2.0
+      '@iconify/icons-carbon': 1.2.11
       '@n8tb1t/use-scroll-position': 2.0.3_bbvjflvjoibwhtpmedigb26h6y
       '@remix-run/cloudflare': 1.7.4_dp7lsxfcjoxmh2gy56a7syibgu
       '@remix-run/cloudflare-pages': 1.7.4_dp7lsxfcjoxmh2gy56a7syibgu
@@ -3198,6 +3200,12 @@ packages:
     resolution: {integrity: sha512-trnsAYxU3xnS1gPHPyU961coFyLkh4gAD/0zQ5mymY4yOZ+CYvsPqUbOFSw0aDM4y0tV7tiFxL/1XfXPNC6IPg==}
     dev: true
 
+  /@iconify/icons-carbon/1.2.11:
+    resolution: {integrity: sha512-MgfFS0skpqlHsnlFgqL1Ud/8C07vz8W5n0cv+H+R+7M4HOsoMHDfmJWOCSM63p5EgP703RtAUnkwMImPk2m32Q==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: false
+
   /@iconify/icons-heroicons/1.2.5:
     resolution: {integrity: sha512-Bgp78luUR/3i4A87N6gmVhP46FzFMY5RX3hPt+ThraCDfiikROOdCDP1j0S4n/NEqyHoctjp4cFrTlwAlsIdaw==}
     dependencies:
@@ -3214,7 +3222,6 @@ packages:
 
   /@iconify/types/2.0.0:
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
-    dev: true
 
   /@istanbuljs/load-nyc-config/1.1.0:
     resolution: {integrity: sha512-VjeHSlIzpv/NyD3N0YuHfXOPDIixcA1q2ZV98wsMqcYlPmv2n3Yb2lYP9XMElnaFVXg5A7YLTeLu6V84uQDjmQ==}

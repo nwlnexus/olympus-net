@@ -7,6 +7,9 @@ import { redirect } from '~/remix';
 import { EmptyObject } from '~/core/components';
 import { createColumnHelper } from '@tanstack/react-table';
 import { DataGrid } from '~/components/DataGrid';
+import { Icon } from '@iconify/react';
+import intentRequestActive from '@iconify/icons-carbon/intent-request-active';
+import intentRequestInactive from '@iconify/icons-carbon/intent-request-inactive';
 
 export const loader = async ({ request, context }: LoaderArgs) => {
   const { authConfig, sessionConfig } = generateConfigs(context);
@@ -41,10 +44,14 @@ export default function TunnelsView() {
   if (tunnels) {
     const columns = [
       columnHelper.accessor('name', { cell: info => info.getValue(), header: 'Name' }),
-      columnHelper.accessor('created_at', { cell: info => info.getValue() }),
-      columnHelper.accessor('deleted_at', { cell: info => info.getValue() }),
-      columnHelper.accessor('status', { cell: info => info.getValue() }),
-      columnHelper.accessor('remote_config', { cell: info => info.getValue() })
+      columnHelper.accessor('created_at', { cell: info => info.getValue(), header: 'Created At' }),
+      columnHelper.accessor('deleted_at', { cell: info => info.getValue(), header: 'Deleted At' }),
+      columnHelper.accessor('status', {
+        cell: info =>
+          info.getValue() === 'active' ? <Icon icon={intentRequestActive} /> : <Icon icon={intentRequestInactive} />,
+        header: 'Status'
+      }),
+      columnHelper.accessor('remote_config', { cell: info => info.getValue().toString(), header: 'Remote Config' })
     ];
     console.log(columns);
     return (

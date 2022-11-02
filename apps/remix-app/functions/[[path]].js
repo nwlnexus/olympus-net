@@ -21293,6 +21293,32 @@ var require_index_production = __commonJS({
   }
 });
 
+// ../../node_modules/.pnpm/@iconify+icons-carbon@1.2.11/node_modules/@iconify/icons-carbon/intent-request-active.js
+var require_intent_request_active = __commonJS({
+  "../../node_modules/.pnpm/@iconify+icons-carbon@1.2.11/node_modules/@iconify/icons-carbon/intent-request-active.js"(exports) {
+    var data = {
+      width: 32,
+      height: 32,
+      body: '<path fill="currentColor" d="m23 27.2l-2.6-2.6L19 26l4 4l8-8l-1.4-1.4z"/><path fill="currentColor" d="M15.4 30L5 23.8c-.6-.4-1-1-1-1.7V9.9c0-.7.4-1.4 1-1.7l10-5.9c.3-.2.6-.3 1-.3s.7.1 1 .3l10 5.9c.6.4 1 1 1 1.7V16h-2V9.9L16 4L6 9.9v12.2l10.5 6.2l-1.1 1.7z"/>'
+    };
+    exports.__esModule = !0;
+    exports.default = data;
+  }
+});
+
+// ../../node_modules/.pnpm/@iconify+icons-carbon@1.2.11/node_modules/@iconify/icons-carbon/intent-request-inactive.js
+var require_intent_request_inactive = __commonJS({
+  "../../node_modules/.pnpm/@iconify+icons-carbon@1.2.11/node_modules/@iconify/icons-carbon/intent-request-inactive.js"(exports) {
+    var data = {
+      width: 32,
+      height: 32,
+      body: '<circle cx="18.5" cy="22.5" r="1.5" fill="currentColor"/><circle cx="23.5" cy="22.5" r="1.5" fill="currentColor"/><circle cx="28.5" cy="22.5" r="1.5" fill="currentColor"/><path fill="currentColor" d="M15.4 30L5 23.8c-.6-.4-1-1-1-1.7V9.9c0-.7.4-1.4 1-1.7l10-5.9c.3-.2.6-.3 1-.3s.7.1 1 .3l10 5.9c.6.4 1 1 1 1.7V16h-2V9.9L16 4L6 9.9v12.2l10.5 6.2l-1.1 1.7z"/>'
+    };
+    exports.__esModule = !0;
+    exports.default = data;
+  }
+});
+
 // ../../node_modules/.pnpm/@remix-run+cloudflare-pages@1.7.4_dp7lsxfcjoxmh2gy56a7syibgu/node_modules/@remix-run/cloudflare-pages/dist/esm/worker.js
 var import_cloudflare = __toESM(require_dist());
 function createRequestHandler2({
@@ -21457,7 +21483,7 @@ __export(root_exports, {
 });
 
 // app/styles/tailwind.css
-var tailwind_default = "/build/_assets/tailwind-MXDMKINI.css";
+var tailwind_default = "/build/_assets/tailwind-HJIKBNUN.css";
 
 // ../../node_modules/.pnpm/remix-typedjson@0.1.3_6yjjdt4n4win4ui7gmjmrevsue/node_modules/remix-typedjson/dist/esm/remix.js
 init_esm2();
@@ -23704,7 +23730,24 @@ var _excluded$v = ["children", "size", "horizontal", "dataTheme", "className"], 
   }));
 });
 Artboard.displayName = "Artboard";
-var _excluded$t = ["children", "vertical", "dataTheme", "className"], Divider = (_ref) => {
+var _excluded$u = ["vertical", "children", "dataTheme", "className"], ButtonGroup = /* @__PURE__ */ import_react8.default.forwardRef((_ref, ref) => {
+  let {
+    vertical,
+    children,
+    dataTheme,
+    className
+  } = _ref, props = _objectWithoutPropertiesLoose2(_ref, _excluded$u), classes = twMerge("btn-group", className, clsx({
+    "btn-group-vertical": vertical
+  }));
+  return (0, import_jsx_runtime.jsx)("div", _extends$1({
+    "aria-label": `Group of ${children.length} buttons`
+  }, props, {
+    "data-theme": dataTheme,
+    className: classes,
+    ref,
+    children
+  }));
+}), _excluded$t = ["children", "vertical", "dataTheme", "className"], Divider = (_ref) => {
   let {
     children,
     vertical,
@@ -24093,8 +24136,7 @@ var _excluded$c = ["className"], MenuTitle = /* @__PURE__ */ import_react8.defau
   Start: NavbarStart,
   Center: NavbarCenter,
   End: NavbarEnd
-});
-var _excluded$8 = ["children", "value", "color", "dataTheme", "className"], Step = /* @__PURE__ */ import_react8.default.forwardRef((_ref, ref) => {
+}), Pagination = ButtonGroup, _excluded$8 = ["children", "value", "color", "dataTheme", "className"], Step = /* @__PURE__ */ import_react8.default.forwardRef((_ref, ref) => {
   let {
     children,
     value,
@@ -29193,63 +29235,206 @@ __export(tunnels_exports, {
 var import_react_table2 = __toESM(require_index_production());
 
 // app/@core/components/DataGrid.tsx
-var import_react_table = __toESM(require_index_production()), import_jsx_dev_runtime = __toESM(require_jsx_dev_runtime());
+var import_react_table = __toESM(require_index_production());
+var import_jsx_dev_runtime = __toESM(require_jsx_dev_runtime());
 function DataGrid({ columns, data }) {
   let table = (0, import_react_table.useReactTable)({
     data,
     columns,
-    getCoreRowModel: (0, import_react_table.getCoreRowModel)()
+    getCoreRowModel: (0, import_react_table.getCoreRowModel)(),
+    getPaginationRowModel: (0, import_react_table.getPaginationRowModel)()
   });
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("table", {
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_jsx_dev_runtime.Fragment, {
     children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("thead", {
-        children: table.getHeaderGroups().map((headerGroup) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("tr", {
-          children: headerGroup.headers.map((header) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("th", {
-            children: header.isPlaceholder ? null : (0, import_react_table.flexRender)(header.column.columnDef.header, header.getContext())
-          }, header.id, !1, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("table", {
+        children: [
+          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("thead", {
+            children: table.getHeaderGroups().map((headerGroup) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("tr", {
+              children: headerGroup.headers.map((header) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("th", {
+                className: "p-2",
+                children: header.isPlaceholder ? null : (0, import_react_table.flexRender)(header.column.columnDef.header, header.getContext())
+              }, header.id, !1, {
+                fileName: "app/@core/components/DataGrid.tsx",
+                lineNumber: 22,
+                columnNumber: 17
+              }, this))
+            }, headerGroup.id, !1, {
+              fileName: "app/@core/components/DataGrid.tsx",
+              lineNumber: 20,
+              columnNumber: 13
+            }, this))
+          }, void 0, !1, {
             fileName: "app/@core/components/DataGrid.tsx",
-            lineNumber: 19,
-            columnNumber: 15
-          }, this))
-        }, headerGroup.id, !1, {
-          fileName: "app/@core/components/DataGrid.tsx",
-          lineNumber: 17,
-          columnNumber: 11
-        }, this))
-      }, void 0, !1, {
+            lineNumber: 18,
+            columnNumber: 9
+          }, this),
+          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("tbody", {
+            children: table.getRowModel().rows.map((row) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("tr", {
+              children: row.getVisibleCells().map((cell) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("td", {
+                className: "items-center p-2 text-center",
+                children: (0, import_react_table.flexRender)(cell.column.columnDef.cell, cell.getContext())
+              }, cell.id, !1, {
+                fileName: "app/@core/components/DataGrid.tsx",
+                lineNumber: 33,
+                columnNumber: 17
+              }, this))
+            }, row.id, !1, {
+              fileName: "app/@core/components/DataGrid.tsx",
+              lineNumber: 31,
+              columnNumber: 13
+            }, this))
+          }, void 0, !1, {
+            fileName: "app/@core/components/DataGrid.tsx",
+            lineNumber: 29,
+            columnNumber: 9
+          }, this)
+        ]
+      }, void 0, !0, {
         fileName: "app/@core/components/DataGrid.tsx",
-        lineNumber: 15,
+        lineNumber: 17,
         columnNumber: 7
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("tbody", {
-        children: table.getRowModel().rows.map((row) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("tr", {
-          children: row.getVisibleCells().map((cell) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("td", {
-            children: (0, import_react_table.flexRender)(cell.column.columnDef.cell, cell.getContext())
-          }, cell.id, !1, {
-            fileName: "app/@core/components/DataGrid.tsx",
-            lineNumber: 30,
-            columnNumber: 15
-          }, this))
-        }, row.id, !1, {
-          fileName: "app/@core/components/DataGrid.tsx",
-          lineNumber: 28,
-          columnNumber: 11
-        }, this))
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", {
+        className: "h-2"
       }, void 0, !1, {
         fileName: "app/@core/components/DataGrid.tsx",
-        lineNumber: 26,
+        lineNumber: 41,
+        columnNumber: 7
+      }, this),
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", {
+        className: "flex items-center justify-end gap-2",
+        children: [
+          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Pagination, {
+            children: [
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Button, {
+                onClick: () => table.setPageIndex(0),
+                disabled: !table.getCanPreviousPage(),
+                children: "<<"
+              }, void 0, !1, {
+                fileName: "app/@core/components/DataGrid.tsx",
+                lineNumber: 44,
+                columnNumber: 11
+              }, this),
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Button, {
+                onClick: () => table.previousPage(),
+                disabled: !table.getCanPreviousPage(),
+                children: "<"
+              }, void 0, !1, {
+                fileName: "app/@core/components/DataGrid.tsx",
+                lineNumber: 47,
+                columnNumber: 11
+              }, this),
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Button, {
+                onClick: () => table.nextPage(),
+                disabled: !table.getCanNextPage(),
+                children: ">"
+              }, void 0, !1, {
+                fileName: "app/@core/components/DataGrid.tsx",
+                lineNumber: 50,
+                columnNumber: 11
+              }, this),
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Button, {
+                onClick: () => table.setPageIndex(table.getPageCount() - 1),
+                disabled: !table.getCanNextPage(),
+                children: ">>"
+              }, void 0, !1, {
+                fileName: "app/@core/components/DataGrid.tsx",
+                lineNumber: 53,
+                columnNumber: 11
+              }, this)
+            ]
+          }, void 0, !0, {
+            fileName: "app/@core/components/DataGrid.tsx",
+            lineNumber: 43,
+            columnNumber: 9
+          }, this),
+          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", {
+            className: "ml-2 flex items-center gap-1",
+            children: [
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", {
+                children: "Page"
+              }, void 0, !1, {
+                fileName: "app/@core/components/DataGrid.tsx",
+                lineNumber: 58,
+                columnNumber: 11
+              }, this),
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("strong", {
+                children: [
+                  table.getState().pagination.pageIndex + 1,
+                  " of ",
+                  table.getPageCount()
+                ]
+              }, void 0, !0, {
+                fileName: "app/@core/components/DataGrid.tsx",
+                lineNumber: 59,
+                columnNumber: 11
+              }, this)
+            ]
+          }, void 0, !0, {
+            fileName: "app/@core/components/DataGrid.tsx",
+            lineNumber: 57,
+            columnNumber: 9
+          }, this),
+          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", {
+            className: "flex items-center gap-1",
+            children: [
+              "| Go to page:",
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Input, {
+                type: "number",
+                defaultValue: table.getState().pagination.pageIndex + 1,
+                onChange: (e) => {
+                  let page = e.target.value ? Number(e.target.value) - 1 : 0;
+                  table.setPageIndex(page);
+                },
+                className: "w-16 rounded border p-1"
+              }, void 0, !1, {
+                fileName: "app/@core/components/DataGrid.tsx",
+                lineNumber: 65,
+                columnNumber: 11
+              }, this)
+            ]
+          }, void 0, !0, {
+            fileName: "app/@core/components/DataGrid.tsx",
+            lineNumber: 63,
+            columnNumber: 9
+          }, this),
+          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Select$1, {
+            value: table.getState().pagination.pageSize,
+            onChange: (e) => {
+              table.setPageSize(Number(e));
+            },
+            children: [10, 20, 30, 40, 50].map((pageSize) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("option", {
+              value: pageSize,
+              children: [
+                "Show ",
+                pageSize
+              ]
+            }, pageSize, !0, {
+              fileName: "app/@core/components/DataGrid.tsx",
+              lineNumber: 82,
+              columnNumber: 13
+            }, this))
+          }, void 0, !1, {
+            fileName: "app/@core/components/DataGrid.tsx",
+            lineNumber: 75,
+            columnNumber: 9
+          }, this)
+        ]
+      }, void 0, !0, {
+        fileName: "app/@core/components/DataGrid.tsx",
+        lineNumber: 42,
         columnNumber: 7
       }, this)
     ]
   }, void 0, !0, {
     fileName: "app/@core/components/DataGrid.tsx",
-    lineNumber: 14,
+    lineNumber: 16,
     columnNumber: 5
   }, this);
 }
 
 // app/routes/__layout/tunnels/index.tsx
-var import_jsx_dev_runtime = __toESM(require_jsx_dev_runtime()), loader5 = async ({ request, context }) => {
+var import_intent_request_active = __toESM(require_intent_request_active()), import_intent_request_inactive = __toESM(require_intent_request_inactive()), import_jsx_dev_runtime = __toESM(require_jsx_dev_runtime()), loader5 = async ({ request, context }) => {
   let { authConfig, sessionConfig } = generateConfigs(context), user = await (await getAuthenticator(authConfig, sessionConfig)).isAuthenticated(request), { pathname } = new URL(request.url);
   if (pathname !== "/" && !user)
     return redirect2("/auth/login");
@@ -29269,10 +29454,25 @@ function TunnelsView() {
   if (tunnels) {
     let columns = [
       columnHelper.accessor("name", { cell: (info) => info.getValue(), header: "Name" }),
-      columnHelper.accessor("created_at", { cell: (info) => info.getValue() }),
-      columnHelper.accessor("deleted_at", { cell: (info) => info.getValue() }),
-      columnHelper.accessor("status", { cell: (info) => info.getValue() }),
-      columnHelper.accessor("remote_config", { cell: (info) => info.getValue() })
+      columnHelper.accessor("created_at", { cell: (info) => info.getValue(), header: "Created At" }),
+      columnHelper.accessor("deleted_at", { cell: (info) => info.getValue(), header: "Deleted At" }),
+      columnHelper.accessor("status", {
+        cell: (info) => info.getValue() === "active" ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Icon, {
+          icon: import_intent_request_active.default
+        }, void 0, !1, {
+          fileName: "app/routes/__layout/tunnels/index.tsx",
+          lineNumber: 51,
+          columnNumber: 42
+        }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Icon, {
+          icon: import_intent_request_inactive.default
+        }, void 0, !1, {
+          fileName: "app/routes/__layout/tunnels/index.tsx",
+          lineNumber: 51,
+          columnNumber: 80
+        }, this),
+        header: "Status"
+      }),
+      columnHelper.accessor("remote_config", { cell: (info) => info.getValue().toString(), header: "Remote Config" })
     ];
     return console.log(columns), /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", {
       className: "p-6",
@@ -29283,17 +29483,17 @@ function TunnelsView() {
           data: tunnels
         }, void 0, !1, {
           fileName: "app/routes/__layout/tunnels/index.tsx",
-          lineNumber: 54,
+          lineNumber: 61,
           columnNumber: 11
         }, this)
       }, void 0, !1, {
         fileName: "app/routes/__layout/tunnels/index.tsx",
-        lineNumber: 53,
+        lineNumber: 60,
         columnNumber: 9
       }, this)
     }, void 0, !1, {
       fileName: "app/routes/__layout/tunnels/index.tsx",
-      lineNumber: 51,
+      lineNumber: 58,
       columnNumber: 7
     }, this);
   }
@@ -29302,12 +29502,12 @@ function TunnelsView() {
       objectType: "tunnel"
     }, void 0, !1, {
       fileName: "app/routes/__layout/tunnels/index.tsx",
-      lineNumber: 61,
+      lineNumber: 68,
       columnNumber: 7
     }, this)
   }, void 0, !1, {
     fileName: "app/routes/__layout/tunnels/index.tsx",
-    lineNumber: 60,
+    lineNumber: 67,
     columnNumber: 5
   }, this);
 }
@@ -31417,7 +31617,7 @@ function Login() {
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { version: "29ae2ed2", entry: { module: "/build/entry.client-ZJFU5ZGK.js", imports: ["/build/_shared/chunk-AZJXGLHA.js", "/build/_shared/chunk-JPDQG4UB.js", "/build/_shared/chunk-WL6OOE6Y.js", "/build/_shared/chunk-4IYZMDEG.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-NFUUOSMN.js", imports: ["/build/_shared/chunk-QSMFV4O5.js", "/build/_shared/chunk-TBWLSKCX.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !0, hasErrorBoundary: !1 }, "routes/__layout": { id: "routes/__layout", parentId: "root", path: void 0, index: void 0, caseSensitive: void 0, module: "/build/routes/__layout-JRRUSYRQ.js", imports: ["/build/_shared/chunk-UXMBXAI2.js", "/build/_shared/chunk-R755HZL7.js", "/build/_shared/chunk-KDU52ULV.js", "/build/_shared/chunk-6JVAVAYG.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !0, hasErrorBoundary: !0 }, "routes/__layout/dashboard": { id: "routes/__layout/dashboard", parentId: "routes/__layout", path: "dashboard", index: void 0, caseSensitive: void 0, module: "/build/routes/__layout/dashboard-GWT5ZE2F.js", imports: ["/build/_shared/chunk-QVFN3AUQ.js", "/build/_shared/chunk-QSMFV4O5.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/index": { id: "routes/__layout/index", parentId: "routes/__layout", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/__layout/index-KRXOFDUS.js", imports: ["/build/_shared/chunk-TBWLSKCX.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/locations/$locationId": { id: "routes/__layout/locations/$locationId", parentId: "routes/__layout", path: "locations/:locationId", index: void 0, caseSensitive: void 0, module: "/build/routes/__layout/locations/$locationId-O27S3GCR.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/locations/index": { id: "routes/__layout/locations/index", parentId: "routes/__layout", path: "locations", index: !0, caseSensitive: void 0, module: "/build/routes/__layout/locations/index-Y6CWY2QC.js", imports: ["/build/_shared/chunk-QVFN3AUQ.js", "/build/_shared/chunk-QSMFV4O5.js", "/build/_shared/chunk-TBWLSKCX.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/locations/new": { id: "routes/__layout/locations/new", parentId: "routes/__layout", path: "locations/new", index: void 0, caseSensitive: void 0, module: "/build/routes/__layout/locations/new-P5MVQHPC.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/nodes/index": { id: "routes/__layout/nodes/index", parentId: "routes/__layout", path: "nodes", index: !0, caseSensitive: void 0, module: "/build/routes/__layout/nodes/index-JWWB5WLQ.js", imports: ["/build/_shared/chunk-QVFN3AUQ.js", "/build/_shared/chunk-QSMFV4O5.js", "/build/_shared/chunk-TBWLSKCX.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/nodes/new": { id: "routes/__layout/nodes/new", parentId: "routes/__layout", path: "nodes/new", index: void 0, caseSensitive: void 0, module: "/build/routes/__layout/nodes/new-SDGFKTJX.js", imports: ["/build/_shared/chunk-QSMFV4O5.js", "/build/_shared/chunk-TBWLSKCX.js"], hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/profile": { id: "routes/__layout/profile", parentId: "routes/__layout", path: "profile", index: void 0, caseSensitive: void 0, module: "/build/routes/__layout/profile-G2OYLXPG.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/reports": { id: "routes/__layout/reports", parentId: "routes/__layout", path: "reports", index: void 0, caseSensitive: void 0, module: "/build/routes/__layout/reports-XIKXLGFO.js", imports: ["/build/_shared/chunk-QVFN3AUQ.js", "/build/_shared/chunk-QSMFV4O5.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/settings": { id: "routes/__layout/settings", parentId: "routes/__layout", path: "settings", index: void 0, caseSensitive: void 0, module: "/build/routes/__layout/settings-FAULQVNE.js", imports: ["/build/_shared/chunk-QVFN3AUQ.js", "/build/_shared/chunk-QSMFV4O5.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/settings/accounts": { id: "routes/__layout/settings/accounts", parentId: "routes/__layout/settings", path: "accounts", index: void 0, caseSensitive: void 0, module: "/build/routes/__layout/settings/accounts-WU6QX7HE.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/settings/variables": { id: "routes/__layout/settings/variables", parentId: "routes/__layout/settings", path: "variables", index: void 0, caseSensitive: void 0, module: "/build/routes/__layout/settings/variables-GAHTS6OU.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/tunnels/index": { id: "routes/__layout/tunnels/index", parentId: "routes/__layout", path: "tunnels", index: !0, caseSensitive: void 0, module: "/build/routes/__layout/tunnels/index-X27MFPVD.js", imports: ["/build/_shared/chunk-QVFN3AUQ.js", "/build/_shared/chunk-QSMFV4O5.js", "/build/_shared/chunk-TBWLSKCX.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/auth": { id: "routes/auth", parentId: "root", path: "auth", index: void 0, caseSensitive: void 0, module: "/build/routes/auth-4SBI2QCD.js", imports: ["/build/_shared/chunk-QVFN3AUQ.js", "/build/_shared/chunk-6JVAVAYG.js"], hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/auth/callback": { id: "routes/auth/callback", parentId: "routes/auth", path: "callback", index: void 0, caseSensitive: void 0, module: "/build/routes/auth/callback-EHPJPPMI.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/auth/login": { id: "routes/auth/login", parentId: "routes/auth", path: "login", index: void 0, caseSensitive: void 0, module: "/build/routes/auth/login-4PTK4T7Y.js", imports: ["/build/_shared/chunk-R755HZL7.js", "/build/_shared/chunk-KDU52ULV.js", "/build/_shared/chunk-QSMFV4O5.js", "/build/_shared/chunk-TBWLSKCX.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/auth/logout": { id: "routes/auth/logout", parentId: "routes/auth", path: "logout", index: void 0, caseSensitive: void 0, module: "/build/routes/auth/logout-BKJDXNGK.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-29AE2ED2.js" };
+var assets_manifest_default = { version: "20916a3f", entry: { module: "/build/entry.client-ZJFU5ZGK.js", imports: ["/build/_shared/chunk-AZJXGLHA.js", "/build/_shared/chunk-JPDQG4UB.js", "/build/_shared/chunk-WL6OOE6Y.js", "/build/_shared/chunk-4IYZMDEG.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-7GC2LX26.js", imports: ["/build/_shared/chunk-QSMFV4O5.js", "/build/_shared/chunk-E424YZWU.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !0, hasErrorBoundary: !1 }, "routes/__layout": { id: "routes/__layout", parentId: "root", path: void 0, index: void 0, caseSensitive: void 0, module: "/build/routes/__layout-EG7XLGLK.js", imports: ["/build/_shared/chunk-UXMBXAI2.js", "/build/_shared/chunk-2GQYPODQ.js", "/build/_shared/chunk-KDU52ULV.js", "/build/_shared/chunk-6JVAVAYG.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !0, hasErrorBoundary: !0 }, "routes/__layout/dashboard": { id: "routes/__layout/dashboard", parentId: "routes/__layout", path: "dashboard", index: void 0, caseSensitive: void 0, module: "/build/routes/__layout/dashboard-GWT5ZE2F.js", imports: ["/build/_shared/chunk-QVFN3AUQ.js", "/build/_shared/chunk-QSMFV4O5.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/index": { id: "routes/__layout/index", parentId: "routes/__layout", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/__layout/index-OATCH7JL.js", imports: ["/build/_shared/chunk-E424YZWU.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/locations/$locationId": { id: "routes/__layout/locations/$locationId", parentId: "routes/__layout", path: "locations/:locationId", index: void 0, caseSensitive: void 0, module: "/build/routes/__layout/locations/$locationId-O27S3GCR.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/locations/index": { id: "routes/__layout/locations/index", parentId: "routes/__layout", path: "locations", index: !0, caseSensitive: void 0, module: "/build/routes/__layout/locations/index-FFDLXHIJ.js", imports: ["/build/_shared/chunk-QVFN3AUQ.js", "/build/_shared/chunk-QSMFV4O5.js", "/build/_shared/chunk-E424YZWU.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/locations/new": { id: "routes/__layout/locations/new", parentId: "routes/__layout", path: "locations/new", index: void 0, caseSensitive: void 0, module: "/build/routes/__layout/locations/new-P5MVQHPC.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/nodes/index": { id: "routes/__layout/nodes/index", parentId: "routes/__layout", path: "nodes", index: !0, caseSensitive: void 0, module: "/build/routes/__layout/nodes/index-6PZ2FGMS.js", imports: ["/build/_shared/chunk-QVFN3AUQ.js", "/build/_shared/chunk-QSMFV4O5.js", "/build/_shared/chunk-E424YZWU.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/nodes/new": { id: "routes/__layout/nodes/new", parentId: "routes/__layout", path: "nodes/new", index: void 0, caseSensitive: void 0, module: "/build/routes/__layout/nodes/new-VMDRGLME.js", imports: ["/build/_shared/chunk-QSMFV4O5.js", "/build/_shared/chunk-E424YZWU.js"], hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/profile": { id: "routes/__layout/profile", parentId: "routes/__layout", path: "profile", index: void 0, caseSensitive: void 0, module: "/build/routes/__layout/profile-G2OYLXPG.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/reports": { id: "routes/__layout/reports", parentId: "routes/__layout", path: "reports", index: void 0, caseSensitive: void 0, module: "/build/routes/__layout/reports-XIKXLGFO.js", imports: ["/build/_shared/chunk-QVFN3AUQ.js", "/build/_shared/chunk-QSMFV4O5.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/settings": { id: "routes/__layout/settings", parentId: "routes/__layout", path: "settings", index: void 0, caseSensitive: void 0, module: "/build/routes/__layout/settings-FAULQVNE.js", imports: ["/build/_shared/chunk-QVFN3AUQ.js", "/build/_shared/chunk-QSMFV4O5.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/settings/accounts": { id: "routes/__layout/settings/accounts", parentId: "routes/__layout/settings", path: "accounts", index: void 0, caseSensitive: void 0, module: "/build/routes/__layout/settings/accounts-WU6QX7HE.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/settings/variables": { id: "routes/__layout/settings/variables", parentId: "routes/__layout/settings", path: "variables", index: void 0, caseSensitive: void 0, module: "/build/routes/__layout/settings/variables-GAHTS6OU.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/tunnels/index": { id: "routes/__layout/tunnels/index", parentId: "routes/__layout", path: "tunnels", index: !0, caseSensitive: void 0, module: "/build/routes/__layout/tunnels/index-QY2X2TY6.js", imports: ["/build/_shared/chunk-QVFN3AUQ.js", "/build/_shared/chunk-QSMFV4O5.js", "/build/_shared/chunk-E424YZWU.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/auth": { id: "routes/auth", parentId: "root", path: "auth", index: void 0, caseSensitive: void 0, module: "/build/routes/auth-4SBI2QCD.js", imports: ["/build/_shared/chunk-QVFN3AUQ.js", "/build/_shared/chunk-6JVAVAYG.js"], hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/auth/callback": { id: "routes/auth/callback", parentId: "routes/auth", path: "callback", index: void 0, caseSensitive: void 0, module: "/build/routes/auth/callback-EHPJPPMI.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/auth/login": { id: "routes/auth/login", parentId: "routes/auth", path: "login", index: void 0, caseSensitive: void 0, module: "/build/routes/auth/login-YMNSGIFD.js", imports: ["/build/_shared/chunk-2GQYPODQ.js", "/build/_shared/chunk-KDU52ULV.js", "/build/_shared/chunk-QSMFV4O5.js", "/build/_shared/chunk-E424YZWU.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/auth/logout": { id: "routes/auth/logout", parentId: "routes/auth", path: "logout", index: void 0, caseSensitive: void 0, module: "/build/routes/auth/logout-BKJDXNGK.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-20916A3F.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var assetsBuildDirectory = "public/build", publicPath = "/build/", entry = { module: entry_server_exports }, routes = {
