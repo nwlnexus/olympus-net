@@ -2,6 +2,7 @@ import { json, redirect, useLoaderData, type LoaderArgs } from '~/remix';
 import { generateConfigs } from '~/utils/auth-config.server';
 import { getAuthenticator } from '~/core/services/auth/auth.server';
 import { EmptyObject } from '~/components';
+import invariant from 'tiny-invariant';
 
 type LocationEntity = {
   name: string;
@@ -19,15 +20,22 @@ export const loader = async ({ request, context }: LoaderArgs) => {
     return redirect('/auth/login');
   }
 
-  const kvLocs: LocationEntity[] | null = await context.env.KV.get('locations', { type: 'json' });
+  const resp = await fetch(`${context.env.HELIOS_URL}/locations`, {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
 
+  invariant(resp, 'Error 1000');
+
+  const kvLocs: LocationEntity[] | [] = await resp.json();
   return json(kvLocs);
 };
 
 export default function Location() {
   const locations = useLoaderData<typeof loader>();
 
-  if (locations) {
+  if (locations.length !== 0) {
     return (
       <>
         <h1>Locations</h1>

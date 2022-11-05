@@ -1597,18 +1597,18 @@ See https://reactjs.org/link/invalid-hook-call for tips about how to debug and f
           disabledDepth < 0 && error("disabledDepth fell below zero. This is a bug in React. Please file an issue.");
         }
       }
-      var ReactCurrentDispatcher$1 = ReactSharedInternals.ReactCurrentDispatcher, prefix;
+      var ReactCurrentDispatcher$1 = ReactSharedInternals.ReactCurrentDispatcher, prefix2;
       function describeBuiltInComponentFrame(name, source, ownerFn) {
         {
-          if (prefix === void 0)
+          if (prefix2 === void 0)
             try {
               throw Error();
             } catch (x) {
               var match = x.stack.trim().match(/\n( *(at )?)/);
-              prefix = match && match[1] || "";
+              prefix2 = match && match[1] || "";
             }
           return `
-` + prefix + name;
+` + prefix2 + name;
         }
       }
       var reentry = !1, componentFrameCache;
@@ -5667,8 +5667,8 @@ var require_react_dom_server_legacy_browser_development = __commonJS({
               return !1;
             if (propertyInfo !== null)
               return !propertyInfo.acceptsBooleans;
-            var prefix2 = name.toLowerCase().slice(0, 5);
-            return prefix2 !== "data-" && prefix2 !== "aria-";
+            var prefix3 = name.toLowerCase().slice(0, 5);
+            return prefix3 !== "data-" && prefix3 !== "aria-";
           }
           default:
             return !1;
@@ -6016,13 +6016,13 @@ var require_react_dom_server_legacy_browser_development = __commonJS({
         strokeOpacity: !0,
         strokeWidth: !0
       };
-      function prefixKey(prefix2, key) {
-        return prefix2 + key.charAt(0).toUpperCase() + key.substring(1);
+      function prefixKey(prefix3, key) {
+        return prefix3 + key.charAt(0).toUpperCase() + key.substring(1);
       }
       var prefixes = ["Webkit", "ms", "Moz", "O"];
       Object.keys(isUnitlessNumber).forEach(function(prop) {
-        prefixes.forEach(function(prefix2) {
-          isUnitlessNumber[prefixKey(prefix2, prop)] = isUnitlessNumber[prop];
+        prefixes.forEach(function(prefix3) {
+          isUnitlessNumber[prefixKey(prefix3, prop)] = isUnitlessNumber[prop];
         });
       });
       var hasReadOnlyValue = {
@@ -6769,8 +6769,8 @@ var require_react_dom_server_legacy_browser_development = __commonJS({
       function escapeBootstrapScriptContent(scriptText) {
         return checkHtmlStringCoercion(scriptText), ("" + scriptText).replace(scriptRegex, scriptReplacer);
       }
-      var scriptRegex = /(<\/|<)(s)(cript)/gi, scriptReplacer = function(match, prefix2, s, suffix) {
-        return "" + prefix2 + (s === "s" ? "\\u0073" : "\\u0053") + suffix;
+      var scriptRegex = /(<\/|<)(s)(cript)/gi, scriptReplacer = function(match, prefix3, s, suffix) {
+        return "" + prefix3 + (s === "s" ? "\\u0073" : "\\u0053") + suffix;
       };
       function createResponseState(identifierPrefix, nonce, bootstrapScriptContent, bootstrapScripts, bootstrapModules) {
         var idPrefix = identifierPrefix === void 0 ? "" : identifierPrefix, inlineScriptWithNonce = nonce === void 0 ? startInlineScript : '<script nonce="' + escapeTextForBrowser(nonce) + '">', bootstrapChunks = [];
@@ -6913,8 +6913,8 @@ var require_react_dom_server_legacy_browser_development = __commonJS({
               case "symbol":
                 return;
               case "boolean": {
-                var prefix2 = name.toLowerCase().slice(0, 5);
-                if (prefix2 !== "data-" && prefix2 !== "aria-")
+                var prefix3 = name.toLowerCase().slice(0, 5);
+                if (prefix3 !== "data-" && prefix3 !== "aria-")
                   return;
               }
             }
@@ -7590,18 +7590,18 @@ var require_react_dom_server_legacy_browser_development = __commonJS({
           disabledDepth < 0 && error("disabledDepth fell below zero. This is a bug in React. Please file an issue.");
         }
       }
-      var ReactCurrentDispatcher = ReactSharedInternals.ReactCurrentDispatcher, prefix;
+      var ReactCurrentDispatcher = ReactSharedInternals.ReactCurrentDispatcher, prefix2;
       function describeBuiltInComponentFrame(name, source, ownerFn) {
         {
-          if (prefix === void 0)
+          if (prefix2 === void 0)
             try {
               throw Error();
             } catch (x) {
               var match = x.stack.trim().match(/\n( *(at )?)/);
-              prefix = match && match[1] || "";
+              prefix2 = match && match[1] || "";
             }
           return `
-` + prefix + name;
+` + prefix2 + name;
         }
       }
       var reentry = !1, componentFrameCache;
@@ -9139,8 +9139,8 @@ var require_react_dom_server_browser_development = __commonJS({
               return !1;
             if (propertyInfo !== null)
               return !propertyInfo.acceptsBooleans;
-            var prefix2 = name.toLowerCase().slice(0, 5);
-            return prefix2 !== "data-" && prefix2 !== "aria-";
+            var prefix3 = name.toLowerCase().slice(0, 5);
+            return prefix3 !== "data-" && prefix3 !== "aria-";
           }
           default:
             return !1;
@@ -9488,13 +9488,13 @@ var require_react_dom_server_browser_development = __commonJS({
         strokeOpacity: !0,
         strokeWidth: !0
       };
-      function prefixKey(prefix2, key) {
-        return prefix2 + key.charAt(0).toUpperCase() + key.substring(1);
+      function prefixKey(prefix3, key) {
+        return prefix3 + key.charAt(0).toUpperCase() + key.substring(1);
       }
       var prefixes = ["Webkit", "ms", "Moz", "O"];
       Object.keys(isUnitlessNumber).forEach(function(prop) {
-        prefixes.forEach(function(prefix2) {
-          isUnitlessNumber[prefixKey(prefix2, prop)] = isUnitlessNumber[prop];
+        prefixes.forEach(function(prefix3) {
+          isUnitlessNumber[prefixKey(prefix3, prop)] = isUnitlessNumber[prop];
         });
       });
       var hasReadOnlyValue = {
@@ -10241,8 +10241,8 @@ var require_react_dom_server_browser_development = __commonJS({
       function escapeBootstrapScriptContent(scriptText) {
         return checkHtmlStringCoercion(scriptText), ("" + scriptText).replace(scriptRegex, scriptReplacer);
       }
-      var scriptRegex = /(<\/|<)(s)(cript)/gi, scriptReplacer = function(match, prefix2, s, suffix) {
-        return "" + prefix2 + (s === "s" ? "\\u0073" : "\\u0053") + suffix;
+      var scriptRegex = /(<\/|<)(s)(cript)/gi, scriptReplacer = function(match, prefix3, s, suffix) {
+        return "" + prefix3 + (s === "s" ? "\\u0073" : "\\u0053") + suffix;
       };
       function createResponseState(identifierPrefix, nonce, bootstrapScriptContent, bootstrapScripts, bootstrapModules) {
         var idPrefix = identifierPrefix === void 0 ? "" : identifierPrefix, inlineScriptWithNonce = nonce === void 0 ? startInlineScript : stringToPrecomputedChunk('<script nonce="' + escapeTextForBrowser(nonce) + '">'), bootstrapChunks = [];
@@ -10389,8 +10389,8 @@ var require_react_dom_server_browser_development = __commonJS({
               case "symbol":
                 return;
               case "boolean": {
-                var prefix2 = name.toLowerCase().slice(0, 5);
-                if (prefix2 !== "data-" && prefix2 !== "aria-")
+                var prefix3 = name.toLowerCase().slice(0, 5);
+                if (prefix3 !== "data-" && prefix3 !== "aria-")
                   return;
               }
             }
@@ -11025,18 +11025,18 @@ var require_react_dom_server_browser_development = __commonJS({
           disabledDepth < 0 && error("disabledDepth fell below zero. This is a bug in React. Please file an issue.");
         }
       }
-      var ReactCurrentDispatcher = ReactSharedInternals.ReactCurrentDispatcher, prefix;
+      var ReactCurrentDispatcher = ReactSharedInternals.ReactCurrentDispatcher, prefix2;
       function describeBuiltInComponentFrame(name, source, ownerFn) {
         {
-          if (prefix === void 0)
+          if (prefix2 === void 0)
             try {
               throw Error();
             } catch (x) {
               var match = x.stack.trim().match(/\n( *(at )?)/);
-              prefix = match && match[1] || "";
+              prefix2 = match && match[1] || "";
             }
           return `
-` + prefix + name;
+` + prefix2 + name;
         }
       }
       var reentry = !1, componentFrameCache;
@@ -12635,18 +12635,18 @@ var require_react_jsx_dev_runtime_development = __commonJS({
           disabledDepth < 0 && error("disabledDepth fell below zero. This is a bug in React. Please file an issue.");
         }
       }
-      var ReactCurrentDispatcher = ReactSharedInternals.ReactCurrentDispatcher, prefix;
+      var ReactCurrentDispatcher = ReactSharedInternals.ReactCurrentDispatcher, prefix2;
       function describeBuiltInComponentFrame(name, source, ownerFn) {
         {
-          if (prefix === void 0)
+          if (prefix2 === void 0)
             try {
               throw Error();
             } catch (x) {
               var match = x.stack.trim().match(/\n( *(at )?)/);
-              prefix = match && match[1] || "";
+              prefix2 = match && match[1] || "";
             }
           return `
-` + prefix + name;
+` + prefix2 + name;
         }
       }
       var reentry = !1, componentFrameCache;
@@ -13220,18 +13220,18 @@ var require_react_jsx_runtime_development = __commonJS({
           disabledDepth < 0 && error("disabledDepth fell below zero. This is a bug in React. Please file an issue.");
         }
       }
-      var ReactCurrentDispatcher = ReactSharedInternals.ReactCurrentDispatcher, prefix;
+      var ReactCurrentDispatcher = ReactSharedInternals.ReactCurrentDispatcher, prefix2;
       function describeBuiltInComponentFrame(name, source, ownerFn) {
         {
-          if (prefix === void 0)
+          if (prefix2 === void 0)
             try {
               throw Error();
             } catch (x) {
               var match = x.stack.trim().match(/\n( *(at )?)/);
-              prefix = match && match[1] || "";
+              prefix2 = match && match[1] || "";
             }
           return `
-` + prefix + name;
+` + prefix2 + name;
         }
       }
       var reentry = !1, componentFrameCache;
@@ -21483,7 +21483,7 @@ __export(root_exports, {
 });
 
 // app/styles/tailwind.css
-var tailwind_default = "/build/_assets/tailwind-HJIKBNUN.css";
+var tailwind_default = "/build/_assets/tailwind-X7S5ILKW.css";
 
 // ../../node_modules/.pnpm/remix-typedjson@0.1.3_6yjjdt4n4win4ui7gmjmrevsue/node_modules/remix-typedjson/dist/esm/remix.js
 init_esm2();
@@ -21749,10 +21749,10 @@ function getGroupIdForArbitraryProperty(className) {
   }
 }
 function createClassMap(config2) {
-  var theme = config2.theme, prefix = config2.prefix, classMap = {
+  var theme = config2.theme, prefix2 = config2.prefix, classMap = {
     nextPart: {},
     validators: []
-  }, prefixedClassGroupEntries = getPrefixedClassGroupEntries(Object.entries(config2.classGroups), prefix);
+  }, prefixedClassGroupEntries = getPrefixedClassGroupEntries(Object.entries(config2.classGroups), prefix2);
   return prefixedClassGroupEntries.forEach(function(_ref2) {
     var classGroupId = _ref2[0], classGroup = _ref2[1];
     processClassesRecursively(classGroup, classMap, classGroupId, theme);
@@ -21794,12 +21794,12 @@ function getPart(classPartObject, path) {
 function isThemeGetter(func) {
   return func.isThemeGetter;
 }
-function getPrefixedClassGroupEntries(classGroupEntries, prefix) {
-  return prefix ? classGroupEntries.map(function(_ref4) {
+function getPrefixedClassGroupEntries(classGroupEntries, prefix2) {
+  return prefix2 ? classGroupEntries.map(function(_ref4) {
     var classGroupId = _ref4[0], classGroup = _ref4[1], prefixedClassGroup = classGroup.map(function(classDefinition) {
-      return typeof classDefinition == "string" ? prefix + classDefinition : typeof classDefinition == "object" ? Object.fromEntries(Object.entries(classDefinition).map(function(_ref5) {
+      return typeof classDefinition == "string" ? prefix2 + classDefinition : typeof classDefinition == "object" ? Object.fromEntries(Object.entries(classDefinition).map(function(_ref5) {
         var key = _ref5[0], value = _ref5[1];
-        return [prefix + key, value];
+        return [prefix2 + key, value];
       })) : classDefinition;
     });
     return [classGroupId, prefixedClassGroup];
@@ -24662,9 +24662,9 @@ var stringToIcon = (value, validate2, allowSimpleName, provider = "") => {
   if (colonSeparated.length > 3 || !colonSeparated.length)
     return null;
   if (colonSeparated.length > 1) {
-    let name2 = colonSeparated.pop(), prefix = colonSeparated.pop(), result = {
+    let name2 = colonSeparated.pop(), prefix2 = colonSeparated.pop(), result = {
       provider: colonSeparated.length > 0 ? colonSeparated[0] : provider,
-      prefix,
+      prefix: prefix2,
       name: name2
     };
     return validate2 && !validateIcon(result) ? null : result;
@@ -24807,18 +24807,18 @@ try {
   w && w._iconifyStorage.version === storageVersion && (storage$1 = w._iconifyStorage.storage);
 } catch {
 }
-function newStorage(provider, prefix) {
+function newStorage(provider, prefix2) {
   return {
     provider,
-    prefix,
+    prefix: prefix2,
     icons: /* @__PURE__ */ Object.create(null),
     missing: /* @__PURE__ */ Object.create(null)
   };
 }
-function getStorage(provider, prefix) {
+function getStorage(provider, prefix2) {
   storage$1[provider] === void 0 && (storage$1[provider] = /* @__PURE__ */ Object.create(null));
   let providerStorage = storage$1[provider];
-  return providerStorage[prefix] === void 0 && (providerStorage[prefix] = newStorage(provider, prefix)), providerStorage[prefix];
+  return providerStorage[prefix2] === void 0 && (providerStorage[prefix2] = newStorage(provider, prefix2)), providerStorage[prefix2];
 }
 function addIconSet(storage2, data) {
   if (!quicklyValidateIconSet(data))
@@ -25000,12 +25000,12 @@ function iconToSVG(icon, customisations) {
   return customisations.inline && (result.inline = !0), result;
 }
 var regex = /\sid="(\S+)"/g, randomPrefix = "IconifyId" + Date.now().toString(16) + (Math.random() * 16777216 | 0).toString(16), counter = 0;
-function replaceIDs(body, prefix = randomPrefix) {
+function replaceIDs(body, prefix2 = randomPrefix) {
   let ids = [], match;
   for (; match = regex.exec(body); )
     ids.push(match[1]);
   return ids.length && ids.forEach((id) => {
-    let newID = typeof prefix == "function" ? prefix(id) : prefix + (counter++).toString(), escapedID = id.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    let newID = typeof prefix2 == "function" ? prefix2(id) : prefix2 + (counter++).toString(), escapedID = id.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
     body = body.replace(new RegExp('([#;"])(' + escapedID + ')([")]|\\.[a-z])', "g"), "$1" + newID + "$3");
   }), body;
 }
@@ -25081,7 +25081,7 @@ var mergeParams = (base, params) => {
   }
   return null;
 }, fetchModule = detectFetch();
-function calculateMaxLength(provider, prefix) {
+function calculateMaxLength(provider, prefix2) {
   let config2 = getAPIConfig(provider);
   if (!config2)
     return 0;
@@ -25093,31 +25093,31 @@ function calculateMaxLength(provider, prefix) {
     config2.resources.forEach((item) => {
       maxHostLength = Math.max(maxHostLength, item.length);
     });
-    let url = mergeParams(prefix + ".json", {
+    let url = mergeParams(prefix2 + ".json", {
       icons: ""
     });
     result = config2.maxURL - maxHostLength - config2.path.length - url.length;
   }
-  let cacheKey = provider + ":" + prefix;
+  let cacheKey = provider + ":" + prefix2;
   return pathCache[provider] = config2.path, maxLengthCache[cacheKey] = result, result;
 }
 function shouldAbort(status) {
   return status === 404;
 }
-var prepare = (provider, prefix, icons) => {
-  let results = [], maxLength = maxLengthCache[prefix];
-  maxLength === void 0 && (maxLength = calculateMaxLength(provider, prefix));
+var prepare = (provider, prefix2, icons) => {
+  let results = [], maxLength = maxLengthCache[prefix2];
+  maxLength === void 0 && (maxLength = calculateMaxLength(provider, prefix2));
   let type = "icons", item = {
     type,
     provider,
-    prefix,
+    prefix: prefix2,
     icons: []
   }, length = 0;
   return icons.forEach((name, index) => {
     length += name.length + 1, length >= maxLength && index > 0 && (results.push(item), item = {
       type,
       provider,
-      prefix,
+      prefix: prefix2,
       icons: []
     }, length = name.length), item.icons.push(name);
   }), results.push(item), results;
@@ -25142,8 +25142,8 @@ var send = (host, params, callback) => {
   let path = getPath(params.provider);
   switch (params.type) {
     case "icons": {
-      let prefix = params.prefix, iconsList = params.icons.join(",");
-      path += mergeParams(prefix + ".json", {
+      let prefix2 = params.prefix, iconsList = params.icons.join(",");
+      path += mergeParams(prefix2 + ".json", {
         icons: iconsList
       });
       break;
@@ -25200,15 +25200,15 @@ function sortIcons(icons) {
     if (lastIcon.name === icon.name && lastIcon.prefix === icon.prefix && lastIcon.provider === icon.provider)
       return;
     lastIcon = icon;
-    let provider = icon.provider, prefix = icon.prefix, name = icon.name;
+    let provider = icon.provider, prefix2 = icon.prefix, name = icon.name;
     storage2[provider] === void 0 && (storage2[provider] = /* @__PURE__ */ Object.create(null));
     let providerStorage = storage2[provider];
-    providerStorage[prefix] === void 0 && (providerStorage[prefix] = getStorage(provider, prefix));
-    let localStorage2 = providerStorage[prefix], list;
-    localStorage2.icons[name] !== void 0 ? list = result.loaded : prefix === "" || localStorage2.missing[name] !== void 0 ? list = result.missing : list = result.pending;
+    providerStorage[prefix2] === void 0 && (providerStorage[prefix2] = getStorage(provider, prefix2));
+    let localStorage2 = providerStorage[prefix2], list;
+    localStorage2.icons[name] !== void 0 ? list = result.loaded : prefix2 === "" || localStorage2.missing[name] !== void 0 ? list = result.missing : list = result.pending;
     let item = {
       provider,
-      prefix,
+      prefix: prefix2,
       name
     };
     list.push(item);
@@ -25220,36 +25220,36 @@ function removeCallback(sources, id) {
     let provider = source.provider;
     if (callbacks[provider] === void 0)
       return;
-    let providerCallbacks = callbacks[provider], prefix = source.prefix, items = providerCallbacks[prefix];
-    items && (providerCallbacks[prefix] = items.filter((row) => row.id !== id));
+    let providerCallbacks = callbacks[provider], prefix2 = source.prefix, items = providerCallbacks[prefix2];
+    items && (providerCallbacks[prefix2] = items.filter((row) => row.id !== id));
   });
 }
-function updateCallbacks(provider, prefix) {
+function updateCallbacks(provider, prefix2) {
   pendingUpdates[provider] === void 0 && (pendingUpdates[provider] = /* @__PURE__ */ Object.create(null));
   let providerPendingUpdates = pendingUpdates[provider];
-  providerPendingUpdates[prefix] || (providerPendingUpdates[prefix] = !0, setTimeout(() => {
-    if (providerPendingUpdates[prefix] = !1, callbacks[provider] === void 0 || callbacks[provider][prefix] === void 0)
+  providerPendingUpdates[prefix2] || (providerPendingUpdates[prefix2] = !0, setTimeout(() => {
+    if (providerPendingUpdates[prefix2] = !1, callbacks[provider] === void 0 || callbacks[provider][prefix2] === void 0)
       return;
-    let items = callbacks[provider][prefix].slice(0);
+    let items = callbacks[provider][prefix2].slice(0);
     if (!items.length)
       return;
-    let storage2 = getStorage(provider, prefix), hasPending = !1;
+    let storage2 = getStorage(provider, prefix2), hasPending = !1;
     items.forEach((item) => {
       let icons = item.icons, oldLength = icons.pending.length;
       icons.pending = icons.pending.filter((icon) => {
-        if (icon.prefix !== prefix)
+        if (icon.prefix !== prefix2)
           return !0;
         let name = icon.name;
         if (storage2.icons[name] !== void 0)
           icons.loaded.push({
             provider,
-            prefix,
+            prefix: prefix2,
             name
           });
         else if (storage2.missing[name] !== void 0)
           icons.missing.push({
             provider,
-            prefix,
+            prefix: prefix2,
             name
           });
         else
@@ -25258,7 +25258,7 @@ function updateCallbacks(provider, prefix) {
       }), icons.pending.length !== oldLength && (hasPending || removeCallback([
         {
           provider,
-          prefix
+          prefix: prefix2
         }
       ], item.id), item.callback(icons.loaded.slice(0), icons.missing.slice(0), icons.pending.slice(0), item.abort));
     });
@@ -25276,10 +25276,10 @@ function storeCallback(callback, icons, pendingSources) {
     abort
   };
   return pendingSources.forEach((source) => {
-    let provider = source.provider, prefix = source.prefix;
+    let provider = source.provider, prefix2 = source.prefix;
     callbacks[provider] === void 0 && (callbacks[provider] = /* @__PURE__ */ Object.create(null));
     let providerCallbacks = callbacks[provider];
-    providerCallbacks[prefix] === void 0 && (providerCallbacks[prefix] = []), providerCallbacks[prefix].push(item);
+    providerCallbacks[prefix2] === void 0 && (providerCallbacks[prefix2] = []), providerCallbacks[prefix2].push(item);
   }), abort;
 }
 function listToIcons(list, validate2 = !0, simpleNames2 = !1) {
@@ -25472,17 +25472,17 @@ var cache = {};
 function emptyCallback() {
 }
 var pendingIcons = /* @__PURE__ */ Object.create(null), iconsToLoad = /* @__PURE__ */ Object.create(null), loaderFlags = /* @__PURE__ */ Object.create(null), queueFlags = /* @__PURE__ */ Object.create(null);
-function loadedNewIcons(provider, prefix) {
+function loadedNewIcons(provider, prefix2) {
   loaderFlags[provider] === void 0 && (loaderFlags[provider] = /* @__PURE__ */ Object.create(null));
   let providerLoaderFlags = loaderFlags[provider];
-  providerLoaderFlags[prefix] || (providerLoaderFlags[prefix] = !0, setTimeout(() => {
-    providerLoaderFlags[prefix] = !1, updateCallbacks(provider, prefix);
+  providerLoaderFlags[prefix2] || (providerLoaderFlags[prefix2] = !0, setTimeout(() => {
+    providerLoaderFlags[prefix2] = !1, updateCallbacks(provider, prefix2);
   }));
 }
 var errorsCache = /* @__PURE__ */ Object.create(null);
-function loadNewIcons(provider, prefix, icons) {
+function loadNewIcons(provider, prefix2, icons) {
   function err() {
-    let key = (provider === "" ? "" : "@" + provider + ":") + prefix, time = Math.floor(Date.now() / 6e4);
+    let key = (provider === "" ? "" : "@" + provider + ":") + prefix2, time = Math.floor(Date.now() / 6e4);
     errorsCache[key] < time && (errorsCache[key] = time, console.error('Unable to retrieve icons for "' + key + '" because API is not configured properly.'));
   }
   iconsToLoad[provider] === void 0 && (iconsToLoad[provider] = /* @__PURE__ */ Object.create(null));
@@ -25491,18 +25491,18 @@ function loadNewIcons(provider, prefix, icons) {
   let providerQueueFlags = queueFlags[provider];
   pendingIcons[provider] === void 0 && (pendingIcons[provider] = /* @__PURE__ */ Object.create(null));
   let providerPendingIcons = pendingIcons[provider];
-  providerIconsToLoad[prefix] === void 0 ? providerIconsToLoad[prefix] = icons : providerIconsToLoad[prefix] = providerIconsToLoad[prefix].concat(icons).sort(), providerQueueFlags[prefix] || (providerQueueFlags[prefix] = !0, setTimeout(() => {
-    providerQueueFlags[prefix] = !1;
-    let icons2 = providerIconsToLoad[prefix];
-    delete providerIconsToLoad[prefix];
+  providerIconsToLoad[prefix2] === void 0 ? providerIconsToLoad[prefix2] = icons : providerIconsToLoad[prefix2] = providerIconsToLoad[prefix2].concat(icons).sort(), providerQueueFlags[prefix2] || (providerQueueFlags[prefix2] = !0, setTimeout(() => {
+    providerQueueFlags[prefix2] = !1;
+    let icons2 = providerIconsToLoad[prefix2];
+    delete providerIconsToLoad[prefix2];
     let api = getAPIModule(provider);
     if (!api) {
       err();
       return;
     }
-    api.prepare(provider, prefix, icons2).forEach((item) => {
+    api.prepare(provider, prefix2, icons2).forEach((item) => {
       sendAPIQuery(provider, item, (data, error) => {
-        let storage2 = getStorage(provider, prefix);
+        let storage2 = getStorage(provider, prefix2);
         if (typeof data != "object") {
           if (error !== 404)
             return;
@@ -25515,14 +25515,14 @@ function loadNewIcons(provider, prefix, icons) {
             let parsed = addIconSet(storage2, data);
             if (!parsed.length)
               return;
-            let pending = providerPendingIcons[prefix];
+            let pending = providerPendingIcons[prefix2];
             parsed.forEach((name) => {
               delete pending[name];
             }), cache.store && cache.store(provider, data);
           } catch (err2) {
             console.error(err2);
           }
-        loadedNewIcons(provider, prefix);
+        loadedNewIcons(provider, prefix2);
       });
     });
   }));
@@ -25539,25 +25539,25 @@ var loadIcons = (icons, callback) => {
   }
   let newIcons = /* @__PURE__ */ Object.create(null), sources = [], lastProvider, lastPrefix;
   sortedIcons.pending.forEach((icon) => {
-    let provider = icon.provider, prefix = icon.prefix;
-    if (prefix === lastPrefix && provider === lastProvider)
+    let provider = icon.provider, prefix2 = icon.prefix;
+    if (prefix2 === lastPrefix && provider === lastProvider)
       return;
-    lastProvider = provider, lastPrefix = prefix, sources.push({
+    lastProvider = provider, lastPrefix = prefix2, sources.push({
       provider,
-      prefix
+      prefix: prefix2
     }), pendingIcons[provider] === void 0 && (pendingIcons[provider] = /* @__PURE__ */ Object.create(null));
     let providerPendingIcons = pendingIcons[provider];
-    providerPendingIcons[prefix] === void 0 && (providerPendingIcons[prefix] = /* @__PURE__ */ Object.create(null)), newIcons[provider] === void 0 && (newIcons[provider] = /* @__PURE__ */ Object.create(null));
+    providerPendingIcons[prefix2] === void 0 && (providerPendingIcons[prefix2] = /* @__PURE__ */ Object.create(null)), newIcons[provider] === void 0 && (newIcons[provider] = /* @__PURE__ */ Object.create(null));
     let providerNewIcons = newIcons[provider];
-    providerNewIcons[prefix] === void 0 && (providerNewIcons[prefix] = []);
+    providerNewIcons[prefix2] === void 0 && (providerNewIcons[prefix2] = []);
   });
   let time = Date.now();
   return sortedIcons.pending.forEach((icon) => {
-    let provider = icon.provider, prefix = icon.prefix, name = icon.name, pendingQueue = pendingIcons[provider][prefix];
-    pendingQueue[name] === void 0 && (pendingQueue[name] = time, newIcons[provider][prefix].push(name));
+    let provider = icon.provider, prefix2 = icon.prefix, name = icon.name, pendingQueue = pendingIcons[provider][prefix2];
+    pendingQueue[name] === void 0 && (pendingQueue[name] = time, newIcons[provider][prefix2].push(name));
   }), sources.forEach((source) => {
-    let provider = source.provider, prefix = source.prefix;
-    newIcons[provider][prefix].length && loadNewIcons(provider, prefix, newIcons[provider][prefix]);
+    let provider = source.provider, prefix2 = source.prefix;
+    newIcons[provider][prefix2].length && loadNewIcons(provider, prefix2, newIcons[provider][prefix2]);
   }), callback ? storeCallback(callback, sortedIcons, sources) : emptyCallback;
 };
 var cacheVersion = "iconify2", cachePrefix = "iconify", countKey = cachePrefix + "-count", versionKey = cachePrefix + "-version", hour = 36e5, cacheExpiration = 168, config = {
@@ -25628,7 +25628,7 @@ var loadCache = () => {
         if (typeof data != "object" || typeof data.cached != "number" || data.cached < minTime || typeof data.provider != "string" || typeof data.data != "object" || typeof data.data.prefix != "string")
           valid = !1;
         else {
-          let provider = data.provider, prefix = data.data.prefix, storage2 = getStorage(provider, prefix);
+          let provider = data.provider, prefix2 = data.data.prefix, storage2 = getStorage(provider, prefix2);
           valid = addIconSet(storage2, data.data).length > 0;
         }
       } catch {
@@ -29163,7 +29163,43 @@ function CatchBoundary2() {
     columnNumber: 5
   }, this);
 }
-function ErrorBoundary() {
+function ErrorBoundary({ error }) {
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", {
+    children: [
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("h1", {
+        children: "Error"
+      }, void 0, !1, {
+        fileName: "app/routes/__layout.tsx",
+        lineNumber: 194,
+        columnNumber: 7
+      }, this),
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("p", {
+        children: error.message
+      }, void 0, !1, {
+        fileName: "app/routes/__layout.tsx",
+        lineNumber: 195,
+        columnNumber: 7
+      }, this),
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("p", {
+        children: "The stack trace is:"
+      }, void 0, !1, {
+        fileName: "app/routes/__layout.tsx",
+        lineNumber: 196,
+        columnNumber: 7
+      }, this),
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("pre", {
+        children: error.stack
+      }, void 0, !1, {
+        fileName: "app/routes/__layout.tsx",
+        lineNumber: 197,
+        columnNumber: 7
+      }, this)
+    ]
+  }, void 0, !0, {
+    fileName: "app/routes/__layout.tsx",
+    lineNumber: 193,
+    columnNumber: 5
+  }, this);
 }
 
 // app/routes/__layout/locations/$locationId.tsx
@@ -29183,37 +29219,56 @@ __export(locations_exports, {
   default: () => Location2,
   loader: () => loader4
 });
+
+// ../../node_modules/.pnpm/tiny-invariant@1.3.1/node_modules/tiny-invariant/dist/esm/tiny-invariant.js
+var isProduction = !1, prefix = "Invariant failed";
+function invariant3(condition, message) {
+  if (!condition) {
+    if (isProduction)
+      throw new Error(prefix);
+    var provided = typeof message == "function" ? message() : message, value = provided ? "".concat(prefix, ": ").concat(provided) : prefix;
+    throw new Error(value);
+  }
+}
+
+// app/routes/__layout/locations/index.tsx
 var import_jsx_dev_runtime = __toESM(require_jsx_dev_runtime()), loader4 = async ({ request, context }) => {
   let { authConfig, sessionConfig } = generateConfigs(context), user = await (await getAuthenticator(authConfig, sessionConfig)).isAuthenticated(request), { pathname } = new URL(request.url);
   if (pathname !== "/" && !user)
     return redirect2("/auth/login");
-  let kvLocs = await context.env.KV.get("locations", { type: "json" });
+  let resp = await fetch(`${context.env.HELIOS_URL}/locations`, {
+    headers: {
+      "Content-Type": "application/json"
+    }
+  });
+  invariant3(resp, "Error 1000");
+  let kvLocs = await resp.json();
   return typedjson(kvLocs);
 };
 function Location2() {
-  return useTypedLoaderData() ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_jsx_dev_runtime.Fragment, {
+  return useTypedLoaderData().length !== 0 ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_jsx_dev_runtime.Fragment, {
     children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("h1", {
       children: "Locations"
     }, void 0, !1, {
       fileName: "app/routes/__layout/locations/index.tsx",
-      lineNumber: 33,
+      lineNumber: 41,
       columnNumber: 9
     }, this)
   }, void 0, !1, {
     fileName: "app/routes/__layout/locations/index.tsx",
-    lineNumber: 32,
+    lineNumber: 40,
     columnNumber: 7
   }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_jsx_dev_runtime.Fragment, {
     children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(EmptyObject, {
       objectType: "location"
     }, void 0, !1, {
       fileName: "app/routes/__layout/locations/index.tsx",
-      lineNumber: 39,
+      lineNumber: 47,
       columnNumber: 7
     }, this)
   }, void 0, !1, {
     fileName: "app/routes/__layout/locations/index.tsx",
-    lineNumber: 38,
+    lineNumber: 46,
     columnNumber: 5
   }, this);
 }
@@ -29520,32 +29575,37 @@ __export(nodes_exports, {
 });
 var import_jsx_dev_runtime = __toESM(require_jsx_dev_runtime()), loader6 = async ({ request, context }) => {
   let { authConfig, sessionConfig } = generateConfigs(context), user = await (await getAuthenticator(authConfig, sessionConfig)).isAuthenticated(request), { pathname } = new URL(request.url);
-  return pathname !== "/" && !user ? redirect2("/auth/login") : null;
+  if (pathname !== "/" && !user)
+    return redirect2("/auth/login");
+  let resp = await fetch(`${context.env.HELIOS_URL}/nodes`);
+  invariant3(resp, "Error 1000");
+  let respNodes = await resp.json();
+  return console.log(respNodes), typedjson(respNodes);
 };
 function Nodes() {
-  return useTypedLoaderData() ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_jsx_dev_runtime.Fragment, {
+  return useTypedLoaderData().length !== 0 ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_jsx_dev_runtime.Fragment, {
     children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("h1", {
       children: "Nodes"
     }, void 0, !1, {
       fileName: "app/routes/__layout/nodes/index.tsx",
-      lineNumber: 27,
+      lineNumber: 38,
       columnNumber: 9
     }, this)
   }, void 0, !1, {
     fileName: "app/routes/__layout/nodes/index.tsx",
-    lineNumber: 26,
+    lineNumber: 37,
     columnNumber: 7
   }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_jsx_dev_runtime.Fragment, {
     children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(EmptyObject, {
       objectType: "node"
     }, void 0, !1, {
       fileName: "app/routes/__layout/nodes/index.tsx",
-      lineNumber: 33,
+      lineNumber: 44,
       columnNumber: 7
     }, this)
   }, void 0, !1, {
     fileName: "app/routes/__layout/nodes/index.tsx",
-    lineNumber: 32,
+    lineNumber: 43,
     columnNumber: 5
   }, this);
 }
@@ -31617,7 +31677,7 @@ function Login() {
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { version: "20916a3f", entry: { module: "/build/entry.client-ZJFU5ZGK.js", imports: ["/build/_shared/chunk-AZJXGLHA.js", "/build/_shared/chunk-JPDQG4UB.js", "/build/_shared/chunk-WL6OOE6Y.js", "/build/_shared/chunk-4IYZMDEG.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-7GC2LX26.js", imports: ["/build/_shared/chunk-QSMFV4O5.js", "/build/_shared/chunk-E424YZWU.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !0, hasErrorBoundary: !1 }, "routes/__layout": { id: "routes/__layout", parentId: "root", path: void 0, index: void 0, caseSensitive: void 0, module: "/build/routes/__layout-EG7XLGLK.js", imports: ["/build/_shared/chunk-UXMBXAI2.js", "/build/_shared/chunk-2GQYPODQ.js", "/build/_shared/chunk-KDU52ULV.js", "/build/_shared/chunk-6JVAVAYG.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !0, hasErrorBoundary: !0 }, "routes/__layout/dashboard": { id: "routes/__layout/dashboard", parentId: "routes/__layout", path: "dashboard", index: void 0, caseSensitive: void 0, module: "/build/routes/__layout/dashboard-GWT5ZE2F.js", imports: ["/build/_shared/chunk-QVFN3AUQ.js", "/build/_shared/chunk-QSMFV4O5.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/index": { id: "routes/__layout/index", parentId: "routes/__layout", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/__layout/index-OATCH7JL.js", imports: ["/build/_shared/chunk-E424YZWU.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/locations/$locationId": { id: "routes/__layout/locations/$locationId", parentId: "routes/__layout", path: "locations/:locationId", index: void 0, caseSensitive: void 0, module: "/build/routes/__layout/locations/$locationId-O27S3GCR.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/locations/index": { id: "routes/__layout/locations/index", parentId: "routes/__layout", path: "locations", index: !0, caseSensitive: void 0, module: "/build/routes/__layout/locations/index-FFDLXHIJ.js", imports: ["/build/_shared/chunk-QVFN3AUQ.js", "/build/_shared/chunk-QSMFV4O5.js", "/build/_shared/chunk-E424YZWU.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/locations/new": { id: "routes/__layout/locations/new", parentId: "routes/__layout", path: "locations/new", index: void 0, caseSensitive: void 0, module: "/build/routes/__layout/locations/new-P5MVQHPC.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/nodes/index": { id: "routes/__layout/nodes/index", parentId: "routes/__layout", path: "nodes", index: !0, caseSensitive: void 0, module: "/build/routes/__layout/nodes/index-6PZ2FGMS.js", imports: ["/build/_shared/chunk-QVFN3AUQ.js", "/build/_shared/chunk-QSMFV4O5.js", "/build/_shared/chunk-E424YZWU.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/nodes/new": { id: "routes/__layout/nodes/new", parentId: "routes/__layout", path: "nodes/new", index: void 0, caseSensitive: void 0, module: "/build/routes/__layout/nodes/new-VMDRGLME.js", imports: ["/build/_shared/chunk-QSMFV4O5.js", "/build/_shared/chunk-E424YZWU.js"], hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/profile": { id: "routes/__layout/profile", parentId: "routes/__layout", path: "profile", index: void 0, caseSensitive: void 0, module: "/build/routes/__layout/profile-G2OYLXPG.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/reports": { id: "routes/__layout/reports", parentId: "routes/__layout", path: "reports", index: void 0, caseSensitive: void 0, module: "/build/routes/__layout/reports-XIKXLGFO.js", imports: ["/build/_shared/chunk-QVFN3AUQ.js", "/build/_shared/chunk-QSMFV4O5.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/settings": { id: "routes/__layout/settings", parentId: "routes/__layout", path: "settings", index: void 0, caseSensitive: void 0, module: "/build/routes/__layout/settings-FAULQVNE.js", imports: ["/build/_shared/chunk-QVFN3AUQ.js", "/build/_shared/chunk-QSMFV4O5.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/settings/accounts": { id: "routes/__layout/settings/accounts", parentId: "routes/__layout/settings", path: "accounts", index: void 0, caseSensitive: void 0, module: "/build/routes/__layout/settings/accounts-WU6QX7HE.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/settings/variables": { id: "routes/__layout/settings/variables", parentId: "routes/__layout/settings", path: "variables", index: void 0, caseSensitive: void 0, module: "/build/routes/__layout/settings/variables-GAHTS6OU.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/tunnels/index": { id: "routes/__layout/tunnels/index", parentId: "routes/__layout", path: "tunnels", index: !0, caseSensitive: void 0, module: "/build/routes/__layout/tunnels/index-QY2X2TY6.js", imports: ["/build/_shared/chunk-QVFN3AUQ.js", "/build/_shared/chunk-QSMFV4O5.js", "/build/_shared/chunk-E424YZWU.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/auth": { id: "routes/auth", parentId: "root", path: "auth", index: void 0, caseSensitive: void 0, module: "/build/routes/auth-4SBI2QCD.js", imports: ["/build/_shared/chunk-QVFN3AUQ.js", "/build/_shared/chunk-6JVAVAYG.js"], hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/auth/callback": { id: "routes/auth/callback", parentId: "routes/auth", path: "callback", index: void 0, caseSensitive: void 0, module: "/build/routes/auth/callback-EHPJPPMI.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/auth/login": { id: "routes/auth/login", parentId: "routes/auth", path: "login", index: void 0, caseSensitive: void 0, module: "/build/routes/auth/login-YMNSGIFD.js", imports: ["/build/_shared/chunk-2GQYPODQ.js", "/build/_shared/chunk-KDU52ULV.js", "/build/_shared/chunk-QSMFV4O5.js", "/build/_shared/chunk-E424YZWU.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/auth/logout": { id: "routes/auth/logout", parentId: "routes/auth", path: "logout", index: void 0, caseSensitive: void 0, module: "/build/routes/auth/logout-BKJDXNGK.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-20916A3F.js" };
+var assets_manifest_default = { version: "844379ed", entry: { module: "/build/entry.client-ZJFU5ZGK.js", imports: ["/build/_shared/chunk-AZJXGLHA.js", "/build/_shared/chunk-JPDQG4UB.js", "/build/_shared/chunk-WL6OOE6Y.js", "/build/_shared/chunk-4IYZMDEG.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-GRR2LAYB.js", imports: ["/build/_shared/chunk-QSMFV4O5.js", "/build/_shared/chunk-E424YZWU.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !0, hasErrorBoundary: !1 }, "routes/__layout": { id: "routes/__layout", parentId: "root", path: void 0, index: void 0, caseSensitive: void 0, module: "/build/routes/__layout-DGXJFAOH.js", imports: ["/build/_shared/chunk-UXMBXAI2.js", "/build/_shared/chunk-2GQYPODQ.js", "/build/_shared/chunk-KDU52ULV.js", "/build/_shared/chunk-6JVAVAYG.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !0, hasErrorBoundary: !0 }, "routes/__layout/dashboard": { id: "routes/__layout/dashboard", parentId: "routes/__layout", path: "dashboard", index: void 0, caseSensitive: void 0, module: "/build/routes/__layout/dashboard-GWT5ZE2F.js", imports: ["/build/_shared/chunk-QVFN3AUQ.js", "/build/_shared/chunk-QSMFV4O5.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/index": { id: "routes/__layout/index", parentId: "routes/__layout", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/__layout/index-OATCH7JL.js", imports: ["/build/_shared/chunk-E424YZWU.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/locations/$locationId": { id: "routes/__layout/locations/$locationId", parentId: "routes/__layout", path: "locations/:locationId", index: void 0, caseSensitive: void 0, module: "/build/routes/__layout/locations/$locationId-O27S3GCR.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/locations/index": { id: "routes/__layout/locations/index", parentId: "routes/__layout", path: "locations", index: !0, caseSensitive: void 0, module: "/build/routes/__layout/locations/index-M5T5MB22.js", imports: ["/build/_shared/chunk-AUYLHJJM.js", "/build/_shared/chunk-QVFN3AUQ.js", "/build/_shared/chunk-QSMFV4O5.js", "/build/_shared/chunk-E424YZWU.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/locations/new": { id: "routes/__layout/locations/new", parentId: "routes/__layout", path: "locations/new", index: void 0, caseSensitive: void 0, module: "/build/routes/__layout/locations/new-P5MVQHPC.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/nodes/index": { id: "routes/__layout/nodes/index", parentId: "routes/__layout", path: "nodes", index: !0, caseSensitive: void 0, module: "/build/routes/__layout/nodes/index-3TQWK27D.js", imports: ["/build/_shared/chunk-AUYLHJJM.js", "/build/_shared/chunk-QVFN3AUQ.js", "/build/_shared/chunk-QSMFV4O5.js", "/build/_shared/chunk-E424YZWU.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/nodes/new": { id: "routes/__layout/nodes/new", parentId: "routes/__layout", path: "nodes/new", index: void 0, caseSensitive: void 0, module: "/build/routes/__layout/nodes/new-VMDRGLME.js", imports: ["/build/_shared/chunk-QSMFV4O5.js", "/build/_shared/chunk-E424YZWU.js"], hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/profile": { id: "routes/__layout/profile", parentId: "routes/__layout", path: "profile", index: void 0, caseSensitive: void 0, module: "/build/routes/__layout/profile-G2OYLXPG.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/reports": { id: "routes/__layout/reports", parentId: "routes/__layout", path: "reports", index: void 0, caseSensitive: void 0, module: "/build/routes/__layout/reports-XIKXLGFO.js", imports: ["/build/_shared/chunk-QVFN3AUQ.js", "/build/_shared/chunk-QSMFV4O5.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/settings": { id: "routes/__layout/settings", parentId: "routes/__layout", path: "settings", index: void 0, caseSensitive: void 0, module: "/build/routes/__layout/settings-FAULQVNE.js", imports: ["/build/_shared/chunk-QVFN3AUQ.js", "/build/_shared/chunk-QSMFV4O5.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/settings/accounts": { id: "routes/__layout/settings/accounts", parentId: "routes/__layout/settings", path: "accounts", index: void 0, caseSensitive: void 0, module: "/build/routes/__layout/settings/accounts-WU6QX7HE.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/settings/variables": { id: "routes/__layout/settings/variables", parentId: "routes/__layout/settings", path: "variables", index: void 0, caseSensitive: void 0, module: "/build/routes/__layout/settings/variables-GAHTS6OU.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/__layout/tunnels/index": { id: "routes/__layout/tunnels/index", parentId: "routes/__layout", path: "tunnels", index: !0, caseSensitive: void 0, module: "/build/routes/__layout/tunnels/index-QY2X2TY6.js", imports: ["/build/_shared/chunk-QVFN3AUQ.js", "/build/_shared/chunk-QSMFV4O5.js", "/build/_shared/chunk-E424YZWU.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/auth": { id: "routes/auth", parentId: "root", path: "auth", index: void 0, caseSensitive: void 0, module: "/build/routes/auth-4SBI2QCD.js", imports: ["/build/_shared/chunk-QVFN3AUQ.js", "/build/_shared/chunk-6JVAVAYG.js"], hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/auth/callback": { id: "routes/auth/callback", parentId: "routes/auth", path: "callback", index: void 0, caseSensitive: void 0, module: "/build/routes/auth/callback-EHPJPPMI.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/auth/login": { id: "routes/auth/login", parentId: "routes/auth", path: "login", index: void 0, caseSensitive: void 0, module: "/build/routes/auth/login-YMNSGIFD.js", imports: ["/build/_shared/chunk-2GQYPODQ.js", "/build/_shared/chunk-KDU52ULV.js", "/build/_shared/chunk-QSMFV4O5.js", "/build/_shared/chunk-E424YZWU.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/auth/logout": { id: "routes/auth/logout", parentId: "routes/auth", path: "logout", index: void 0, caseSensitive: void 0, module: "/build/routes/auth/logout-BKJDXNGK.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-844379ED.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var assetsBuildDirectory = "public/build", publicPath = "/build/", entry = { module: entry_server_exports }, routes = {

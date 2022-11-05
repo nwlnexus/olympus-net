@@ -94,7 +94,6 @@ importers:
       '@databases/split-sql-query': 1.0.3
       '@databases/sql': 3.2.0
       '@esbuild-plugins/node-modules-polyfill': ^0.1.4
-      '@nwlnexus/helios-remix-app': workspace:*
       '@rollup/plugin-alias': ^3.1.9
       '@rollup/plugin-commonjs': ^22.0.2
       '@rollup/plugin-eslint': ^8.0.2
@@ -112,7 +111,7 @@ importers:
       eslint: 8.22.0
       eslint-config-custom: workspace:*
       eslint-plugin-vitest: ^0.0.8
-      itty-router: ^2.6.5
+      itty-router: ^2.6.6
       itty-router-extras: ^0.4.2
       npx-import: ^1.1.3
       prettier: ^2.7.1
@@ -124,12 +123,11 @@ importers:
       ulid-workers: ^2.0.0
       vitest: ^0.24.0
       vitest-environment-miniflare: ^2.9.0
-      wrangler: 2.1.11
+      wrangler: ^2.1.15
       zod: ^3.19.1
     dependencies:
       '@esbuild-plugins/node-modules-polyfill': 0.1.4_esbuild@0.15.9
-      '@nwlnexus/helios-remix-app': link:../remix-app
-      itty-router: 2.6.5
+      itty-router: 2.6.6
       itty-router-extras: 0.4.2
       ulid-workers: 2.0.0
       zod: 3.19.1
@@ -164,7 +162,7 @@ importers:
       typescript: 4.8.3
       vitest: 0.24.0
       vitest-environment-miniflare: 2.9.0_vitest@0.24.0
-      wrangler: 2.1.11
+      wrangler: 2.1.15
 
   apps/remix-app:
     specifiers:
@@ -242,7 +240,7 @@ importers:
       tiny-invariant: ^1.3.1
       tsconfig: workspace:0.0.0
       typescript: ^4.8.4
-      wrangler: 2.1.13
+      wrangler: 2.1.15
       zod: ^3.19.1
       zod-form-data: ^1.2.2
     dependencies:
@@ -323,7 +321,7 @@ importers:
       tailwindcss: 3.2.1_postcss@8.4.18
       tsconfig: link:../../packages/tsconfig
       typescript: 4.8.4
-      wrangler: 2.1.13
+      wrangler: 2.1.15
 
   packages/cloudflare-env:
     specifiers:
@@ -4801,7 +4799,7 @@ packages:
   /@types/itty-router-extras/0.4.0:
     resolution: {integrity: sha512-IcXmXB8vVbjWy4McZjKzo+3sdQyzMpyHi5mQ4iViu6yX9cS/SVlGR+6H/AgzfG32svaQJeOhl2gfXYwf1AKEgg==}
     dependencies:
-      itty-router: 2.6.5
+      itty-router: 2.6.6
     dev: true
 
   /@types/jest/29.2.0:
@@ -11595,8 +11593,8 @@ packages:
     resolution: {integrity: sha512-ppHaBzcTXs7idFSDISehG+8kif2/4aqLCfyY/Y/uIZv79sfEfNmTq9G+rDeqblun/VZRBiXZD8ztYmMS8EOsKw==}
     dev: false
 
-  /itty-router/2.6.5:
-    resolution: {integrity: sha512-EzfbnYF/ksgpoKgsJuk8Sknk6QDC8hd2HeOCFmDOVT+9mmk5nOfgCTglpILBOj4zX3e1RB8r4+2js6i3Zx/KQw==}
+  /itty-router/2.6.6:
+    resolution: {integrity: sha512-hIPHtXGymCX7Lzb2I4G6JgZFE4QEEQwst9GORK7sMYUpJvLfy4yZJr95r04e8DzoAnj6HcxM2m4TbK+juu+18g==}
 
   /jest-changed-files/29.2.0:
     resolution: {integrity: sha512-qPVmLLyBmvF5HJrY7krDisx6Voi8DmlV3GZYX0aFNbaQsZeoz1hfxcCMbqDGuQCxU1dJy9eYc2xscE8QrCCYaA==}
@@ -17780,38 +17778,8 @@ packages:
     resolution: {integrity: sha512-gvVzJFlPycKc5dZN4yPkP8w7Dc37BtP1yczEneOb4uq34pXZcvrtRTmWV8W+Ume+XCxKgbjM+nevkyFPMybd4Q==}
     dev: true
 
-  /wrangler/2.1.11:
-    resolution: {integrity: sha512-zXydDzU+KKOwYDD9IX+XdSZMFEPWTghzTN/CiZc+pxHGIjTuQBtbk97trY3i9YKeih/QOSlo+H7Clfoq+6rZLw==}
-    engines: {node: '>=16.13.0'}
-    hasBin: true
-    dependencies:
-      '@cloudflare/kv-asset-handler': 0.2.0
-      '@esbuild-plugins/node-globals-polyfill': 0.1.1_esbuild@0.14.51
-      '@esbuild-plugins/node-modules-polyfill': 0.1.4_esbuild@0.14.51
-      '@miniflare/core': 2.9.0
-      '@miniflare/d1': 2.9.0
-      '@miniflare/durable-objects': 2.9.0
-      blake3-wasm: 2.1.5
-      chokidar: 3.5.3
-      esbuild: 0.14.51
-      miniflare: 2.9.0
-      nanoid: 3.3.4
-      path-to-regexp: 6.2.1
-      selfsigned: 2.1.1
-      source-map: 0.7.4
-      xxhash-wasm: 1.0.1
-    optionalDependencies:
-      fsevents: 2.3.2
-    transitivePeerDependencies:
-      - '@miniflare/storage-redis'
-      - bufferutil
-      - cron-schedule
-      - ioredis
-      - utf-8-validate
-    dev: true
-
-  /wrangler/2.1.13:
-    resolution: {integrity: sha512-FWarJ9pBaXOU/wj3BoLo1Azi4VvadD0PfDIYfvY9hoKVyPMSr4dpPNUGgtMhsVuDp7K9mdixnmGEJxR7pbs3kQ==}
+  /wrangler/2.1.15:
+    resolution: {integrity: sha512-5iqtFNo+zbu1FTnQQU/1Y+WWxIEuPIy71fe0uvqqFl0pSlkAtZJ+ufw8UYVxf2Mprw4ia4mSDdhV+hHpZO1sLQ==}
     engines: {node: '>=16.13.0'}
     hasBin: true
     dependencies:

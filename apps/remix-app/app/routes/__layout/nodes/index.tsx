@@ -1,8 +1,13 @@
 import { generateConfigs } from '~/utils/auth-config.server';
 import { getAuthenticator } from '~/core/services/auth/auth.server';
-import { redirect, useLoaderData } from '~/remix';
+import { json, redirect, useLoaderData } from '~/remix';
 import type { LoaderArgs } from '~/remix';
 import { EmptyObject } from '~/components';
+import invariant from 'tiny-invariant';
+
+type EdgeNode = {
+  uuid: string;
+};
 
 export const loader = async ({ request, context }: LoaderArgs) => {
   const { authConfig, sessionConfig } = generateConfigs(context);
@@ -15,13 +20,19 @@ export const loader = async ({ request, context }: LoaderArgs) => {
     return redirect('/auth/login');
   }
 
-  return null;
+  const resp = await fetch(`${context.env.HELIOS_URL}/nodes`);
+
+  invariant(resp, 'Error 1000');
+
+  const respNodes: EdgeNode[] | [] = await resp.json();
+  console.log(respNodes);
+  return json(respNodes);
 };
 
 export default function Nodes() {
   const nodes = useLoaderData<typeof loader>();
 
-  if (nodes) {
+  if (nodes.length !== 0) {
     return (
       <>
         <h1>Nodes</h1>

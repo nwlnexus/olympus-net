@@ -12,7 +12,7 @@ interface Env {
   KV: KVNamespace;
   DB: D1Database;
   R2: R2Bucket;
-  HELIOS: Fetcher;
+  HELIOS_URL: string;
   HERMES: Fetcher;
   SESSION_TAG: string;
   SESSION_SECRETS: string;

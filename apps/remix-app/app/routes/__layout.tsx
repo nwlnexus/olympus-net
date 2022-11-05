@@ -188,4 +188,13 @@ export function CatchBoundary() {
   );
 }
 
-export function ErrorBoundary() {}
+export function ErrorBoundary({ error }: { error: any }) {
+  return (
+    <div>
+      <h1>Error</h1>
+      <p>{error.message}</p>
+      <p>The stack trace is:</p>
+      <pre>{error.stack}</pre>
+    </div>
+  );
+}

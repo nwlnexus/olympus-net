@@ -1,13 +1,13 @@
 const { withEsbuildOverride } = require('remix-esbuild-override');
-const GlobalsPolyfills = require('@esbuild-plugins/node-globals-polyfill').default;
+// const GlobalsPolyfills = require('@esbuild-plugins/node-globals-polyfill').default;
 
 withEsbuildOverride((option, { isServer }) => {
   if (isServer)
     option.plugins = [
-      GlobalsPolyfills({
-        buffer: true,
-        global: true
-      }),
+      // GlobalsPolyfills({
+      //   buffer: true,
+      //   global: true
+      // }),
       ...option.plugins
     ];
 
