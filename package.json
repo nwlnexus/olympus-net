@@ -21,21 +21,21 @@
   "devDependencies": {
     "@databases/split-sql-query": "1.0.3",
     "@databases/sql": "3.2.0",
-    "@types/better-sqlite3": "^7.6.0",
-    "@types/node": "^18.7.18",
+    "@types/better-sqlite3": "^7.6.2",
+    "@types/node": "^18.11.9",
     "@types/yargs": "^17.0.13",
     "auto-changelog-2": "^1.1.0",
     "better-sqlite3": "7.6.2",
-    "esbuild": "^0.15.7",
+    "esbuild": "^0.15.13",
     "esbuild-register": "^3.3.3",
-    "eslint-config-custom": "workspace:*",
+    "eslint-config-custom": "workspace:0.0.0",
     "prettier": "^2.7.1",
-    "prettier-package-json": "^2.6.4",
+    "prettier-package-json": "^2.7.0",
     "prettier-plugin-tailwindcss": "^0.1.13",
     "ts-node": "^10.9.1",
     "turbo": "latest",
-    "typescript": "^4.8.3",
-    "yargs": "^17.5.1"
+    "typescript": "^4.8.4",
+    "yargs": "^17.6.2"
   },
   "packageManager": "pnpm@7.11.0",
   "engines": {

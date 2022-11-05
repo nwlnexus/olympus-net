@@ -1,11 +1,15 @@
 import { json, type LoaderArgs, useLoaderData } from '~/remix';
 import type { CFTunnelResp } from '~/types/tunnels';
 import { cfApiUrl } from '~/core/constants';
-import { Table } from 'react-daisyui';
 import { generateConfigs } from '~/utils/auth-config.server';
 import { getAuthenticator } from '~/core/services/auth/auth.server';
 import { redirect } from '~/remix';
-import { EmptyObject } from '../../../@core/components';
+import { EmptyObject } from '~/core/components';
+import { createColumnHelper } from '@tanstack/react-table';
+import { DataGrid } from '~/components/DataGrid';
+import { Icon } from '@iconify/react';
+import intentRequestActive from '@iconify/icons-carbon/intent-request-active';
+import intentRequestInactive from '@iconify/icons-carbon/intent-request-inactive';
 
 export const loader = async ({ request, context }: LoaderArgs) => {
   const { authConfig, sessionConfig } = generateConfigs(context);
@@ -33,31 +37,28 @@ export const loader = async ({ request, context }: LoaderArgs) => {
   return json(tunnels.result);
 };
 
-export default function Index() {
+export default function TunnelsView() {
   const tunnels = useLoaderData<typeof loader>();
+  const columnHelper = createColumnHelper<typeof tunnels[0]>();
 
   if (tunnels) {
+    const columns = [
+      columnHelper.accessor('name', { cell: info => info.getValue(), header: 'Name' }),
+      columnHelper.accessor('created_at', { cell: info => info.getValue(), header: 'Created At' }),
+      columnHelper.accessor('deleted_at', { cell: info => info.getValue(), header: 'Deleted At' }),
+      columnHelper.accessor('status', {
+        cell: info =>
+          info.getValue() === 'active' ? <Icon icon={intentRequestActive} /> : <Icon icon={intentRequestInactive} />,
+        header: 'Status'
+      }),
+      columnHelper.accessor('remote_config', { cell: info => info.getValue().toString(), header: 'Remote Config' })
+    ];
+    console.log(columns);
     return (
       <div className='p-6'>
-        <header>Some value goes here</header>
         {/* Table display */}
         <div className='overflow-x-auto'>
-          <Table>
-            <Table.Head key={'tunnels-head'}>
-              <span key={'blank'} />
-              <span key={'name'}>Name</span>
-              <span key={'status'}>Status</span>
-            </Table.Head>
-            <Table.Body>
-              {tunnels.map((item, idx) => (
-                <Table.Row key={idx}>
-                  <span>{idx}</span>
-                  <span>{item.name}</span>
-                  <span>{item.status}</span>
-                </Table.Row>
-              ))}
-            </Table.Body>
-          </Table>
+          <DataGrid columns={columns} data={tunnels} />
         </div>
       </div>
     );
