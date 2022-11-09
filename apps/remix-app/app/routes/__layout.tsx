@@ -79,10 +79,13 @@ export default function AppLayout() {
           mobile={!pagesThatDontNeedSidebar.includes(pathname) || isMobile}
           side={<AppSidebar nav={sidebarNavigation} toggle={toggleSidebar} />}
         >
-          {/* Navbar */}
-          <div className='sticky top-0 z-30 flex h-16 w-full justify-center bg-opacity-90 backdrop-blur duration-100'>
-            <AppNavbar toggleMenu={toggleSidebar} user={user} />
-          </div>
+          {pathname === '/' ? (
+            ''
+          ) : (
+            <div className='sticky top-0 z-30 flex h-16 w-full justify-center bg-opacity-90 backdrop-blur duration-100'>
+              <AppNavbar toggleMenu={toggleSidebar} user={user} />
+            </div>
+          )}
 
           {/* Content Area */}
           <div
