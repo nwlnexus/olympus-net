@@ -1,5 +1,5 @@
 import { Button, Divider } from 'react-daisyui';
-import { Logo } from '~/components';
+import { Logo } from '~/components/Logo';
 import { generateConfigs } from '~/utils/auth-config.server';
 import { getAuthenticator } from '~/core/services/auth/auth.server';
 import type { LoaderArgs } from '~/remix';
@@ -18,7 +18,7 @@ export const loader = async ({ request, context }: LoaderArgs) => {
 export default function Login() {
   return (
     <>
-      <div className='justify-center place-items-center sm:mx-auto sm:w-full sm:max-w-md'>
+      <div className='place-items-center justify-center sm:mx-auto sm:w-full sm:max-w-md'>
         <div className='flex justify-center'>
           <Logo />
         </div>

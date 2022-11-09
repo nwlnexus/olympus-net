@@ -1,5 +1,5 @@
 import { type ActionArgs, useActionData } from '~/remix';
-import { NewNodeForm } from '~/components';
+import { NewNodeForm } from '~/components/NewNodeForm';
 
 export const action = async ({ request }: ActionArgs) => {
   const data = Object.fromEntries(await request.formData());

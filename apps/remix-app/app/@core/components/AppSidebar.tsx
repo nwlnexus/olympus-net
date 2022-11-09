@@ -3,7 +3,7 @@ import { clsx } from 'clsx';
 import { NavLink, useLocation } from '~/remix';
 import type { NavMenu } from '~/types/nav';
 import { Icon } from '@iconify/react';
-import { Logo } from '~/components';
+import { Logo } from '~/components/Logo';
 
 type AppSidebarProps = {
   nav: NavMenu;
@@ -13,7 +13,7 @@ type AppSidebarProps = {
 export function AppSidebar({ nav, toggle }: AppSidebarProps) {
   const { pathname } = useLocation();
   return (
-    <div className='w-80 overflow-y-auto bg-base-100 p-0 text-base-content'>
+    <div className='w-54 overflow-y-auto bg-base-100 p-0 text-base-content'>
       <div
         className={clsx(
           'sticky top-0 z-20 hidden items-center gap-2 bg-base-200 bg-opacity-90 px-4 py-2 backdrop-blur',

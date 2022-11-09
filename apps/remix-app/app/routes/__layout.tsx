@@ -1,14 +1,16 @@
-import { AppSidebar, AppNavbar, NewNodeForm } from '~/components';
 import { getNavItems } from '~/utils/navigation.server';
 import { type LoaderArgs, json, Outlet, useCatch, useLoaderData, useLocation, redirect } from '~/remix';
 import { useState, useEffect } from 'react';
-import type { AppNav } from '~/types';
+import type { AppNav } from '~/types/nav';
 import { clsx } from 'clsx';
 import { Drawer, Modal } from 'react-daisyui';
 import { pagesThatDontNeedSidebar } from '~/core/constants';
 import { generateConfigs } from '~/utils/auth-config.server';
 import { getAuthenticator } from '~/services/auth/auth.server';
 import { useGlobalState } from '~/store/global/global.provider';
+import { AppSidebar } from '~/components/AppSidebar';
+import { AppNavbar } from '~/components/AppNavbar';
+import { NewNodeForm } from '~/components/NewNodeForm';
 
 export const loader = async ({ request, context }: LoaderArgs) => {
   const { authConfig, sessionConfig } = generateConfigs(context);

@@ -1,7 +1,7 @@
 import { json, redirect, useLoaderData, type LoaderArgs } from '~/remix';
 import { generateConfigs } from '~/utils/auth-config.server';
 import { getAuthenticator } from '~/core/services/auth/auth.server';
-import { EmptyObject } from '~/components';
+import { EmptyObject } from '~/components/EmptyObject';
 import invariant from 'tiny-invariant';
 
 type LocationEntity = {

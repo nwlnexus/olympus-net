@@ -13,7 +13,6 @@ export const loader = async ({ request, context }: LoaderArgs) => {
   if (pathname !== '/' && !user) {
     return redirect('/auth/login');
   }
-
   return null;
 };
 

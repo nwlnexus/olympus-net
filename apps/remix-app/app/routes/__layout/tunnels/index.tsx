@@ -4,12 +4,13 @@ import { cfApiUrl } from '~/core/constants';
 import { generateConfigs } from '~/utils/auth-config.server';
 import { getAuthenticator } from '~/core/services/auth/auth.server';
 import { redirect } from '~/remix';
-import { EmptyObject } from '~/core/components';
+import { EmptyObject } from '~/core/components/EmptyObject';
 import { createColumnHelper } from '@tanstack/react-table';
 import { DataGrid } from '~/components/DataGrid';
 import { Icon } from '@iconify/react';
 import intentRequestActive from '@iconify/icons-carbon/intent-request-active';
 import intentRequestInactive from '@iconify/icons-carbon/intent-request-inactive';
+import invariant from 'tiny-invariant';
 
 export const loader = async ({ request, context }: LoaderArgs) => {
   const { authConfig, sessionConfig } = generateConfigs(context);
@@ -29,11 +30,8 @@ export const loader = async ({ request, context }: LoaderArgs) => {
     }
   });
 
-  if (!resp) {
-    throw json(resp, { status: 500 });
-  }
+  invariant(resp);
   const tunnels: CFTunnelResp = await resp.json();
-
   return json(tunnels.result);
 };
 
@@ -41,31 +39,24 @@ export default function TunnelsView() {
   const tunnels = useLoaderData<typeof loader>();
   const columnHelper = createColumnHelper<typeof tunnels[0]>();
 
-  if (tunnels) {
-    const columns = [
-      columnHelper.accessor('name', { cell: info => info.getValue(), header: 'Name' }),
-      columnHelper.accessor('created_at', { cell: info => info.getValue(), header: 'Created At' }),
-      columnHelper.accessor('deleted_at', { cell: info => info.getValue(), header: 'Deleted At' }),
-      columnHelper.accessor('status', {
-        cell: info =>
-          info.getValue() === 'active' ? <Icon icon={intentRequestActive} /> : <Icon icon={intentRequestInactive} />,
-        header: 'Status'
-      }),
-      columnHelper.accessor('remote_config', { cell: info => info.getValue().toString(), header: 'Remote Config' })
-    ];
-    console.log(columns);
-    return (
-      <div className='p-6'>
-        {/* Table display */}
-        <div className='overflow-x-auto'>
-          <DataGrid columns={columns} data={tunnels} />
-        </div>
-      </div>
-    );
-  }
+  if (tunnels.length === 0) return <EmptyObject objectType={'tunnel'} />;
+  const columns = [
+    columnHelper.accessor('name', { cell: info => info.getValue(), header: 'Name' }),
+    columnHelper.accessor('created_at', { cell: info => info.getValue(), header: 'Created At' }),
+    columnHelper.accessor('deleted_at', { cell: info => info.getValue(), header: 'Deleted At' }),
+    columnHelper.accessor('status', {
+      cell: info =>
+        info.getValue() === 'active' ? <Icon icon={intentRequestActive} /> : <Icon icon={intentRequestInactive} />,
+      header: 'Status'
+    }),
+    columnHelper.accessor('remote_config', { cell: info => info.getValue().toString(), header: 'Remote Config' })
+  ];
   return (
-    <>
-      <EmptyObject objectType={'tunnel'} />
-    </>
+    <div className='p-6'>
+      {/* Table display */}
+      <div className='overflow-x-auto'>
+        <DataGrid columns={columns} data={tunnels} />
+      </div>
+    </div>
   );
 }

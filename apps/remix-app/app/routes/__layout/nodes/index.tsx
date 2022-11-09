@@ -2,7 +2,7 @@ import { generateConfigs } from '~/utils/auth-config.server';
 import { getAuthenticator } from '~/core/services/auth/auth.server';
 import { json, redirect, useLoaderData } from '~/remix';
 import type { LoaderArgs } from '~/remix';
-import { EmptyObject } from '~/components';
+import { EmptyObject } from '~/components/EmptyObject';
 import invariant from 'tiny-invariant';
 
 type EdgeNode = {
@@ -25,23 +25,16 @@ export const loader = async ({ request, context }: LoaderArgs) => {
   invariant(resp, 'Error 1000');
 
   const respNodes: EdgeNode[] | [] = await resp.json();
-  console.log(respNodes);
   return json(respNodes);
 };
 
 export default function Nodes() {
   const nodes = useLoaderData<typeof loader>();
 
-  if (nodes.length !== 0) {
-    return (
-      <>
-        <h1>Nodes</h1>
-      </>
-    );
-  }
+  if (nodes.length === 0) return <EmptyObject objectType={'node'} />;
   return (
     <>
-      <EmptyObject objectType={'node'} />
+      <h1>Nodes</h1>
     </>
   );
 }

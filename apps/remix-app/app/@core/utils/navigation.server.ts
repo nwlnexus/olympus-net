@@ -1,4 +1,4 @@
-import type { NavMenu } from '~/types';
+import type { NavMenu } from '~/types/nav';
 import { json } from '~/remix';
 
 export async function getNavItems() {

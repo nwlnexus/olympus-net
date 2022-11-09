@@ -2,9 +2,11 @@ import { Avatar, Button, Dropdown, Navbar, Tooltip } from 'react-daisyui';
 import { clsx } from 'clsx';
 import { Icon } from '@iconify/react';
 import bars3BottomLeft from '@iconify/icons-heroicons/bars-3-bottom-left';
-import { AppSearch, Logo, ThemeChanger } from '~/components';
 import { useLocation } from '~/remix';
-import type { User } from '~/types';
+import type { User } from '~/types/user';
+import { ThemeChanger } from '~/components/ThemeChanger';
+import { AppSearch } from '~/components/AppSearch';
+import { Logo } from '~/components/Logo';
 
 type AppNavbarProps = {
   toggleMenu: () => void;
