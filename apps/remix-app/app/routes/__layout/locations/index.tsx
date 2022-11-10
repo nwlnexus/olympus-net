@@ -1,8 +1,7 @@
-import { json, redirect, useLoaderData, type LoaderArgs } from '~/remix';
-import { generateConfigs } from '~/utils/auth-config.server';
-import { getAuthenticator } from '~/core/services/auth/auth.server';
+import { json, useLoaderData, type LoaderArgs } from '~/remix';
 import { EmptyObject } from '~/components/EmptyObject';
 import invariant from 'tiny-invariant';
+import { isLoggedIn } from '~/services/verify-logged-in';
 
 type LocationEntity = {
   name: string;
@@ -10,15 +9,7 @@ type LocationEntity = {
 };
 
 export const loader = async ({ request, context }: LoaderArgs) => {
-  const { authConfig, sessionConfig } = generateConfigs(context);
-  const authenticator = await getAuthenticator(authConfig, sessionConfig);
-  const user = await authenticator.isAuthenticated(request);
-  const { pathname } = new URL(request.url);
-
-  // TODO: Correct this to block access to all other pages but main page and about
-  if (pathname !== '/' && !user) {
-    return redirect('/auth/login');
-  }
+  await isLoggedIn(request, context);
 
   const resp = await fetch(`${context.env.HELIOS_URL}/locations`, {
     headers: {

@@ -52,8 +52,8 @@ module.exports = {
     base: true,
     utils: true,
     logs: true,
-    darkTheme: 'dark',
-    themes: ['dark', 'night', 'cmyk', 'cupcake', 'dracula']
+    darkTheme: 'night',
+    themes: ['night', 'cmyk', 'cupcake', 'dracula']
   },
   plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography'), require('daisyui')]
 };

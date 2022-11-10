@@ -1,26 +1,21 @@
 import { getNavItems } from '~/utils/navigation.server';
-import { type LoaderArgs, json, Outlet, useCatch, useLoaderData, useLocation, redirect } from '~/remix';
+import { type LoaderArgs, json, Outlet, useCatch, useLoaderData, useLocation } from '~/remix';
 import { useState, useEffect } from 'react';
 import type { AppNav } from '~/types/nav';
 import { clsx } from 'clsx';
 import { Drawer, Modal } from 'react-daisyui';
 import { pagesThatDontNeedSidebar } from '~/core/constants';
-import { generateConfigs } from '~/utils/auth-config.server';
-import { getAuthenticator } from '~/services/auth/auth.server';
 import { useGlobalState } from '~/store/global/global.provider';
 import { AppSidebar } from '~/components/AppSidebar';
 import { AppNavbar } from '~/components/AppNavbar';
 import { NewNodeForm } from '~/components/NewNodeForm';
+import { isLoggedIn } from '~/services/verify-logged-in';
+import invariant from 'tiny-invariant';
+import type { User } from '~/types/user';
 
 export const loader = async ({ request, context }: LoaderArgs) => {
-  const { authConfig, sessionConfig } = generateConfigs(context);
-  const authenticator = await getAuthenticator(authConfig, sessionConfig);
-  const user = await authenticator.isAuthenticated(request);
-  const { pathname } = new URL(request.url);
-
-  if (pathname !== '/' && !user) {
-    return redirect('/auth/login');
-  }
+  const user = await isLoggedIn(request, context);
+  invariant(user);
 
   const nav_resp: Response = await getNavItems();
   const nav: AppNav = await nav_resp.json();
@@ -30,7 +25,7 @@ export const loader = async ({ request, context }: LoaderArgs) => {
 export default function AppLayout() {
   const [pageHeading, setPageHeading] = useState<string | null>(null);
   const { state, dispatch } = useGlobalState();
-  const { nav, user } = useLoaderData<typeof loader>();
+  const { nav, user } = useLoaderData<{ nav: AppNav; user: User | never }>();
   const { pathname } = useLocation();
   const sidebarNavigation = nav.navMenu;
 
